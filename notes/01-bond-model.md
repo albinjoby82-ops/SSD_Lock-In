@@ -47,6 +47,14 @@
 
 - **Hotter → more carriers → resistance goes DOWN.** That's the opposite of a metal, where hotter means R goes up.
 
+**Why the two behave differently.** Resistance depends on *how many carriers* there are × *how easily each one moves*. Heating does two things:
+
+| Effect of heating | Si | Copper |
+|---|---|---|
+| ① Atoms vibrate more, so carriers bump into them more often (scattering) and move less easily | R ↑ a little | R ↑ |
+| ② Breaks more bonds, so there are **more carriers** | R ↓ **a lot** | doesn't happen (already ~1 free e⁻ per atom) |
+| **Net** | **R ↓** | **R ↑** |
+
 > 🧠 **Check:** you heat a Si resistor and a copper wire. Which way does each one's resistance go, and why are they different?
 > <details><summary>Answer</summary>Si: R ↓, because more broken bonds means more carriers. Copper: R ↑, because its carrier number is fixed and the heat only adds scattering.</details>
 

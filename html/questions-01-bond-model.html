@@ -1,0 +1,103 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01-bond-model</title><style>body{font-family:system-ui,sans-serif;max-width:820px;margin:0 auto;padding:16px;line-height:1.55;background:#fff;color:#1a1a1a}
+img{max-width:100%;border:1px solid #ddd;border-radius:6px}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}
+td,th{border:1px solid #ccc;padding:5px 8px}th{background:#f2f2f2}blockquote{border-left:4px solid #7b61ff;background:#f6f4ff;margin:12px 0;padding:8px 14px}
+details{background:#eefaf0;border:1px solid #9dd4a8;border-radius:6px;padding:4px 10px;margin:6px 0}summary{cursor:pointer;font-weight:600;color:#1d7a33}
+pre{background:#f4f4f4;padding:10px;overflow-x:auto;border-radius:6px}code{font-size:.92em}
+@media (prefers-color-scheme:dark){body{background:#17171a;color:#e6e6e6}th{background:#26262b}blockquote{background:#221f33}details{background:#16261a;border-color:#2f6b3c}summary{color:#7fd492}pre{background:#222}img{background:#fff}}</style></head><body><h1>Topic 1 — End-of-topic test (tutorial Qs)</h1>
+<p>Try each one before opening the answer.</p>
+<hr />
+<h3>Q1 (Tutorial Ch1 Q1)</h3>
+<p>Sketch a 2D Si lattice of 9 atoms with their valence electrons at <strong>T = 0 K</strong>. How does it change at <strong>T = 300 K</strong>?</p>
+<details>
+<summary>Answer</summary>
+<pre><code>T = 0 K                         T = 300 K
+ Si : Si : Si                   Si : Si : Si
+ ..   ..   ..                   ..   ..   ..
+ Si : Si : Si                   Si : Si  o Si      ● ← free e⁻ (moves)
+ ..   ..   ..                   ..   ..   ..       o = hole h⁺ (empty spot)
+ Si : Si : Si                   Si : Si : Si
+(&quot;:&quot; and &quot;..&quot; = 2-electron bond)
+</code></pre>
+<ul>
+<li>At <strong>0 K</strong>: every valence electron is locked in a bond. No free carriers, so it's an insulator.</li>
+<li>At <strong>300 K</strong>: thermal energy breaks a few bonds. Each break gives <strong>1 free e⁻ + 1 hole</strong>, so n = p.</li>
+</ul>
+</details>
+<hr />
+<h3>Q2 (Tutorial Ch1 Q2)</h3>
+<p>Repeat the T &gt; 0 K sketch for (i) <strong>p-type</strong> and (ii) <strong>n-type</strong> Si.</p>
+<details>
+<summary>Answer</summary>
+<pre><code>(i) p-type: centre = B          (ii) n-type: centre = P
+ Si : Si : Si                     Si : Si : Si
+ ..   ..   ..                     ..   ..   ..
+ Si : B  o Si   o = hole h⁺       Si : P  : Si   ● ← extra free e⁻
+ ..   ..   ..                     ..   ..   ..
+ Si : Si : Si                     Si : Si : Si
+</code></pre>
+<ul>
+<li><strong>B</strong> has 3 valence e⁻, so one bond is short an electron → <strong>hole</strong>. B becomes a fixed <strong>B⁻</strong> ion once the hole leaves.</li>
+<li><strong>P</strong> has 5 valence e⁻, so 4 bond and <strong>1 spare → free electron</strong>. P becomes a fixed <strong>P⁺</strong> ion.</li>
+<li>Because T &gt; 0, you can still draw one thermal e⁻/h⁺ pair, but the dopant carrier dominates.</li>
+</ul>
+</details>
+<hr />
+<h3>Q3 (Tutorial Ch1 Q3)</h3>
+<p>Holes in semiconductors are:
+- i. Voids in the lattice where the atom is missing
+- ii. A positively charged carrier that can freely roam the lattice at T = 300 K
+- iii. A proton in the nucleus</p>
+<details>
+<summary>Answer</summary>
+<p><strong>ii.</strong> A hole is a missing <em>bond electron</em>, not a missing atom (i) and not a proton (iii). It moves as neighbouring electrons fill it, and it acts like a +e charge.</p>
+</details>
+<hr />
+<h2>Midterm-style (different formats from the tutorial)</h2>
+<p>Every answer cites the notes section (§) it comes from. If you're stuck, go back there.</p>
+<h3>M1 — True / False</h3>
+<p>a. At T = 0 K, pure Si is a good conductor.
+b. A hole is a vacancy where a Si atom is missing.
+c. In intrinsic Si, n = p.
+d. The donor ion in n-type Si can move and carry current.
+e. Arsenic (group V) makes p-type Si.</p>
+<details>
+<summary>Answer</summary>
+<p>a. <strong>F</strong>: no free carriers at 0 K, so it's an insulator (§3).
+b. <strong>F</strong>: it's a missing <em>bond electron</em>, not a missing atom (§4).
+c. <strong>T</strong>: each broken bond makes one e⁻ and one h⁺ (§4).
+d. <strong>F</strong>: P⁺ is fixed in the lattice (§5).
+e. <strong>F</strong>: group V has 5 e⁻, so As is a donor and makes n-type (§1 rule + §5).</p>
+</details>
+<h3>M2 — Multiple choice</h3>
+<p>Silicon is doped with aluminium (group III). The material is:
+A) n-type, Al⁺ ions  B) p-type, Al⁻ ions  C) p-type, Al⁺ ions  D) intrinsic</p>
+<details>
+<summary>Answer</summary>
+<p><strong>B.</strong> Group III has 3 e⁻, so one bond is short and a hole forms → p-type (§1, §5). When Al takes an electron to finish its bond it becomes <strong>Al⁻</strong>, a fixed ion (§5, the B⁻ case).</p>
+</details>
+<h3>M3 — Explain (short answer, ~3 lines)</h3>
+<p>Explain why the resistance of a semiconductor decreases with temperature, whereas a metal's increases.</p>
+<details>
+<summary>Answer</summary>
+<p>In a semiconductor, heat breaks covalent bonds, and each break makes a free e⁻ and a hole. More carriers means lower resistance (§3). A metal's number of carriers is essentially fixed. Heat only increases scattering, so its resistance rises (§3).</p>
+</details>
+<h3>M4 — Short calculation</h3>
+<p>Intrinsic Si at a higher temperature has n = 10¹² cm⁻³. Find p and the product n·p.</p>
+<details>
+<summary>Answer</summary>
+<p>Intrinsic means n = p (§4), so <strong>p = 10¹² cm⁻³</strong>.
+n·p = nᵢ² = (10¹²)² = <strong>10²⁴ cm⁻⁶</strong> (§4).</p>
+</details>
+<h3>M5 — Sketch + label</h3>
+<p>Sketch a single bond-model diagram that shows <strong>both</strong> a thermally generated electron-hole pair <strong>and</strong> a donor atom. Label every carrier and ion.</p>
+<details>
+<summary>Answer</summary>
+<pre><code> Si : Si : Si
+ ..   ..   ..
+ Si : P⁺ : Si   ●  ← e⁻ from donor (the 5th electron)
+ ..   ..   ..
+ Si  o Si : Si  ●  ← thermal e⁻
+     ↑ h⁺ (bond it left)
+</code></pre>
+<p>Labels: <strong>P⁺</strong> = fixed donor ion. The e⁻ beside it is the donor electron (§5). The other e⁻ + <strong>o (h⁺)</strong> pair is thermally generated (§3, §4). See the cheat-sheet checklist at the end of the notes.</p>
+</details></body></html>
