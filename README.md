@@ -2,6 +2,12 @@
 
 Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Confusing bits I asked about: **[questions-albin-asked.md](questions-albin-asked.md)**.
 
+## Reading style (dyslexia-friendly)
+- One idea per line. Short sentences.
+- Big equations on their own line.
+- Lots of space between sections.
+- Few brackets, little italics, no long bullet points.
+
 ## How each topic is built
 - `notes/NN-topic.md`: slide diagrams + short explanation, with **🧠 check questions inline** (answer before opening).
 - `questions/NN-topic.md`: end-of-topic test with

@@ -23,6 +23,6 @@ The bits that confused me, with the short answer. Re-read this before the exam.
 - **n** = free electrons per cm³, **p** = holes per cm³, **nᵢ** = carriers per cm³ in *pure* Si (1.45×10¹⁰ cm⁻³ at 300 K, on the formula sheet).
 - **n = p = nᵢ**: use it only for *intrinsic/pure* Si.
 - **n·p = nᵢ²**: use it when you know one of n or p and need the other (p = nᵢ²/n). It works for doped Si too, as long as no bias or light is applied.
-- 📍 Notes: [01 §4, "Counting the carriers"](notes/01-bond-model.md)
+- 📍 Notes: [01 §5, "Counting the carriers"](notes/01-bond-model.md)
 
 ---

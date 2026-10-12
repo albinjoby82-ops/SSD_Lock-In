@@ -1,127 +1,218 @@
-# Topic 1 — End-of-topic test (tutorial Qs)
+# Topic 1 — End-of-topic test
 
-Try each one before opening the answer.
+Try each question first.
+Then click to check.
+
+Each answer says which notes section (§) it comes from.
 
 ---
 
+## Part A: Tutorial questions
+
 ### Q1 (Tutorial Ch1 Q1)
-Sketch a 2D Si lattice of 9 atoms with their valence electrons at **T = 0 K**. How does it change at **T = 300 K**?
+
+Sketch a 2D lattice of 9 Si atoms with their outer electrons at **0 K**.
+
+How does it change at **300 K**?
 
 <details><summary>Answer</summary>
 
-```
-T = 0 K                         T = 300 K
- Si : Si : Si                   Si : Si : Si
- ..   ..   ..                   ..   ..   ..
- Si : Si : Si                   Si : Si  o Si      ● ← free e⁻ (moves)
- ..   ..   ..                   ..   ..   ..       o = hole h⁺ (empty spot)
- Si : Si : Si                   Si : Si : Si
-(":" and ".." = 2-electron bond)
-```
-- At **0 K**: every valence electron is locked in a bond. No free carriers, so it's an insulator.
-- At **300 K**: thermal energy breaks a few bonds. Each break gives **1 free e⁻ + 1 hole**, so n = p.
+**At 0 K:**
+Every electron is locked in a bond.
+No free carriers.
+It is an insulator.
+
+**At 300 K:**
+A few bonds break.
+Each break gives 1 free electron and 1 hole.
 
 **Official answer sketch:**
 
 ![Official Q1](../img/01/ans-q1.png)
+
+From: §2, §3
+
 </details>
 
 ---
 
 ### Q2 (Tutorial Ch1 Q2)
-Repeat the T > 0 K sketch for (i) **p-type** and (ii) **n-type** Si.
+
+Repeat the 300 K sketch for:
+1. p-type Si
+2. n-type Si
 
 <details><summary>Answer</summary>
 
-```
-(i) p-type: centre = B          (ii) n-type: centre = P
- Si : Si : Si                     Si : Si : Si
- ..   ..   ..                     ..   ..   ..
- Si : B  o Si   o = hole h⁺       Si : P  : Si   ● ← extra free e⁻
- ..   ..   ..                     ..   ..   ..
- Si : Si : Si                     Si : Si : Si
-```
-- **B** has 3 valence e⁻, so one bond is short an electron → **hole**. B becomes a fixed **B⁻** ion once the hole leaves.
-- **P** has 5 valence e⁻, so 4 bond and **1 spare → free electron**. P becomes a fixed **P⁺** ion.
-- Because T > 0, you can still draw one thermal e⁻/h⁺ pair, but the dopant carrier dominates.
+**p-type:**
+Put a B atom in the lattice.
+B has 3 outer electrons.
+One bond is missing an electron.
+That gap is a hole.
 
-**Official answer sketch** (black = dopant atom; p-Si has a missing bond electron, n-Si has a spare one):
+**n-type:**
+Put a P atom in the lattice.
+P has 5 outer electrons.
+4 bond, 1 is spare.
+The spare one is a free electron.
+
+**Official answer sketch:**
+The black circle is the dopant atom.
 
 ![Official Q2](../img/01/ans-q2.png)
+
+From: §6
+
 </details>
 
 ---
 
 ### Q3 (Tutorial Ch1 Q3)
+
 Holes in semiconductors are:
-- i. Voids in the lattice where the atom is missing
-- ii. A positively charged carrier that can freely roam the lattice at T = 300 K
-- iii. A proton in the nucleus
+
+1. Gaps in the lattice where an atom is missing
+2. Positive carriers that can move freely through the lattice at 300 K
+3. Protons in the nucleus
 
 <details><summary>Answer</summary>
 
-**ii.** A hole is a missing *bond electron*, not a missing atom (i) and not a proton (iii). It moves as neighbouring electrons fill it, and it acts like a +e charge.
+**Answer 2.**
+
+A hole is a missing bond electron.
+It is not a missing atom.
+It is not a proton.
+
+From: §4
+
 </details>
 
 ---
 
-## Midterm-style (different formats from the tutorial)
-Every answer cites the notes section (§) it comes from. If you're stuck, go back there.
+## Part B: Midterm-style questions
 
-### M1 — True / False
-a. At T = 0 K, pure Si is a good conductor.
-b. A hole is a vacancy where a Si atom is missing.
-c. In intrinsic Si, n = p.
-d. The donor ion in n-type Si can move and carry current.
-e. Arsenic (group V) makes p-type Si.
+These are in different formats from the tutorial.
+
+---
+
+### M1: True or false
+
+1. At 0 K, pure Si is a good conductor.
+2. A hole is a gap where a Si atom is missing.
+3. In pure Si, n = p.
+4. The donor ion in n-type Si can move and carry current.
+5. Arsenic (group V) makes p-type Si.
 
 <details><summary>Answer</summary>
 
-a. **F**: no free carriers at 0 K, so it's an insulator (§3).
-b. **F**: it's a missing *bond electron*, not a missing atom (§4).
-c. **T**: each broken bond makes one e⁻ and one h⁺ (§4).
-d. **F**: P⁺ is fixed in the lattice (§5).
-e. **F**: group V has 5 e⁻, so As is a donor and makes n-type (§1 rule + §5).
+1. **False.** No free carriers at 0 K. It is an insulator. (§3)
+2. **False.** It is a missing bond electron. (§4)
+3. **True.** Each broken bond makes one of each. (§5)
+4. **False.** P⁺ is fixed in the lattice. (§6)
+5. **False.** Group V has 5 outer electrons, so As makes n-type. (§1, §6)
+
 </details>
 
-### M2 — Multiple choice
-Silicon is doped with aluminium (group III). The material is:
-A) n-type, Al⁺ ions  B) p-type, Al⁻ ions  C) p-type, Al⁺ ions  D) intrinsic
+---
+
+### M2: Multiple choice
+
+Silicon is doped with aluminium (group III).
+The material is:
+
+- A. n-type, with Al⁺ ions
+- B. p-type, with Al⁻ ions
+- C. p-type, with Al⁺ ions
+- D. pure (intrinsic)
 
 <details><summary>Answer</summary>
 
-**B.** Group III has 3 e⁻, so one bond is short and a hole forms → p-type (§1, §5). When Al takes an electron to finish its bond it becomes **Al⁻**, a fixed ion (§5, the B⁻ case).
+**B.**
+
+Group III has 3 outer electrons.
+One bond is missing an electron, so a hole forms.
+That makes p-type.
+
+Al takes an electron to finish its bond.
+So it becomes Al⁻.
+
+From: §1, §6
+
 </details>
 
-### M3 — Explain (short answer, ~3 lines)
-Explain why the resistance of a semiconductor decreases with temperature, whereas a metal's increases.
+---
+
+### M3: Explain
+
+Why does a semiconductor's resistance go down when it heats up?
+
+Why does a metal's resistance go up?
 
 <details><summary>Answer</summary>
 
-In a semiconductor, heat breaks covalent bonds, and each break makes a free e⁻ and a hole. More carriers means lower resistance (§3). A metal's number of carriers is essentially fixed. Heat only increases scattering, so its resistance rises (§3).
+**Semiconductor:**
+Heat breaks bonds.
+Each break makes a free electron and a hole.
+More carriers, so lower resistance.
+
+**Metal:**
+The number of carriers is already fixed.
+Heat only makes the carriers bump into atoms more.
+So resistance goes up.
+
+From: §3
+
 </details>
 
-### M4 — Short calculation
-Intrinsic Si at a higher temperature has n = 10¹² cm⁻³. Find p and the product n·p.
+---
+
+### M4: Calculation
+
+Pure Si at a higher temperature has n = 10¹² cm⁻³.
+
+Find p.
+
+Find n × p.
 
 <details><summary>Answer</summary>
 
-Intrinsic means n = p (§4), so **p = 10¹² cm⁻³**.
-n·p = nᵢ² = (10¹²)² = **10²⁴ cm⁻⁶** (§4).
+It is pure, so use Equation 1:
+
+p = n = **10¹² cm⁻³**
+
+Then:
+
+n × p = 10¹² × 10¹² = **10²⁴ cm⁻⁶**
+
+From: §5
+
 </details>
 
-### M5 — Sketch + label
-Sketch a single bond-model diagram that shows **both** a thermally generated electron-hole pair **and** a donor atom. Label every carrier and ion.
+---
+
+### M5: Sketch and label
+
+Draw one lattice that shows:
+- a thermal electron-hole pair
+- a donor atom
+
+Label every carrier and ion.
 
 <details><summary>Answer</summary>
 
-```
- Si : Si : Si
- ..   ..   ..
- Si : P⁺ : Si   ●  ← e⁻ from donor (the 5th electron)
- ..   ..   ..
- Si  o Si : Si  ●  ← thermal e⁻
-     ↑ h⁺ (bond it left)
-```
-Labels: **P⁺** = fixed donor ion. The e⁻ beside it is the donor electron (§5). The other e⁻ + **o (h⁺)** pair is thermally generated (§3, §4). See the cheat-sheet checklist at the end of the notes.
+Draw the 3 × 3 grid of Si atoms.
+
+**Donor:**
+Make one atom P⁺.
+Put a loose dot next to it.
+Label it "free electron from donor".
+
+**Thermal pair:**
+Somewhere else, pull one dot out of a bond.
+Label it "free electron".
+Draw an empty circle where it was.
+Label it "h⁺".
+
+From: §3, §4, §6, and the drawing checklist at the end of the notes
+
 </details>
