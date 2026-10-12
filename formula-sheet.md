@@ -19,7 +19,7 @@ Law of mass action. See [Topic 1, §5](notes/01-bond-model.md).
 
 $$p + N_D^+ = n + N_A^-$$
 
-Charge neutrality. Coming in Topic 2.
+Charge neutrality. See [Topic 2, §2](notes/02-doping-carrier-concentration.md).
 
 ---
 
