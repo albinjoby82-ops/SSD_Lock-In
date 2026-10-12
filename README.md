@@ -1,6 +1,6 @@
 # SSD Lock-In — EEEN20070 Solid State Devices
 
-Start at **[TOPICS.md](TOPICS.md)** (progress tracker).
+Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Confusing bits I asked about: **[questions-albin-asked.md](questions-albin-asked.md)**.
 
 ## How each topic is built
 - `notes/NN-topic.md`: slide diagrams + short explanation, with **🧠 check questions inline** (answer before opening).
