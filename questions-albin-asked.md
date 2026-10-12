@@ -2,12 +2,6 @@
 
 The bits that confused me, with the short answer. Re-read this before the exam.
 
-**Q: What do n, p, nᵢ and n·p = nᵢ² actually mean, and when do I use them?**
-- **n** = free electrons per cm³, **p** = holes per cm³, **nᵢ** = carriers per cm³ in *pure* Si (1.45×10¹⁰ cm⁻³ at 300 K, on the formula sheet).
-- **n = p = nᵢ**: use it only for *intrinsic/pure* Si.
-- **n·p = nᵢ²**: use it when you know one of n or p and need the other (p = nᵢ²/n). It works for doped Si too, as long as no bias or light is applied.
-- 📍 Notes: [01 §4, "Counting the carriers"](notes/01-bond-model.md)
-
 ---
 
 ## Topic 1 — Bond model
@@ -24,5 +18,11 @@ The bits that confused me, with the short answer. Re-read this before the exam.
 - **Basically Si only.** Every tutorial question and every constant on the formula sheet is for Si.
 - Ge and GaAs each come up once, in a list on one slide. The LED slides mention other materials, but that section is skipped.
 - Same physics, different numbers: if a question ever uses another material, it will give you its nᵢ, E_G etc.
+
+**Q: What do n, p, nᵢ and n·p = nᵢ² actually mean, and when do I use them?**
+- **n** = free electrons per cm³, **p** = holes per cm³, **nᵢ** = carriers per cm³ in *pure* Si (1.45×10¹⁰ cm⁻³ at 300 K, on the formula sheet).
+- **n = p = nᵢ**: use it only for *intrinsic/pure* Si.
+- **n·p = nᵢ²**: use it when you know one of n or p and need the other (p = nᵢ²/n). It works for doped Si too, as long as no bias or light is applied.
+- 📍 Notes: [01 §4, "Counting the carriers"](notes/01-bond-model.md)
 
 ---
