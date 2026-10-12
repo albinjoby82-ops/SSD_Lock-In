@@ -14,4 +14,9 @@ The bits that confused me, with the short answer. Re-read this before the exam.
 - Preview of Topic 3: σ = e·n·μ. Heat lowers μ for both materials, but only the semiconductor's n shoots up.
 - 📍 Notes: [01 §3](notes/01-bond-model.md)
 
+**Q: Does this module only care about Si, or other semiconductors too?**
+- **Basically Si only.** Every tutorial question and every constant on the formula sheet is for Si.
+- Ge and GaAs each come up once, in a list on one slide. The LED slides mention other materials, but that section is skipped.
+- Same physics, different numbers: if a question ever uses another material, it will give you its nᵢ, E_G etc.
+
 ---
