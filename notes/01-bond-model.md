@@ -14,6 +14,7 @@
 
 - Si has 14 electrons in shells of **2 + 8 + 4**.
 - Only the **4 outer (valence) electrons** matter. They're the ones that bond and can break free.
+- Rule: elements in the **same group (column)** of the periodic table have the **same number of valence electrons**. Group IV (C, Si, Ge) = 4, group III (B, Al) = 3, group V (P, As) = 5.
 
 > 🧠 **Check:** Germanium is in the same group as Si. How many valence electrons does it have?
 > <details><summary>Answer</summary>4. Same group means the same number of outer electrons.</details>
@@ -55,6 +56,7 @@
 
 - A hole is the **empty spot left by a missing bond electron**.
 - A neighbouring bond electron hops into it, so the empty spot moves the *opposite* way. It behaves like a **free positive charge (+e)**.
+- **Current direction:** conventional current flows the way + charge moves, so it goes *with* holes and *against* electrons. Both carriers add to the current.
 - ❌ It is **not** a missing atom. ❌ It is **not** a proton or a positron. Holes only exist in a lattice.
 
 > 🧠 **Check:** electrons hop left to fill a hole, one after another. Which way does the hole move, and which way does the current flow?
