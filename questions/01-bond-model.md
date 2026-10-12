@@ -20,6 +20,10 @@ T = 0 K                         T = 300 K
 ```
 - At **0 K**: every valence electron is locked in a bond. No free carriers, so it's an insulator.
 - At **300 K**: thermal energy breaks a few bonds. Each break gives **1 free e⁻ + 1 hole**, so n = p.
+
+**Official answer sketch:**
+
+![Official Q1](../img/01/ans-q1.png)
 </details>
 
 ---
@@ -40,6 +44,10 @@ Repeat the T > 0 K sketch for (i) **p-type** and (ii) **n-type** Si.
 - **B** has 3 valence e⁻, so one bond is short an electron → **hole**. B becomes a fixed **B⁻** ion once the hole leaves.
 - **P** has 5 valence e⁻, so 4 bond and **1 spare → free electron**. P becomes a fixed **P⁺** ion.
 - Because T > 0, you can still draw one thermal e⁻/h⁺ pair, but the dopant carrier dominates.
+
+**Official answer sketch** (black = dopant atom; p-Si has a missing bond electron, n-Si has a spare one):
+
+![Official Q2](../img/01/ans-q2.png)
 </details>
 
 ---
