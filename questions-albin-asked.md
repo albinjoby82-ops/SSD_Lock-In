@@ -61,4 +61,18 @@ Each dopant makes a pair: P⁺ and e⁻, or B⁻ and h⁺. That's why charge neu
 
 📍 [Notes 02 §1, §2](notes/02-doping-carrier-concentration.md)
 
+**Q: I don't understand charge neutrality (p + N_D = n + N_A).**
+
+Count the pluses and count the minuses. They are always equal.
+
+Plus = holes (p) + donor ions (N_D).
+
+Minus = electrons (n) + acceptor ions (N_A).
+
+Example: 10 P atoms plus 3 broken bonds. Plus = 3 + 10 = 13. Minus = 13 + 0 = 13.
+
+The slide version, −n + p + N_D − N_A = 0, is the same thing moved to one side.
+
+📍 [Notes 02 §2, "Count it with real numbers"](notes/02-doping-carrier-concentration.md)
+
 ---

@@ -89,6 +89,45 @@ So the whole piece of silicon stays neutral.
 
 <br>
 
+### Count it with real numbers
+
+**Step 1.** Start with pure Si. No charge overall.
+
+**Step 2.** Add 10 phosphorus atoms. Each gives away 1 electron.
+
+```
+10 P atoms  →  10 P⁺   (plus)
+            →  10 e⁻   (minus)
+```
+
+10 plus, 10 minus. Balanced.
+
+**Step 3.** Heat it. 3 bonds break. Each break gives 1 electron and 1 hole.
+
+```
+3 broken bonds  →  3 h⁺   (plus)
+                →  3 e⁻   (minus)
+```
+
+**Step 4.** Count everything.
+
+| PLUS side | MINUS side |
+|---|---|
+| holes: 3 | electrons: 10 + 3 = 13 |
+| P⁺ ions: 10 | B⁻ ions: 0 |
+| **total = 13** | **total = 13** |
+
+The totals always match, because every charge is made together with its opposite.
+
+**Write that table as an equation:**
+
+```
+holes + donor ions = electrons + acceptor ions
+  p   +    N_D     =     n     +     N_A
+```
+
+<br>
+
 ---
 
 ### 📐 Equation 3: charge neutrality ⭐ learn this
@@ -108,7 +147,8 @@ Doping adds no overall charge. Every carrier released leaves an ion of opposite 
 You need to find n or p in doped silicon.
 Always use it together with n × p = nᵢ².
 
-**The slides write it like this. It is the same thing:**
+**The slides write it like this.**
+It is the same equation, with everything moved to one side so it equals zero:
 
 $$-n + p + N_D^+ - N_A^- = 0$$
 
@@ -121,6 +161,10 @@ n-type silicon has only donors, so N_A = 0.
 Write charge neutrality for it.
 
 <details><summary>Answer</summary>
+
+Start with: p + N_D = n + N_A
+
+No boron, so N_A = 0. Cross it out:
 
 p + N_D = n
 
