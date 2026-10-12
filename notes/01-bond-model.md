@@ -4,6 +4,8 @@
 
 > **Big idea:** a semiconductor conducts because heat breaks bonds. Each broken bond makes **one free electron (−) and one hole (+)**. Doping adds an extra electron *or* an extra hole on purpose.
 
+**How to use:** at every 🧠, stop and answer out loud or on paper **before** opening it.
+
 ---
 
 ## 1. Si has 4 valence electrons
@@ -13,6 +15,9 @@
 - Si has 14 electrons in shells of **2 + 8 + 4**.
 - Only the **4 outer (valence) electrons** matter. They're the ones that bond and can break free.
 
+> 🧠 **Check:** Germanium is in the same group as Si. How many valence electrons does it have?
+> <details><summary>Answer</summary>4. Same group means the same number of outer electrons.</details>
+
 ## 2. The lattice: every Si shares with 4 neighbours
 
 ![Si lattice](../img/01/s28.png)
@@ -21,9 +26,15 @@
 - Every atom then "feels" **8** electrons, a full outer shell, so the lattice is stable.
 - 2D sketch rule: **circle = Si atom, 2 dots between neighbours = 1 bond.**
 
+> 🧠 **Check:** Each Si atom only *owns* 4 electrons. Why does it "feel" 8?
+> <details><summary>Answer</summary>Each of its 4 bonds holds 2 electrons, one of its own and one from the neighbour. 4 bonds × 2 = 8.</details>
+
 ## 3. Temperature breaks bonds → electron-hole pairs
 
 ![T=0K vs T>0K](../img/01/s31.png)
+
+> 🧠 **Predict first:** at T = 0 K, how many electrons are free to carry current? Is Si a conductor or an insulator there?
+> <details><summary>Answer</summary>Zero free electrons, so it's an insulator. Every electron is locked in a bond.</details>
 
 | | T = 0 K | T = 300 K (room) |
 |---|---|---|
@@ -35,6 +46,9 @@
 
 - **Hotter → more carriers → resistance goes DOWN.** That's the opposite of a metal, where hotter means R goes up.
 
+> 🧠 **Check:** you heat a Si resistor and a copper wire. Which way does each one's resistance go, and why are they different?
+> <details><summary>Answer</summary>Si: R ↓, because more broken bonds means more carriers. Copper: R ↑, because its carrier number is fixed and the heat only adds scattering.</details>
+
 ## 4. What a hole actually is
 
 ![The hole](../img/01/s39.png)
@@ -42,11 +56,21 @@
 - A hole is the **empty spot left by a missing bond electron**.
 - A neighbouring bond electron hops into it, so the empty spot moves the *opposite* way. It behaves like a **free positive charge (+e)**.
 - ❌ It is **not** a missing atom. ❌ It is **not** a proton or a positron. Holes only exist in a lattice.
+
+> 🧠 **Check:** electrons hop left to fill a hole, one after another. Which way does the hole move, and which way does the current flow?
+> <details><summary>Answer</summary>The hole moves right. Current flows right too, because a hole is +ve and current follows positive charge. That matches electrons moving left, which also gives conventional current to the right.</details>
+
 - In pure (intrinsic) Si: **n = p = nᵢ** (nᵢ = 1.45×10¹⁰ cm⁻³ at 300 K), and **n·p = nᵢ²**.
+
+> 🧠 **Check:** intrinsic Si at 300 K has n = 1.45×10¹⁰ cm⁻³. What's p? And what's n·p?
+> <details><summary>Answer</summary>p = 1.45×10¹⁰ cm⁻³, because every broken bond makes one of each. n·p = nᵢ² = (1.45×10¹⁰)² ≈ 2.1×10²⁰ cm⁻⁶.</details>
 
 ## 5. Doping: swap a few Si atoms for group III or V
 
 ![Periodic table](../img/01/s51.png)
+
+> 🧠 **Predict first:** P (group V) has 5 valence electrons and replaces a Si atom. It only needs 4 for bonding. What happens to the 5th?
+> <details><summary>Answer</summary>It's spare and only loosely held, so at room temperature it breaks free and becomes a free electron. The result is n-type.</details>
 
 ![Doping in the bond model](../img/01/s53.png)
 
@@ -58,6 +82,12 @@
 - Memory trick: **P**hosphorus has **P**lenty (5). **B**oron is **B**roke (3).
 - The dopant atom is left as a **fixed ion**: P⁺ for n-type, B⁻ for p-type. It can't move, so it doesn't carry current.
 
+> 🧠 **Check:** once B's hole wanders off, what charge is left on the B atom, and can it move?
+> <details><summary>Answer</summary>B⁻, because it has gained an electron to complete its 4th bond. It's locked into the lattice, so it can't move and doesn't carry current.</details>
+
+> 🧠 **Check:** you want an n-type Si wafer. You have B, Al, P and As. Which can you use?
+> <details><summary>Answer</summary>P and As, which are group V (5 e⁻). B and Al are group III, so they'd make p-type.</details>
+
 ---
 
 ## Cheat-sheet (exam drawing checklist)
@@ -67,4 +97,4 @@
 4. **n-type:** centre atom is **P**, plus 1 extra loose dot (e⁻) next to it.
 5. **p-type:** centre atom is **B**, with one bond showing only 1 dot, so an empty spot = **h⁺**.
 
-➡️ Now do [`questions/01-bond-model.md`](../questions/01-bond-model.md)
+➡️ End-of-topic test: [`questions/01-bond-model.md`](../questions/01-bond-model.md)

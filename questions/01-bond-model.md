@@ -1,4 +1,4 @@
-# Topic 1 — Questions
+# Topic 1 — End-of-topic test (tutorial Qs)
 
 Try each one before opening the answer.
 
@@ -54,22 +54,3 @@ Holes in semiconductors are:
 
 **ii.** A hole is a missing *bond electron*, not a missing atom (i) and not a proton (iii). It moves as neighbouring electrons fill it, and it acts like a +e charge.
 </details>
-
----
-
-### Quick-fire (from the lecture slides)
-
-**a.** How many electrons are free at T = 0 K?
-<details><summary>Answer</summary>0.</details>
-
-**b.** Intrinsic Si at 300 K has 1.45×10¹⁰ cm⁻³ electrons. What's the hole density?
-<details><summary>Answer</summary>The same, 1.45×10¹⁰ cm⁻³. Every broken bond makes one of each.</details>
-
-**c.** Why does a semiconductor's resistance *fall* as T rises, while a metal's rises?
-<details><summary>Answer</summary>More heat breaks more bonds, so there are more carriers. A metal's carrier count is basically fixed, and extra heat only adds scattering.</details>
-
-**d.** What group must a dopant be in to make n-type Si? What about p-type?
-<details><summary>Answer</summary>n-type: group V (e.g. P, 5 e⁻). p-type: group III (e.g. B, 3 e⁻).</details>
-
-**e.** Do holes exist in a single isolated Si atom?
-<details><summary>Answer</summary>No. Holes only exist in a lattice, as a missing bond electron.</details>
