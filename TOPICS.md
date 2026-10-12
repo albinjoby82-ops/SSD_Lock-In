@@ -11,7 +11,7 @@ Mark progress by changing `☐` → `✅`.
 
 | # | Topic | Slides | Tutorial Qs | Weight | Notes | Qs done |
 |---|---|---|---|---|---|---|
-| 1 | Bond model: Si lattice, electrons & holes, effect of T | 21–48 | Ch1 Q1, Q2, Q3 | ●● | ☐ | ☐ |
+| 1 | [Bond model: Si lattice, electrons & holes, effect of T](notes/01-bond-model.md) | 21–53 | [Ch1 Q1, Q2, Q3](questions/01-bond-model.md) | ●● | ☐ | ☐ |
 | 2 | Doping, mass action, charge neutrality → n & p | 49–75 | Ch1 Q4, Q5 | ●●● (used everywhere) | ☐ | ☐ |
 | 3 | Drift: mobility, conductivity, resistance | 76–95 | Ch1 Q6, Q7 | ●● | ☐ | ☐ |
 | 4 | Diffusion, total current, built-in field from non-uniform doping | 96–122 | Ch1 Q8, Q9 | ●● | ☐ | ☐ |
