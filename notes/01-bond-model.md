@@ -230,7 +230,7 @@ Three symbols to learn:
 
 nᵢ for silicon at 300 K = **1.45 × 10¹⁰ cm⁻³**.
 
-This number is on the formula sheet.
+This number is on the [formula sheet](../formula-sheet.md). You look it up, you don't memorise it.
 
 <br>
 
@@ -296,15 +296,21 @@ p = n = **1.45 × 10¹⁰ cm⁻³**
 <br>
 
 ### 🧠 Check
-A silicon sample has n = 10¹⁶ cm⁻³.
+A silicon sample at 300 K has n = 10¹⁶ cm⁻³.
 Find p.
 Which equation do you use?
+
+Tip: get nᵢ from the [formula sheet](../formula-sheet.md).
 
 <details><summary>Answer</summary>
 
 n is not equal to nᵢ, so the sample is not pure.
 
 You know n and want p, so use Equation 2.
+
+From the formula sheet: nᵢ = 1.45 × 10¹⁰ cm⁻³
+
+So nᵢ² = (1.45 × 10¹⁰)² = 2.1 × 10²⁰
 
 p = nᵢ² ÷ n
 

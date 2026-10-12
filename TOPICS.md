@@ -1,7 +1,7 @@
 # EEEN20070 Solid State Devices — Topic Tracker
 
 **Scope:** Ch1 (Semiconductors) + Ch2 (Junctions & pn diodes) = the **mid-term** (20%, sat after Ch2).
-**Exam rules:** closed book, **formula sheet provided** → don't memorise formulas on the sheet (Ch1 tutorial p1). Only *know by heart*: law of mass action + charge neutrality (tutorial says so).
+**Exam rules:** closed book, **formula sheet provided** ([copy here](formula-sheet.md)) → don't memorise formulas on the sheet (Ch1 tutorial p1). Only *know by heart*: law of mass action + charge neutrality (tutorial says so).
 
 **Weight** = number of tutorial questions on that topic (the filter). ●●● = must know · ●● = should know · ● = skim · ✗ = skip
 

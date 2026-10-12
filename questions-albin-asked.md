@@ -25,4 +25,14 @@ The bits that confused me, with the short answer. Re-read this before the exam.
 - **n·p = nᵢ²**: use it when you know one of n or p and need the other (p = nᵢ²/n). It works for doped Si too, as long as no bias or light is applied.
 - 📍 Notes: [01 §5, "Counting the carriers"](notes/01-bond-model.md)
 
+**Q: Do I look up nᵢ or just know it?**
+
+Look it up.
+
+It's on the formula sheet: nᵢ = 1.45 × 10¹⁰ cm⁻³ for Si at 300 K.
+
+Only learn by heart: n × p = nᵢ² and charge neutrality.
+
+📍 [formula-sheet.md](formula-sheet.md)
+
 ---
