@@ -46,3 +46,19 @@ The arrows point at the extra carrier.
 📍 [Notes 01 §6](notes/01-bond-model.md)
 
 ---
+
+## Topic 2 — Doping: finding n and p
+
+**Q: Is the donor + because it lost an electron, and the acceptor − because it took one in?**
+
+Yes.
+
+P gives away its 5th electron, so it becomes P⁺.
+
+B takes an electron from a neighbouring bond, so it becomes B⁻. The gap left in that bond is the hole.
+
+Each dopant makes a pair: P⁺ and e⁻, or B⁻ and h⁺. That's why charge neutrality balances.
+
+📍 [Notes 02 §1, §2](notes/02-doping-carrier-concentration.md)
+
+---
