@@ -352,6 +352,26 @@ That makes n-type silicon.
 
 ![Doping in the bond model](../img/01/s53.png)
 
+**How to read this diagram:**
+
+- Big circle = atom
+- Small grey dot = outer electron
+- 2 grey dots between atoms = 1 bond
+
+**Left (n-type):**
+The orange atom is P.
+Its 4 bonds each have 2 dots, so they're all full.
+The small orange dot is P's 5th electron.
+It has no bond to sit in, so it becomes a free electron.
+
+**Right (p-type):**
+The green atom is B.
+Look at the bond on its right.
+It has 1 grey dot and 1 small empty circle.
+The empty circle is the missing electron = the hole.
+
+**The arrows point at the extra carrier each dopant adds.**
+
 <br>
 
 **Phosphorus (P), group V:**

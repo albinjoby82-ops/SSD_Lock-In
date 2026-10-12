@@ -35,4 +35,14 @@ Only learn by heart: n × p = nᵢ² and charge neutrality.
 
 📍 [formula-sheet.md](formula-sheet.md)
 
+**Q: What is happening in the doping diagram (orange P, green B)?**
+
+Orange P: 4 electrons fill its bonds. The 5th (small orange dot) is spare, so it's a free electron. That makes n-type.
+
+Green B: only 3 electrons, so one bond has a gap (small empty circle). That gap is a hole. That makes p-type.
+
+The arrows point at the extra carrier.
+
+📍 [Notes 01 §6](notes/01-bond-model.md)
+
 ---
