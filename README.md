@@ -7,4 +7,6 @@ Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Confusing bits I asked a
 - `questions/NN-topic.md`: end-of-topic test with
   1. the tutorial questions, and
   2. **midterm-style questions in other formats** (true/false, MCQ, explain, calculation, sketch), because the midterm won't just copy the tutorials.
+- **Every new equation gets a 📐 box:** a table of every symbol (meaning, units, value), *why* it holds, **"use it when…"**, and when it does NOT apply.
+- **Official answer-sheet diagrams** are embedded in the worked answers wherever the solutions have them.
 - **Rule:** every answer and method used in the questions is taught in that topic's notes (or an earlier one), and the answer cites the notes section (§). Nothing appears in an answer that isn't in the notes.

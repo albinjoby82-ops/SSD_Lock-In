@@ -70,10 +70,37 @@
 > 🧠 **Check:** electrons hop left to fill a hole, one after another. Which way does the hole move, and which way does the current flow?
 > <details><summary>Answer</summary>The hole moves right. Current flows right too, because a hole is +ve and current follows positive charge. That matches electrons moving left, which also gives conventional current to the right.</details>
 
-- In pure (intrinsic) Si: **n = p = nᵢ** (nᵢ = 1.45×10¹⁰ cm⁻³ at 300 K), and **n·p = nᵢ²**.
+### Counting the carriers: n, p and nᵢ
+
+**Intrinsic** = pure Si, no doping. All of its carriers come from broken bonds.
+
+| Symbol | Meaning | Units | Value |
+|---|---|---|---|
+| **n** | number of free **electrons** per cm³ | cm⁻³ (read as "per cm³") | depends on the material |
+| **p** | number of **holes** per cm³ | cm⁻³ | depends on the material |
+| **nᵢ** | carriers per cm³ in **pure** Si (the "i" means intrinsic) | cm⁻³ | **1.45×10¹⁰ cm⁻³** for Si at 300 K, given on the formula sheet |
+
+- nᵢ is a **constant for a given material and temperature**. Hotter means more broken bonds, so a bigger nᵢ.
+- For scale: Si has 5×10²² atoms per cm³, so only about 1 in 10¹² atoms has a broken bond at room temperature.
+
+> 📐 **Equation 1 — intrinsic Si: n = p = nᵢ**
+> - **Why:** every broken bond makes exactly 1 e⁻ + 1 h⁺, so the two counts are equal.
+> - **Use it when:** the question says *intrinsic* or *pure* Si and asks for n or p. The answer is just nᵢ.
+> - ⚠️ **Only for undoped Si.** Doped Si (§5) has n ≠ p.
+
+> 📐 **Equation 2 — law of mass action: n · p = nᵢ²** ⭐ *know by heart*
+> - **In words:** electrons per cm³ × holes per cm³ always equals the same number, nᵢ².
+> - **Units:** cm⁻³ × cm⁻³ = cm⁻⁶. For Si at 300 K: nᵢ² = (1.45×10¹⁰)² ≈ 2.1×10²⁰ cm⁻⁶.
+> - **Why it holds:** electrons and holes keep meeting and **recombining** (the electron drops back into the hole). If you add extra electrons, more of the holes get filled, so p falls. The product stays fixed.
+> - **Use it when:** you know **one** of n or p and need the **other**: **n = nᵢ²/p** or **p = nᵢ²/n**. This is how you'll find the minority carrier in doped Si (Topic 2).
+> - **Works for:** intrinsic *and* doped Si, as long as it's in **equilibrium** (no voltage applied, no light). Under bias it changes (Ch2).
+> - **Sanity check for intrinsic Si:** n = p = nᵢ gives nᵢ·nᵢ = nᵢ² ✓
 
 > 🧠 **Check:** intrinsic Si at 300 K has n = 1.45×10¹⁰ cm⁻³. What's p? And what's n·p?
-> <details><summary>Answer</summary>p = 1.45×10¹⁰ cm⁻³, because every broken bond makes one of each. n·p = nᵢ² = (1.45×10¹⁰)² ≈ 2.1×10²⁰ cm⁻⁶.</details>
+> <details><summary>Answer</summary>Intrinsic, so use Eq 1: p = n = 1.45×10¹⁰ cm⁻³. Then Eq 2: n·p = nᵢ² = (1.45×10¹⁰)² ≈ 2.1×10²⁰ cm⁻⁶.</details>
+
+> 🧠 **Check (preview of Topic 2):** a Si sample has n = 10¹⁶ cm⁻³ at 300 K. Find p. Which equation do you use, and why not Eq 1?
+> <details><summary>Answer</summary>n ≠ nᵢ, so it's not intrinsic and Eq 1 doesn't apply. You know n and need p, so use Eq 2: p = nᵢ²/n = 2.1×10²⁰ / 10¹⁶ = 2.1×10⁴ cm⁻³. That's tiny: there are hardly any holes.</details>
 
 ## 5. Doping: swap a few Si atoms for group III or V
 
