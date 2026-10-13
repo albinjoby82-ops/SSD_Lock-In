@@ -87,4 +87,18 @@ It can also be asked as "use it to find n and p". Then you combine it with n × 
 
 📍 [Notes 02 §2, "How write charge neutrality gets asked"](notes/02-doping-carrier-concentration.md)
 
+**Q: How do I know which equation to use?**
+
+Look at the dopant atom.
+
+P or As (group V) = donor = n-type. Use n = N_D, then p = nᵢ² ÷ N_D.
+
+B or Al (group III) = acceptor = p-type. Use p = N_A, then n = nᵢ² ÷ N_A.
+
+"Pure" = n = p = nᵢ.
+
+Given n or p but no dopant = use n × p = nᵢ².
+
+📍 [Notes 02 §3, "How to know which equation to use"](notes/02-doping-carrier-concentration.md)
+
 ---

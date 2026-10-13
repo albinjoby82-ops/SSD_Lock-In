@@ -287,13 +287,57 @@ So in practice: **always use the shortcut**, unless the question says the doping
 
 <br>
 
+### How to know which equation to use
+
+**Look at the dopant atom. It tells you everything.**
+
+**Step 1.** Find the element named in the question.
+
+**Step 2.** Check its group. See the [periodic table](../periodic-table.md).
+
+**Step 3.** Read off the answer:
+
+| Dopant | Group | Type | Majority carrier | Minority carrier |
+|---|---|---|---|---|
+| P, As | V | n-type | n = N_D | p = nᵢ² ÷ N_D |
+| B, Al | III | p-type | p = N_A | n = nᵢ² ÷ N_A |
+
+**Majority** = the doping number.
+**Minority** = nᵢ² ÷ majority.
+
+<br>
+
+**Other things the question might say:**
+
+| The question says | Use |
+|---|---|
+| "pure", "intrinsic", "undoped" | Equation 1: n = p = nᵢ |
+| "donor" or "n-type" | Equation 4 |
+| "acceptor" or "p-type" | Equation 5 |
+| gives you n or p, but no dopant | Equation 2: n × p = nᵢ² |
+| both dopants | §7 (subtract), then mass action |
+
+<br>
+
+**Sanity check:**
+The minority carrier should always be tiny, far below nᵢ = 1.45 × 10¹⁰.
+If it isn't, you've mixed up majority and minority.
+
+<br>
+
 ### 🧠 Check
 Si is doped with 10¹⁶ cm⁻³ of phosphorus.
 Find n and p.
 
 <details><summary>Answer</summary>
 
-Phosphorus is a donor, so this is n-type. Use Equation 4.
+**Which equation?**
+
+Phosphorus is group V, with 5 outer electrons.
+
+So it's a donor, so the Si is n-type.
+
+Use Equation 4.
 
 n = N_D = **10¹⁶ cm⁻³**
 
@@ -302,6 +346,64 @@ p = nᵢ² ÷ N_D
 p = 2.1 × 10²⁰ ÷ 10¹⁶
 
 p = **2.1 × 10⁴ cm⁻³**
+
+</details>
+
+<br>
+
+### 🧠 Check (practise 1)
+Si is doped with 5 × 10¹⁵ cm⁻³ of aluminium.
+Find n and p.
+
+<details><summary>Answer</summary>
+
+**Which equation?**
+
+Aluminium is group III, with 3 outer electrons.
+
+So it's an acceptor, so the Si is p-type.
+
+Use Equation 5.
+
+p = N_A = **5 × 10¹⁵ cm⁻³**
+
+n = nᵢ² ÷ N_A
+
+n = 2.1 × 10²⁰ ÷ (5 × 10¹⁵)
+
+n = **4.2 × 10⁴ cm⁻³**
+
+Sanity check: the majority is huge and the minority is tiny. ✓
+
+</details>
+
+<br>
+
+### 🧠 Check (practise 2)
+A Si sample at 300 K has p = 10¹⁷ cm⁻³.
+No dopant is named.
+Find n.
+Is it n-type or p-type?
+
+<details><summary>Answer</summary>
+
+**Which equation?**
+
+You're given a carrier, not a dopant.
+
+So use mass action, Equation 2.
+
+n = nᵢ² ÷ p
+
+n = 2.1 × 10²⁰ ÷ 10¹⁷
+
+n = **2.1 × 10³ cm⁻³**
+
+**Type:**
+
+p = 10¹⁷ is far bigger than n = 2.1 × 10³.
+
+Holes are the majority, so it's **p-type**.
 
 </details>
 
