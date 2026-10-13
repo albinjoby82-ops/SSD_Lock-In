@@ -101,4 +101,16 @@ Given n or p but no dopant = use n × p = nᵢ².
 
 📍 [Notes 02 §3, "How to know which equation to use"](notes/02-doping-carrier-concentration.md)
 
+**Q: Is group V n-type because it has a free electron compared to Si?**
+
+Yes.
+
+Si has 4 outer electrons and uses all 4 in bonds.
+
+Group V (P, As) has 5. Four bond. The 5th has no bond, so it goes free. Free electron = negative = n-type. The atom is left as a fixed P⁺.
+
+Group III (B, Al) has 3. One bond is short, which is a hole. Hole = positive = p-type. The atom becomes a fixed B⁻.
+
+📍 [Notes 02 §1](notes/02-doping-carrier-concentration.md)
+
 ---
