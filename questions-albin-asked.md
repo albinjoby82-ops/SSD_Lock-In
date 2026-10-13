@@ -114,3 +114,21 @@ Group III (B, Al) has 3. One bond is short, which is a hole. Hole = positive = p
 📍 [Notes 02 §1](notes/02-doping-carrier-concentration.md)
 
 ---
+
+## Topic 3 — Drift
+
+**Q: What does v = ∓μE and "mobility is always positive" mean?**
+
+The ∓ means two signs, one for each carrier.
+
+Electrons (negative charge): v = −μE. They move **against** the field.
+
+Holes (positive charge): v = +μE. They move **with** the field.
+
+The sign comes from the charge q. The size is the same formula: v = μE.
+
+μ = eτ/m is always positive. Mobility is just "how easily a carrier moves", so it has no sign. The sign sits in the v equation instead.
+
+📍 [Notes 03 §1, Equations 6 and 7](notes/03-drift.md)
+
+---
