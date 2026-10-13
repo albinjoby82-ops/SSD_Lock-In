@@ -13,7 +13,7 @@ Mark progress by changing `☐` → `✅`.
 |---|---|---|---|---|---|---|
 | 1 | [Bond model: Si lattice, electrons & holes, effect of T](notes/01-bond-model.md) | 21–53 | [Ch1 Q1, Q2, Q3](questions/01-bond-model.md) | ●● | ✅ | ✅ |
 | 2 | [Doping, mass action, charge neutrality → n & p](notes/02-doping-carrier-concentration.md) | 54–75 | [Ch1 Q4, Q5](questions/02-doping-carrier-concentration.md) | ●●● (used everywhere) | ☐ | ☐ |
-| 3 | Drift: mobility, conductivity, resistance | 76–95 | Ch1 Q6, Q7 | ●● | ☐ | ☐ |
+| 3 | [Drift: mobility, conductivity, resistance](notes/03-drift.md) | 76–95 | [Ch1 Q6, Q7](questions/03-drift.md) | ●● | ☐ | ☐ |
 | 4 | Diffusion, total current, built-in field from non-uniform doping | 96–122 | Ch1 Q8, Q9 | ●● | ☐ | ☐ |
 | 5 | Fermi-Dirac, n = Nc·e^…, intrinsic level Ei | 151–169 | Ch1 Q10–Q15 | ●●● | ☐ | ☐ |
 | 6 | Vacuum level, electron affinity χ, workfunction φ | 170–176 | Ch1 Q16, Ch2 Q1 | ●● | ☐ | ☐ |
