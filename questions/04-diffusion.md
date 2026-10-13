@@ -121,6 +121,12 @@ Electrons move against E, so **E points right**, in the +x direction.
 
 This matches the positive answer from Part 2.
 
+**Official answer sketch:**
+
+![Official Q9 field direction](../img/04/ans-q9-field.png)
+
+**How to read it:** the red line is n falling to the right. Electrons diffuse right (red arrow), so the drift they need is to the left (purple arrow). The field E (black arrow) points right.
+
 From: §7
 
 </details>

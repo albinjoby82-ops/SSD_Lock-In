@@ -15,7 +15,7 @@ Mark progress by changing `☐` → `✅`.
 | 2 | [Doping, mass action, charge neutrality → n & p](notes/02-doping-carrier-concentration.md) | 54–75 | [Ch1 Q4, Q5](questions/02-doping-carrier-concentration.md) | ●●● (used everywhere) | ☐ | ☐ |
 | 3 | [Drift: mobility, conductivity, resistance](notes/03-drift.md) | 76–95 | [Ch1 Q6, Q7](questions/03-drift.md) | ●● | ☐ | ☐ |
 | 4 | [Diffusion, total current, built-in field from non-uniform doping](notes/04-diffusion.md) | 96–122 | [Ch1 Q8, Q9](questions/04-diffusion.md) | ●● | ☐ | ☐ |
-| 5 | Fermi-Dirac, n = Nc·e^…, intrinsic level Ei | 151–169 | Ch1 Q10–Q15 | ●●● | ☐ | ☐ |
+| 5 | [Energy bands, Fermi-Dirac, n = Nc·e^…, intrinsic level Ei](notes/05-fermi-level.md) | 136–169 | [Ch1 Q10–Q15](questions/05-fermi-level.md) | ●●● | ☐ | ☐ |
 | 6 | Vacuum level, electron affinity χ, workfunction φ | 170–176 | Ch1 Q16, Ch2 Q1 | ●● | ☐ | ☐ |
 | 7 | Band diagram under applied voltage (bands tilt) | 177–186 | Ch1 Q17, Q18 | ●● | ☐ | ☐ |
 
