@@ -279,3 +279,25 @@ More carriers means higher conductivity, so lower resistance.
 From: §8
 
 </details>
+
+---
+
+### M8: Write charge neutrality
+
+Write charge neutrality for:
+
+1. pure Si
+2. p-type Si doped only with boron
+3. Si doped with both phosphorus and boron
+
+<details><summary>Answer</summary>
+
+Start with the full equation: p + N_D = n + N_A
+
+1. **Pure:** no dopants, so cross out both. **p = n**
+2. **p-type:** no donors, so cross out N_D. **p = n + N_A**
+3. **Both:** keep everything. **p + N_D = n + N_A**
+
+From: §2
+
+</details>

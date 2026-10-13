@@ -170,6 +170,52 @@ p + N_D = n
 
 </details>
 
+### How "write charge neutrality" gets asked
+
+"Write charge neutrality" means two things:
+
+1. Write the full equation from memory.
+2. Cross out anything that is zero for this material.
+
+No numbers needed.
+
+<br>
+
+| Material | What is zero | You write |
+|---|---|---|
+| Pure (intrinsic) | N_D = 0 and N_A = 0 | p = n |
+| n-type (donors only) | N_A = 0 | p + N_D = n |
+| p-type (acceptors only) | N_D = 0 | p = n + N_A |
+| Both dopants | nothing | p + N_D = n + N_A |
+
+<br>
+
+**Other ways it can be asked:**
+
+| The question says | You do |
+|---|---|
+| "Write down charge neutrality" | write the full equation |
+| "Write charge neutrality for n-type Si" | write it, cross out N_A |
+| "Use charge neutrality to find n and p" | combine it with n × p = nᵢ² (see §5) |
+| "Derive n and p in p-type Si" | the 7 steps in §5 |
+
+<br>
+
+### 🧠 Check
+Write charge neutrality for pure silicon.
+
+<details><summary>Answer</summary>
+
+Start with: p + N_D = n + N_A
+
+Pure Si has no dopants, so N_D = 0 and N_A = 0.
+
+p = n
+
+That matches Topic 1: in pure Si, electrons = holes.
+
+</details>
+
 ---
 
 ## 3. Majority and minority carriers

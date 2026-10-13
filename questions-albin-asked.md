@@ -75,4 +75,16 @@ The slide version, −n + p + N_D − N_A = 0, is the same thing moved to one si
 
 📍 [Notes 02 §2, "Count it with real numbers"](notes/02-doping-carrier-concentration.md)
 
+**Q: What does "write charge neutrality" mean, and how can it be asked?**
+
+It means: write the full equation, then cross out anything that is zero.
+
+p + N_D = n + N_A
+
+Pure Si: p = n. n-type: p + N_D = n. p-type: p = n + N_A.
+
+It can also be asked as "use it to find n and p". Then you combine it with n × p = nᵢ².
+
+📍 [Notes 02 §2, "How write charge neutrality gets asked"](notes/02-doping-carrier-concentration.md)
+
 ---
