@@ -26,10 +26,10 @@ Mark progress by changing `☐` → `✅`.
 | 8 | [Bringing materials into contact (Fermi levels line up)](notes/08-contact.md) | 3–11 | [Ch2 Q2, Q3, Q4](questions/08-contact.md) | ●●● | ☐ | ☐ |
 | 9 | [Metal–semiconductor: Schottky vs ohmic contact](notes/09-metal-semiconductor.md) | 4 (+ booklet p38–41) | [Ch2 Q6 a–e](questions/09-metal-semiconductor.md) | ●●● (5-part Q, few slides) | ☐ | ☐ |
 | 10 | [pn diode at zero bias: built-in voltage V0, depletion region](notes/10-pn-zero-bias.md) | 6–24 | [Ch2 Q5, Q11a](questions/10-pn-zero-bias.md) | ●●● | ☐ | ☐ |
-| 11 | pn diode under forward/reverse bias (band diagram, carrier flow) | 25–48 | Ch2 Q7, Q8 | ●●● | ☐ | ☐ |
-| 12 | Minority carrier injection & concentration profiles | 49–65 | Ch2 Q9, Q10 | ●●● | ☐ | ☐ |
-| 13 | Diode current (short diode), I–V curve | 66–73 | Ch2 Q12, Q13 | ●●● | ☐ | ☐ |
-| 14 | Depletion width, charge, E-field (Poisson) | 74–87 | Ch2 Q11b–e | ●● | ☐ | ☐ |
+| 11 | [pn diode under forward/reverse bias (band diagram, carrier flow)](notes/11-pn-under-bias.md) | 25–48 | [Ch2 Q7, Q8](questions/11-pn-under-bias.md) | ●●● | ☐ | ☐ |
+| 12 | [Minority carrier injection & concentration profiles](notes/12-minority-injection.md) | 49–65 | [Ch2 Q9, Q10](questions/12-minority-injection.md) | ●●● | ☐ | ☐ |
+| 13 | [Diode current (short diode), I–V curve](notes/13-diode-current.md) | 66–73 | [Ch2 Q12, Q13](questions/13-diode-current.md) | ●●● | ☐ | ☐ |
+| 14 | [Depletion width, charge, E-field (Poisson)](notes/14-depletion-width.md) | 74–87 | [Ch2 Q11b–e](questions/14-depletion-width.md) | ●● | ☐ | ☐ |
 
 ## Skip / skim (no tutorial questions)
 
