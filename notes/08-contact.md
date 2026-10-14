@@ -111,7 +111,7 @@ That's the whole reason for rule 1: **E_F is flat at equilibrium**.
 
 <br>
 
-![Drift equals diffusion](../img/08/s11.png)
+![Drift equals diffusion](../img/10/s11.png)
 
 **How to read this diagram:**
 

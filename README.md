@@ -1,6 +1,6 @@
 # SSD Lock-In — EEEN20070 Solid State Devices
 
-Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Formula sheet: **[formula-sheet.md](formula-sheet.md)**. Periodic table: **[periodic-table.md](periodic-table.md)**. Confusing bits I asked about: **[questions-albin-asked.md](questions-albin-asked.md)**.
+Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Formula sheet: **[formula-sheet.md](formula-sheet.md)**. Periodic table: **[periodic-table.md](periodic-table.md)**. Confusing bits I asked about: **[questions-albin-asked.md](questions-albin-asked.md)**. Mock midterms: **[mock/](mock/midterm-1.md)**.
 
 ## Reading style (dyslexia-friendly)
 - One idea per line. Short sentences.

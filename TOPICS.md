@@ -31,6 +31,15 @@ Mark progress by changing `☐` → `✅`.
 | 13 | [Diode current (short diode), I–V curve](notes/13-diode-current.md) | 66–73 | [Ch2 Q12, Q13](questions/13-diode-current.md) | ●●● | ☐ | ☐ |
 | 14 | [Depletion width, charge, E-field (Poisson)](notes/14-depletion-width.md) | 74–87 | [Ch2 Q11b–e](questions/14-depletion-width.md) | ●● | ☐ | ☐ |
 
+## Mock midterms
+
+Do these **after** Topics 1–14. Both are built from the tutorial questions with new numbers and twists.
+
+| Mock | Done |
+|---|---|
+| [Mock Midterm 1](mock/midterm-1.md) (more calculation) | ☐ |
+| [Mock Midterm 2](mock/midterm-2.md) (more explain + sketch) | ☐ |
+
 ## Skip / skim (no tutorial questions)
 
 | Topic | Slides | Verdict |
