@@ -20,13 +20,13 @@ const setMark = (key, v) => v ? store.set('mark:' + key, v) : store.del('mark:' 
 // ---------------------------------------------------------------- prefs
 const root = document.documentElement;
 const applyPrefs = () => {
-  const th = store.get('pref:theme'); if (th) root.dataset.theme = th; else delete root.dataset.theme;
+  // light (blue) by default; dark only if chosen with the ☾ button
+  if (store.get('pref:theme2') === 'dark') root.dataset.theme = 'dark'; else root.dataset.theme = 'light';
   root.style.setProperty('--fs', store.get('pref:fs', 19) + 'px');
 };
 applyPrefs();
 document.getElementById('btn-theme').onclick = () => {
-  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  store.set('pref:theme', dark ? 'light' : 'dark'); applyPrefs();
+  store.set('pref:theme2', root.dataset.theme === 'dark' ? 'light' : 'dark'); applyPrefs();
 };
 document.getElementById('btn-bigger').onclick = () => { store.set('pref:fs', Math.min(26, store.get('pref:fs', 19) + 1)); applyPrefs(); };
 document.getElementById('btn-smaller').onclick = () => { store.set('pref:fs', Math.max(15, store.get('pref:fs', 19) - 1)); applyPrefs(); };
@@ -76,8 +76,36 @@ function fixLinks(html, baseDir) {
     const mk = file.match(/^mock\/midterm-(\d+)\.md$/); if (mk) { a.setAttribute('href', '#/mock/' + mk[1]); return; }
     a.setAttribute('href', REPO_BLOB + file + (hash ? '#' + hash : '')); a.target = '_blank'; a.rel = 'noopener';
   });
+  prettyScripts(t.content);
   return t.innerHTML;
 }
+
+// Turn plain-text notation like w_p, N_A^-, E_C, φ_Si, n'_p into real subscripts/superscripts.
+const SUB_RE = /([A-Za-z0-9\u0370-\u03FF'ℰ)\]])_(\{[^}]+\}|[A-Za-z0-9]+)/g;
+const unbrace = x => x.replace(/^\{|\}$/g, '');
+function prettyText(str) {
+  return esc(str)
+    .replace(SUB_RE, (_, b, x) => `${b}<sub>${unbrace(x)}</sub>`)
+    .replace(/(<\/sub>|[A-Za-z0-9\u0370-\u03FF)\]·])\^(\((?:[^()]|\([^()]*\))*\)|\{[^}]+\}|[+\-−]?[0-9]+|[+\-−](?![\w])|[A-Za-z]+|…|\.\.\.)/g,
+      (_, b, x) => `${b}<sup>${x.replace(/^[({]|[)}]$/g, x[0] === '(' || x[0] === '{' ? '' : '$&').replace(/^-/, '−')}</sup>`);
+}
+function prettyScripts(rootNode) {
+  const walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT);
+  const hits = [];
+  while (walker.nextNode()) {
+    const n = walker.currentNode;
+    if (!/[_^]/.test(n.nodeValue)) continue;
+    if (n.parentElement && n.parentElement.closest('code, pre, .katex, script, style')) continue;
+    hits.push(n);
+  }
+  hits.forEach(n => {
+    const html = prettyText(n.nodeValue);
+    if (html === esc(n.nodeValue)) return;
+    const t = document.createElement('template'); t.innerHTML = html;
+    n.replaceWith(t.content);
+  });
+}
+const pretty = s => prettyText(String(s));
 
 // ---------------------------------------------------------------- loading
 const cache = {};
@@ -313,7 +341,7 @@ function renderCard(q, { showTopic = false, index } = {}) {
     const nums = answerNumbers(q.ans);
     if (nums.length) {
       const nc = h(`<div class="numcheck"><label for="nc-${q.key}">Got a number? Check it before you look:</label>
-        <input id="nc-${q.key}" inputmode="decimal" autocomplete="off" placeholder="e.g. 1.92   or   4.41e-6   or   4.41 x 10^-6">
+        <input id="nc-${q.key}" inputmode="decimal" autocomplete="off" placeholder="e.g.  1.92   or   4.41e-6   or   4.41 x 10^-6">
         <button class="btn">Check</button><span class="numres" aria-live="polite"></span></div>`);
       const inp = nc.querySelector('input'), res = nc.querySelector('.numres');
       const go = () => {
@@ -390,7 +418,7 @@ async function viewHome(seq) {
   const weak = qs.filter(q => ['miss', 'part'].includes(markOf(q.key))).length;
   const all = tallyOf(qs);
   app.innerHTML = '';
-  app.append(h(`<section>
+  app.append(h(`<section class="hero">
     <h1>Solid State Devices practice</h1>
     <p class="sub">EEEN20070 midterm · Ch1 Semiconductors + Ch2 Junctions &amp; pn diodes</p>
     <div class="callout"><b>The midterm will be a lot like the tutorials.</b><br>So start with the tutorial drill. Do it on paper first, then check here.</div>
@@ -410,7 +438,7 @@ async function viewHome(seq) {
       const C = 2 * Math.PI * 18;
       sec.querySelector('.topics').append(h(`<a class="topic" href="#/topic/${String(t.n).padStart(2, '0')}">
         <span class="num">${t.n}</span>
-        <span><span class="t">${esc(t.title)}</span>
+        <span><span class="t">${pretty(t.title)}</span>
           <span class="meta">${weightText(t.weight)}${t.tutQs ? `<span>Tutorial ${esc(t.tutQs)}</span>` : ''}<span>${tl.total} questions</span></span>${barHTML(tl)}</span>
         <svg class="ring" viewBox="0 0 46 46" aria-label="${pct}% got right"><circle cx="23" cy="23" r="18" fill="none" stroke="var(--line)" stroke-width="5"/>
           <circle cx="23" cy="23" r="18" fill="none" stroke="var(--good)" stroke-width="5" stroke-linecap="${pct ? 'round' : 'butt'}" stroke-dasharray="${C * pct / 100} ${C}" transform="rotate(-90 23 23)"/>
@@ -437,7 +465,7 @@ async function viewTopic(n, seq) {
   const idx = INDEX.topics.indexOf(t);
   const prev = INDEX.topics[idx - 1], next = INDEX.topics[idx + 1];
   app.append(h(`<div><div class="crumb"><a href="#/">← All topics</a></div>
-    <h1>Topic ${t.n}: ${esc(t.title)}</h1>
+    <h1>Topic ${t.n}: ${pretty(t.title)}</h1>
     <p class="sub">${weightText(t.weight)}${t.tutQs ? ` · Tutorial ${esc(t.tutQs)}` : ''} · <a href="${REPO_BLOB + t.notes}" target="_blank" rel="noopener">Open the notes ↗</a></p></div>`));
   if (p.intro) app.append(h(`<div class="intro md">${md(p.intro, 'questions/')}</div>`));
   const bar = h(`<div class="filters"><div class="seg">
