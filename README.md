@@ -1,5 +1,7 @@
 # SSD Lock-In — EEEN20070 Solid State Devices
 
+**▶ Practice site: https://albinjoby82-ops.github.io/SSD_Lock-In/** (tutorial drill, check-your-answer questions, timed mock midterms). It reads the `questions/` and `mock/` md files directly, so editing them updates the site.
+
 Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Formula sheet: **[formula-sheet.md](formula-sheet.md)**. Periodic table: **[periodic-table.md](periodic-table.md)**. Confusing bits I asked about: **[questions-albin-asked.md](questions-albin-asked.md)**. Mock midterms: **[mock/](mock/midterm-1.md)**.
 
 ## Reading style (dyslexia-friendly)
