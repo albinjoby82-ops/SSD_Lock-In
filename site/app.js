@@ -176,10 +176,12 @@ function finish(q, topic) {
   const tm = title.match(/\((Tutorial[^)]*)\)/i);
   if (tm) { tut = tm[1]; title = title.replace(tm[0], '').trim(); }
   const body = trimBlock(q.body), ans = trimBlock(q.ans);
-  const fromM = ans.match(/^\s*(?:From|→)\s*:\s*(.+)$/mi) || ans.match(/^\s*→\s*(.+)$/m);
+  // every "From:" line in the answer, one per part, so a multi-part question points at all its notes
+  const froms = [...ans.matchAll(/^\s*(?:From|→)\s*:\s*(.+)$/gmi)].map(x => x[1].trim());
+  if (!froms.length) { const a = ans.match(/^\s*→\s*(.+)$/m); if (a) froms.push(a[1].trim()); }
   const out = {
     key: `${topic.file}#${qid}`, qid, title: title || (q.part === 'tut' ? 'Tutorial question' : ''), tut, part: q.part,
-    body, ans, from: fromM ? fromM[1].trim() : '', topic, type: 'open',
+    body, ans, from: froms.join('\n'), topic, type: 'open',
   };
   if (/true\s*or\s*false/i.test(title)) {
     const st = [...body.matchAll(/^\s*\d+\.\s+(.+)$/gm)].map(x => x[1]);
@@ -286,6 +288,8 @@ function renderCard(q, { showTopic = false, index } = {}) {
   const hintBox = h(`<div class="hint" hidden></div>`);
   if (q.from) hintBox.innerHTML = `💡 This is in <a href="#" data-notes="${q.topic.n}">Topic ${q.topic.n} notes</a> → ${md(q.from, base, true)}`;
   const refs = refsOf(q.from || q.ans, q.topic.n);
+  // several parts (several From lines): this topic's own notes first, other topics after
+  if (q.from.includes('\n')) refs.sort((a, b) => (b.topic === q.topic.n) - (a.topic === q.topic.n));
 
   if (q.type === 'tf') {
     if (q.stem) card.append(h(`<div class="md">${md(q.stem, base)}</div>`));
@@ -396,10 +400,14 @@ function refsOf(text, topicN) {
   const add = r => { const k = r.topic + '|' + (r.sec || '') + '|' + (r.eq || '') + '|' + (r.kw || ''); if (!seen.has(k)) { seen.add(k); out.push(r); } };
   const s = String(text || '');
   const re = /(?:Topic\s+(\d+)[,\s]*)?(?:§\s*(\d+)|Equation\s+(\d+)|(drawing checklist|the method|Method))/gi;
-  let m, cur = topicN;
+  let m, cur = topicN, last = 0;
   while ((m = re.exec(s))) {
+    // "Topic 2 §3, §6": the topic carries over to the next refs, until "then" or a new From line goes back to this topic
+    if (topicN > 0 && /\bthen\b|\n/i.test(s.slice(last, m.index))) cur = topicN;
+    last = re.lastIndex;
     if (m[1]) cur = +m[1];
-    const topic = m[1] ? +m[1] : (topicN > 0 ? topicN : cur);
+    // sections carry the topic over; a bare "Equation N" stays in this topic (equation numbers are per topic)
+    const topic = m[1] ? +m[1] : (m[2] ? cur : (topicN > 0 ? topicN : cur));
     if (m[2]) add({ topic, sec: +m[2] });
     else if (m[3]) add({ topic, eq: +m[3] });
     else if (m[4]) add({ topic, kw: /draw/i.test(m[4]) ? 'Drawing checklist' : 'Method' });

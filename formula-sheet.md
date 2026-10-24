@@ -7,77 +7,115 @@ This is probably the same one, or very close to it.
 
 **You look these up. You don't memorise them.**
 
+Except the ones in the next section.
+
 ---
 
 ## Learn by heart (NOT on the sheet)
 
-$$n \times p = n_i^2$$
-
-Law of mass action. See [Topic 1, §5](notes/01-bond-model.md).
+In topic order. Each one links to the notes where it is explained.
 
 <br>
+
+**Law of mass action** (Topic 1)
+
+$$n \times p = n_i^2$$
+
+See [Topic 1, §5](notes/01-bond-model.md).
+
+<br>
+
+**Charge neutrality** (Topic 2)
 
 $$p + N_D^+ = n + N_A^-$$
 
-Charge neutrality. See [Topic 2, §2](notes/02-doping-carrier-concentration.md).
+See [Topic 2, §2](notes/02-doping-carrier-concentration.md).
 
 <br>
 
-**Also learn by heart, with the derivation of σ (Topic 3):**
+**Drift velocity** (Topic 3)
 
 $$v = \mu E$$
 
-Drift velocity. See [Topic 3, §3](notes/03-drift.md).
+See [Topic 3, §3](notes/03-drift.md).
 
 <br>
+
+**Conductivity** (Topic 3). Also learn how to derive it.
 
 $$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
 
-Conductivity. See [Topic 3, §6](notes/03-drift.md).
+See [Topic 3, §6](notes/03-drift.md).
 
 <br>
+
+**Resistivity** (Topic 3). The flip of conductivity, in Ω·cm.
 
 $$\rho = \frac{1}{\sigma}$$
 
-Resistivity, in Ω·cm. The flip of conductivity. See [Topic 3, §6](notes/03-drift.md).
+See [Topic 3, §6](notes/03-drift.md).
 
 <br>
+
+**Resistance** (Topic 3). Convert L and A to cm first.
 
 $$R = \frac{L}{\sigma A}$$
 
-Resistance. Convert L and A to cm first. See [Topic 3, §6](notes/03-drift.md).
+See [Topic 3, §6](notes/03-drift.md).
 
 <br>
 
-**Also learn by heart (Topic 4):**
+**Diffusion current** (Topic 4)
 
 $$J_n = e\,D_n\,\frac{dn}{dx} \qquad\qquad J_p = -\,e\,D_p\,\frac{dp}{dx}$$
 
-Diffusion current, for electrons and for holes. See [Topic 4, §2](notes/04-diffusion.md).
+See [Topic 4, §2](notes/04-diffusion.md).
 
 ---
 
 ## Constants
 
+In the order you'll meet them.
+
 | Symbol | What it is | Value |
 |---|---|---|
-| nᵢ | carriers in pure Si, 300 K | 1.45 × 10¹⁰ cm⁻³ |
-| E_G | bandgap of Si, 300 K | 1.12 eV |
-| N_C | effective density of states, conduction band | 3.2 × 10¹⁹ cm⁻³ |
-| N_V | effective density of states, valence band | 1.8 × 10¹⁹ cm⁻³ |
-| kT/e | thermal voltage, 300 K | 0.026 V |
-| e | charge of an electron | 1.6 × 10⁻¹⁹ C |
-| ε₀ | permittivity of free space | 8.85 × 10⁻¹² F/m |
-| ε_Si | dielectric constant of Si | 11 |
-| ε_ox | dielectric constant of SiO₂ | 4 |
-| h | Planck's constant | 6.63 × 10⁻³⁴ Js |
-| μ₀ | permeability of free space | 4π × 10⁻⁷ H/m |
+| $n_i$ | carriers in pure Si, 300 K | 1.45 × 10¹⁰ cm⁻³ |
+| $e$ | charge of an electron | 1.6 × 10⁻¹⁹ C |
+| $kT/e$ | thermal voltage, 300 K | 0.026 V |
+| $E_G$ | bandgap of Si, 300 K | 1.12 eV |
+| $N_C$ | effective density of states, conduction band | 3.2 × 10¹⁹ cm⁻³ |
+| $N_V$ | effective density of states, valence band | 1.8 × 10¹⁹ cm⁻³ |
+| $\varepsilon_0$ | permittivity of free space | 8.85 × 10⁻¹² F/m |
+| $\varepsilon_{Si}$ | dielectric constant of Si | 11 |
+| $\varepsilon_{ox}$ | dielectric constant of SiO₂ | 4 |
+| $h$ | Planck's constant | 6.63 × 10⁻³⁴ Js |
+| $\mu_0$ | permeability of free space | 4π × 10⁻⁷ H/m |
 
 ---
 
-## Formulae
+## Formulae (on the sheet)
 
-Each one gets explained in the topic where we first use it.
+In topic order. Each one gets explained in the topic where we first use it.
+
+<br>
+
+**Drift and diffusion current** (Topics 3 and 4)
+
+$$J_n = e\mu_n n E + eD_n \frac{dn}{dx}$$
+
+$$J_p = e\mu_p p E - eD_p \frac{dp}{dx}$$
+
+<br>
+
+**Einstein relation** (Topic 4)
+
+$$D = \frac{kT}{e}\,\mu$$
+
+<br>
+
+**Poisson equation** (Topics 4 and 14)
+
+$$\frac{dE}{dx} = \frac{\rho(x)}{\varepsilon}$$
 
 <br>
 
@@ -96,26 +134,6 @@ $$n_i = \sqrt{N_C N_V}\; e^{-E_G / 2kT}$$
 **Electron and hole concentration** (Topic 5)
 
 $$n = N_C\, e^{-(E_C - E_F)/kT} \qquad p = N_V\, e^{(E_V - E_F)/kT}$$
-
-<br>
-
-**Poisson equation** (Topic 4, Topic 14)
-
-$$\frac{dE}{dx} = \frac{\rho(x)}{\varepsilon}$$
-
-<br>
-
-**Drift and diffusion current** (Topics 3 and 4)
-
-$$J_n = e\mu_n n E + eD_n \frac{dn}{dx}$$
-
-$$J_p = e\mu_p p E - eD_p \frac{dp}{dx}$$
-
-<br>
-
-**Einstein relation** (Topic 4)
-
-$$D = \frac{kT}{e}\,\mu$$
 
 <br>
 
