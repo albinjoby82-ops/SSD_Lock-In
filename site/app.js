@@ -73,6 +73,7 @@ function fixLinks(html, baseDir) {
     const [file, hash] = p.split('#');
     if (file === 'formula-sheet.md' || file === 'periodic-table.md') { a.setAttribute('href', '#'); a.dataset.doc = file; return; }
     const q = file.match(/^questions\/(\d\d)-/); if (q) { a.setAttribute('href', '#/topic/' + q[1]); return; }
+    const nt = file.match(/^notes\/(\d\d)-/); if (nt) { a.setAttribute('href', '#'); a.dataset.notes = String(+nt[1]); return; }
     const mk = file.match(/^mock\/midterm-(\d+)\.md$/); if (mk) { a.setAttribute('href', '#/mock/' + mk[1]); return; }
     a.setAttribute('href', REPO_BLOB + file + (hash ? '#' + hash : '')); a.target = '_blank'; a.rel = 'noopener';
   });
@@ -175,7 +176,7 @@ function finish(q, topic) {
   const tm = title.match(/\((Tutorial[^)]*)\)/i);
   if (tm) { tut = tm[1]; title = title.replace(tm[0], '').trim(); }
   const body = trimBlock(q.body), ans = trimBlock(q.ans);
-  const fromM = ans.match(/^\s*(?:From|→)\s*:?\s*(.+)$/mi);
+  const fromM = ans.match(/^\s*(?:From|→)\s*:\s*(.+)$/mi) || ans.match(/^\s*→\s*(.+)$/m);
   const out = {
     key: `${topic.file}#${qid}`, qid, title: title || (q.part === 'tut' ? 'Tutorial question' : ''), tut, part: q.part,
     body, ans, from: fromM ? fromM[1].trim() : '', topic, type: 'open',
@@ -283,7 +284,8 @@ function renderCard(q, { showTopic = false, index } = {}) {
   selfmark.querySelectorAll('.sm').forEach(b => b.onclick = () => { setMark(q.key, markOf(q.key) === b.dataset.v ? null : b.dataset.v); paint(); });
 
   const hintBox = h(`<div class="hint" hidden></div>`);
-  if (q.from) hintBox.innerHTML = `💡 This is in <a href="${REPO_BLOB + q.topic.notes}" target="_blank" rel="noopener">Topic ${q.topic.n} notes</a> → ${md(q.from, base, true)}`;
+  if (q.from) hintBox.innerHTML = `💡 This is in <a href="#" data-notes="${q.topic.n}">Topic ${q.topic.n} notes</a> → ${md(q.from, base, true)}`;
+  const refs = refsOf(q.from || q.ans, q.topic.n);
 
   if (q.type === 'tf') {
     if (q.stem) card.append(h(`<div class="md">${md(q.stem, base)}</div>`));
@@ -382,12 +384,161 @@ function renderCard(q, { showTopic = false, index } = {}) {
     card.append(acts, hintBox, ansBox);
   }
   card.append(selfmark);
+  card.append(studyRow(q, refs, card));
   if (markOf(q.key)) selfmark.hidden = false;
   paint();
-  // any link to the formula sheet inside a card opens the modal
-  card.addEventListener('click', e => { const a = e.target.closest('a[data-doc]'); if (a) { e.preventDefault(); openDoc(a.dataset.doc); } });
   return card;
 }
+
+// ---------------------------------------------------------------- notes refs: "§4", "Topic 2 §3", "Equation 18", "drawing checklist"
+function refsOf(text, topicN) {
+  const out = [], seen = new Set();
+  const add = r => { const k = r.topic + '|' + (r.sec || '') + '|' + (r.eq || '') + '|' + (r.kw || ''); if (!seen.has(k)) { seen.add(k); out.push(r); } };
+  const s = String(text || '');
+  const re = /(?:Topic\s+(\d+)[,\s]*)?(?:§\s*(\d+)|Equation\s+(\d+)|(drawing checklist|the method|Method))/gi;
+  let m, cur = topicN;
+  while ((m = re.exec(s))) {
+    if (m[1]) cur = +m[1];
+    const topic = m[1] ? +m[1] : (topicN > 0 ? topicN : cur);
+    if (m[2]) add({ topic, sec: +m[2] });
+    else if (m[3]) add({ topic, eq: +m[3] });
+    else if (m[4]) add({ topic, kw: /draw/i.test(m[4]) ? 'Drawing checklist' : 'Method' });
+  }
+  if (!out.length) add({ topic: topicN });
+  return out.slice(0, 6);
+}
+const refLabel = (r, here) => (r.topic !== here ? `Topic ${r.topic} ` : '') + (r.sec ? '§' + r.sec : r.eq ? 'Eq. ' + r.eq : r.kw ? r.kw.toLowerCase() : 'notes');
+
+// "📖 Read the notes" + "🔀 New numbers" under every question
+function studyRow(q, refs, card) {
+  const row = h(`<div class="studyrow"></div>`);
+  const nb = h(`<button class="btn notesbtn">📖 Read the notes <small>${esc(refLabel(refs[0], q.topic.n))}</small></button>`);
+  nb.onclick = () => openNotes(refs[0].topic, refs[0], refs, q.topic.n);
+  row.append(nb);
+  const gen = window.SCRAMBLE && window.SCRAMBLE[q.topic.slug + '#' + q.qid];
+  if (gen) {
+    const sb = h(`<button class="btn scrbtn">🔀 New numbers</button>`);
+    const done = store.get('scr:' + q.key, 0);
+    const chip = h(`<span class="scrcount">${done ? `✓ ${done} new version${done > 1 ? 's' : ''} solved` : ''}</span>`);
+    let box = null;
+    sb.onclick = () => {
+      if (box) box.remove();
+      box = renderVariant(q, gen, refs, () => {
+        const n = store.get('scr:' + q.key, 0) + 1; store.set('scr:' + q.key, n);
+        chip.textContent = `✓ ${n} new version${n > 1 ? 's' : ''} solved`;
+      }, () => sb.click());
+      card.append(box);
+      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      sb.textContent = '🔀 Different numbers';
+    };
+    row.append(sb, chip);
+  }
+  return row;
+}
+
+function renderVariant(q, gen, refs, onSolved, again) {
+  const v = gen();
+  const base = q.topic.file.replace(/[^/]+$/, '');
+  const box = h(`<div class="variant">
+    <div class="variant-head"><span class="tag">🔀 Same question, new numbers</span></div>
+    <div class="md">${md(v.q, base)}</div>
+    <div class="ansgrid"></div>
+    <div class="actions"><button class="btn go">Check</button><button class="btn">Show working</button><button class="btn ghost">🔀 Again</button></div>
+    <div class="vsteps answer" hidden></div></div>`);
+  const grid = box.querySelector('.ansgrid');
+  const rows = v.answers.map((a, i) => {
+    const r = h(`<label class="arow"><span class="alabel">${pretty(a.label)}</span>
+      <input inputmode="decimal" autocomplete="off" placeholder="your answer"><span class="aunit">${pretty(a.unit)}</span><span class="ares"></span></label>`);
+    grid.append(r); return r;
+  });
+  const [check, work, againBtn] = box.querySelectorAll('.actions .btn');
+  let solved = false;
+  const ok = (val, a) => {
+    if (!isFinite(val)) return false;
+    const t = a.tol, test = x => t.abs != null ? Math.abs(x - a.value) <= t.abs : Math.abs(x - a.value) <= t.rel * Math.abs(a.value);
+    return test(val) || test(-val);
+  };
+  check.onclick = () => {
+    let right = 0;
+    rows.forEach((r, i) => {
+      const a = v.answers[i], val = parseUserNumber(r.querySelector('input').value), res = r.querySelector('.ares');
+      if (r.querySelector('input').value.trim() === '') { res.className = 'ares'; res.textContent = ''; return; }
+      if (ok(val, a)) { right++; res.className = 'ares ok'; res.textContent = '✓'; }
+      else { res.className = 'ares no'; res.textContent = '✗'; }
+    });
+    check.textContent = `${right} / ${v.answers.length} right`;
+    if (right === v.answers.length && !solved) { solved = true; onSolved(); check.textContent = '🎉 All right!'; }
+  };
+  rows.forEach(r => r.querySelector('input').onkeydown = e => { if (e.key === 'Enter') check.click(); });
+  const steps = box.querySelector('.vsteps');
+  work.onclick = () => {
+    if (steps.hidden) {
+      steps.innerHTML = v.steps.map((s, i) => `<div class="step-n">Step ${i + 1}</div><div class="step md">${md(s, base)}</div>`).join('')
+        + `<div class="step-n">Answers</div><div class="step md">${v.answers.map(a => `<p>${pretty(a.label)} = <b>${window.SCRAMBLE_FMT(a.value, 3)}</b> ${pretty(a.unit)}</p>`).join('')}</div>`;
+      steps.hidden = false; work.textContent = 'Hide working';
+    } else { steps.hidden = true; work.textContent = 'Show working'; }
+  };
+  againBtn.onclick = again;
+  return box;
+}
+
+// ---------------------------------------------------------------- notes side panel (split view)
+const notesPane = document.getElementById('notes');
+const notesBody = document.getElementById('notes-body');
+let notesTopic = null;
+async function openNotes(topicN, ref = {}, refs = null, here = topicN) {
+  const t = INDEX.topics.find(x => x.n === +topicN); if (!t) return;
+  notesPane.hidden = false; document.body.classList.add('split');
+  document.getElementById('notes-title').textContent = `Topic ${t.n} notes`;
+  const chips = document.getElementById('notes-chips');
+  chips.innerHTML = '';
+  if (refs && refs.length) {
+    chips.append(h(`<span class="chips-l">This question uses:</span>`));
+    refs.forEach(r => {
+      const c = h(`<button class="chip">${esc(refLabel(r, here))}</button>`);
+      c.onclick = () => openNotes(r.topic, r, refs, here);
+      chips.append(c);
+    });
+  }
+  if (notesTopic !== t.n) {
+    notesBody.innerHTML = '<p class="loading">Loading notes…</p>';
+    try {
+      notesBody.innerHTML = md(await load(t.notes), 'notes/');
+    } catch (e) { notesBody.innerHTML = `<p class="err">Couldn't load ${esc(t.notes)}.</p>`; return; }
+    notesTopic = t.n;
+    // images above the target load late and push it down: re-aim while they load
+    notesBody.querySelectorAll('img').forEach(img => { img.loading = 'eager'; img.addEventListener('load', () => {
+      if (lastJump && Date.now() - lastJump.t < 5000) notesBody.scrollTop = lastJump.el.offsetTop - 8;
+    }); });
+    const sel = document.getElementById('notes-jump'); sel.innerHTML = '<option value="">Jump to…</option>';
+    notesBody.querySelectorAll('h2, h3').forEach((hd, i) => {
+      const txt = hd.textContent.trim(); hd.id = 'n-' + i;
+      const sec = txt.match(/^(\d+)\./), eq = txt.match(/Equation\s+(\d+)/i);
+      if (sec && hd.tagName === 'H2') hd.dataset.sec = sec[1];
+      if (eq) hd.dataset.eq = eq[1];
+      if (hd.tagName === 'H2') sel.append(h(`<option value="${hd.id}">${esc(txt)}</option>`));
+    });
+    sel.onchange = () => { const el = document.getElementById(sel.value); if (el) jump(el); sel.value = ''; };
+  }
+  let target = null;
+  if (ref.sec) target = notesBody.querySelector(`h2[data-sec="${ref.sec}"]`);
+  else if (ref.eq) target = notesBody.querySelector(`[data-eq="${ref.eq}"]`);
+  else if (ref.kw) target = [...notesBody.querySelectorAll('h2')].find(x => x.textContent.trim().startsWith(ref.kw));
+  if (target) jump(target); else notesBody.scrollTop = 0;
+}
+let lastJump = null;
+function jump(el) {
+  lastJump = { el, t: Date.now() };
+  notesBody.scrollTo({ top: el.offsetTop - 8, behavior: 'smooth' });
+  notesBody.querySelectorAll('.flash').forEach(x => x.classList.remove('flash'));
+  el.classList.add('flash');
+}
+function closeNotes() { notesPane.hidden = true; document.body.classList.remove('split'); }
+document.getElementById('notes-close').onclick = closeNotes;
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[data-notes]'); if (a) { e.preventDefault(); openNotes(+a.dataset.notes); return; }
+  const d = e.target.closest('a[data-doc]'); if (d) { e.preventDefault(); openDoc(d.dataset.doc); }
+});
 
 // ---------------------------------------------------------------- data helpers
 let INDEX = null;
@@ -421,9 +572,10 @@ async function viewHome(seq) {
   app.append(h(`<section class="hero">
     <h1>Solid State Devices practice</h1>
     <p class="sub">EEEN20070 midterm · Ch1 Semiconductors + Ch2 Junctions &amp; pn diodes</p>
-    <div class="callout"><b>The midterm will be a lot like the tutorials.</b><br>So start with the tutorial drill. Do it on paper first, then check here.</div>
+    ${todayCard()}
     <div class="modes">
-      <a class="mode primary" href="#/drill/tutorial"><span class="ic">🎯</span><b>Tutorial drill</b><small>All ${tutCount} tutorial questions, Ch1 Q1 → Ch2 Q13, in order</small></a>
+      <a class="mode primary" href="#/plan"><span class="ic">📅</span><b>3-day plan</b><small>Your checklist for Sat, Sun and Mon, SSD and CE</small></a>
+      <a class="mode" href="#/drill/tutorial"><span class="ic">🎯</span><b>Tutorial drill</b><small>All ${tutCount} tutorial questions, Ch1 Q1 → Ch2 Q13, in order</small></a>
       <a class="mode" href="#/drill/weak"><span class="ic">🔁</span><b>Weak spots</b><small>${weak ? weak + ' question' + (weak > 1 ? 's' : '') + ' you marked missed or partly' : 'Mark questions as you go, then redo the ones you missed'}</small></a>
       <a class="mode" href="#/drill/random"><span class="ic">🎲</span><b>Random 10</b><small>Mixed questions from every topic</small></a>
     </div>
@@ -460,13 +612,14 @@ async function viewHome(seq) {
 async function viewTopic(n, seq) {
   const t = INDEX.topics.find(x => x.n === +n); if (!t) return notFound();
   const p = await topicQs(t); fresh(seq);
-  let filter = store.get('pref:filter', 'all');
+  let filter = store.get('pref:filter2', 'tut');
   app.innerHTML = '';
   const idx = INDEX.topics.indexOf(t);
   const prev = INDEX.topics[idx - 1], next = INDEX.topics[idx + 1];
   app.append(h(`<div><div class="crumb"><a href="#/">← All topics</a></div>
     <h1>Topic ${t.n}: ${pretty(t.title)}</h1>
-    <p class="sub">${weightText(t.weight)}${t.tutQs ? ` · Tutorial ${esc(t.tutQs)}` : ''} · <a href="${REPO_BLOB + t.notes}" target="_blank" rel="noopener">Open the notes ↗</a></p></div>`));
+    <p class="sub">${weightText(t.weight)}${t.tutQs ? ` · Tutorial ${esc(t.tutQs)}` : ''} · <a href="#" data-notes="${t.n}">📖 Open the notes</a></p></div>`));
+  app.append(h(`<ol class="howto"><li><b>Try it</b> on paper first</li><li><b>Check</b> the answer step by step</li><li><b>📖 Read the notes</b> it uses (they open beside the question)</li><li><b>🔀 New numbers:</b> do it again cold</li></ol>`));
   if (p.intro) app.append(h(`<div class="intro md">${md(p.intro, 'questions/')}</div>`));
   const bar = h(`<div class="filters"><div class="seg">
       <button data-f="all">All</button><button data-f="tut">Tutorial</button><button data-f="mid">Midterm-style</button><button data-f="todo">Not done</button><button data-f="weak">Missed</button></div>
@@ -488,7 +641,7 @@ async function viewTopic(n, seq) {
     if (!shown.length) list.append(h(`<p class="empty">Nothing here yet. ${filter === 'todo' ? 'You have tried every question. 🎉' : ''}</p>`));
   };
   const updTally = () => { bar.querySelector('.tally').innerHTML = tallyHTML(tallyOf(p.qs)); };
-  bar.querySelectorAll('.seg button').forEach(b => b.onclick = () => { filter = b.dataset.f; store.set('pref:filter', filter); draw(); updTally(); });
+  bar.querySelectorAll('.seg button').forEach(b => b.onclick = () => { filter = b.dataset.f; store.set('pref:filter2', filter); draw(); updTally(); });
   draw(); updTally(); onMarks(updTally);
   app.append(h(`<div class="actions" style="justify-content:space-between;margin-top:40px">
     ${prev ? `<a class="btn" href="#/topic/${String(prev.n).padStart(2, '0')}">← Topic ${prev.n}</a>` : '<span></span>'}
@@ -592,11 +745,94 @@ async function viewMock(id, seq) {
       if (inp.value === '') delete s[q.id]; else s[q.id] = { got: Math.min(q.marks, Math.max(0, +inp.value)), max: q.marks };
       store.set('mock:' + m.file, s); updScore();
     };
-    card.addEventListener('click', e => { const a = e.target.closest('a[data-doc]'); if (a) { e.preventDefault(); openDoc(a.dataset.doc); } });
+    const mrefs = refsOf(q.ans, 0).filter(r => r.topic);
+    if (mrefs.length) {
+      const row = h(`<div class="studyrow" hidden><span class="chips-l">📖 Go back to:</span></div>`);
+      mrefs.forEach(r => { const c = h(`<button class="chip">${esc(refLabel(r, -1))}</button>`); c.onclick = () => openNotes(r.topic, r, mrefs, -1); row.append(c); });
+      card.append(row);
+      const showRow = () => { row.hidden = ans.hidden; };
+      btn.addEventListener('click', showRow); if (!ans.hidden) row.hidden = false;
+    }
     app.append(card);
   });
   updScore();
   app.append(h(`<p class="sub" style="margin-top:30px">Mark yourself honestly against the model answers. Each one says which topic and § to go back to.</p>`));
+}
+
+// ---------------------------------------------------------------- 3-day survival plan
+const CE_URL = 'https://comp-eng-lock-in.albinjoby82.workers.dev/';
+const PLAN = [
+  { date: '2026-10-24', day: 'Saturday', title: 'SSD Chapter 1 + CE Weeks 1–2', blocks: [
+    { when: 'Afternoon', items: [['ssd', 2, '45 min'], ['ssd', 1, '15 min'], ['ssd', 3, '40 min']] },
+    { when: 'Evening', items: [['ssd', 4, '40 min'], ['ssd', 5, '60 min'], ['ssd', 6, '30 min'], ['ssd', 7, '20 min']] },
+    { when: 'Night', items: [['ce', 1, '45 min'], ['ce', 2, '45 min']] },
+  ] },
+  { date: '2026-10-25', day: 'Sunday', title: 'SSD Chapter 2 + CE Weeks 3–4', blocks: [
+    { when: 'Morning', items: [['ssd', 8, '30 min'], ['ssd', 9, '40 min'], ['ssd', 10, '45 min']] },
+    { when: 'Afternoon', items: [['ssd', 11, '30 min'], ['ssd', 12, '45 min'], ['ssd', 13, '45 min'], ['ssd', 14, '45 min']] },
+    { when: 'Evening', items: [['ce', 3, '45 min'], ['ce', 4, '50 min']] },
+  ] },
+  { date: '2026-10-26', day: 'Monday', title: 'CE Weeks 5–6 + both mocks', blocks: [
+    { when: 'Morning', items: [['ce', 5, '60 min'], ['ce', 6, '60 min']] },
+    { when: 'Afternoon', items: [['link', 'ce-exam', 'CE exam simulation (12 Qs, 50 min)', CE_URL + '?exam=1', '50 min'], ['link', 'ce-wrong', 'CE: redo every question you got wrong', CE_URL, '40 min']] },
+    { when: 'Evening', items: [['link', 'ssd-mock1', 'SSD Mock Midterm 1 (timed)', '#/mock/1', '50 min'], ['link', 'ssd-weak', 'SSD weak spots: redo ✗ and ~ questions', '#/drill/weak', '40 min'], ['link', 'sleep', 'Sleep. CE test is Tue 11:00.', '', '']] },
+  ] },
+];
+const CE_WEEKS = { 1: 'Intro, types, operators', 2: 'I/O, decisions, switch & while', 3: 'for / do-while, math.h, functions', 4: 'Scope, preprocessor, arrays', 5: '2-D arrays & pointers', 6: 'Strings, typedef & enum, structures' };
+const todayISO = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const planId = it => it[0] === 'link' ? it[1] : it[0] + it[1];
+function planItemInfo(it) {
+  if (it[0] === 'ssd') { const t = INDEX.topics.find(x => x.n === it[1]); return { label: `SSD Topic ${it[1]}: ${t ? t.title.split(/[:(]/)[0].trim() : ''}`, sub: t && t.tutQs ? 'Tutorial ' + t.tutQs : '', href: `#/topic/${String(it[1]).padStart(2, '0')}`, time: it[2], ext: false, topic: t }; }
+  if (it[0] === 'ce') return { label: `CE Week ${it[1]}: ${CE_WEEKS[it[1]]}`, sub: 'week test on your CE site', href: `${CE_URL}?w=${it[1]}`, time: it[2], ext: true };
+  return { label: it[2], sub: '', href: it[3], time: it[4], ext: /^https?:/.test(it[3]) };
+}
+function todayCard() {
+  const day = PLAN.find(d => d.date === todayISO()) || PLAN[0];
+  const items = day.blocks.flatMap(b => b.items), done = items.filter(it => store.get('plan:' + planId(it))).length;
+  const next = items.find(it => !store.get('plan:' + planId(it)));
+  const ni = next && planItemInfo(next);
+  return `<a class="today" href="#/plan"><span class="today-l">📅 ${day.day}: ${esc(day.title)}</span>
+    <span class="today-p"><b>${done} / ${items.length}</b> done</span>
+    ${ni ? `<span class="today-n">Next up → <b>${pretty(ni.label)}</b> <small>${esc(ni.time)}</small></span>` : '<span class="today-n">Day done 🎉</span>'}</a>`;
+}
+async function viewPlan(seq) {
+  const qs = await allQs(); fresh(seq);
+  app.innerHTML = '';
+  app.append(h(`<div class="pagehead"><div class="crumb"><a href="#/">← Home</a></div><h1>📅 3-day survival plan</h1>
+    <p class="sub">SSD + CE (EEEN20010). <b>CE In-Class Test: Tue 27 Oct, 11:00</b>. Tick things off as you go.</p></div>`));
+  app.append(h(`<div class="callout"><b>Survival rules</b><br>
+    For each SSD topic, do the <b>tutorial questions only</b>: try, check, 📖 notes, 🔀 new numbers.<br>
+    Midterm-style questions are a bonus if you're ahead. If you're behind, skip the ●● topics' extras, never the ●●● ones.<br>
+    CE: open the week test, answer, and press <b>Open the slide</b> on anything you get wrong.</div>`));
+  PLAN.forEach(d => {
+    const items = d.blocks.flatMap(b => b.items);
+    const isToday = d.date === todayISO();
+    const sec = h(`<section class="day${isToday ? ' is-today' : ''}"><div class="day-head"><h2>${d.day} <small>${new Date(d.date + 'T12:00').toLocaleDateString('en-IE', { day: 'numeric', month: 'short' })}</small>${isToday ? ' <span class="tag">Today</span>' : ''}</h2><span class="day-t">${esc(d.title)}</span><span class="day-c"></span></div></section>`);
+    const count = () => { const n = items.filter(it => store.get('plan:' + planId(it))).length; sec.querySelector('.day-c').textContent = `${n} / ${items.length}`; };
+    d.blocks.forEach(b => {
+      sec.append(h(`<div class="when">${b.when}</div>`));
+      b.items.forEach(it => {
+        const info = planItemInfo(it), id = planId(it);
+        let prog = '';
+        if (info.topic) {
+          const tq = qs.filter(q => q.topic === info.topic && q.part === 'tut'), tl = tallyOf(tq);
+          prog = `<span class="pprog">${tl.got}/${tl.total} tutorial ✓</span>`;
+        }
+        const row = h(`<div class="pitem${store.get('plan:' + id) ? ' done' : ''}">
+          <button class="tick" aria-label="Mark done">${store.get('plan:' + id) ? '✓' : ''}</button>
+          <div class="pbody">${info.href ? `<a href="${esc(info.href)}"${info.ext ? ' target="_blank" rel="noopener"' : ''}>${pretty(info.label)}${info.ext ? ' ↗' : ''}</a>` : `<span>${pretty(info.label)}</span>`}
+            <small>${[info.sub, info.time].filter(Boolean).map(esc).join(' · ')}</small></div>${prog}</div>`);
+        row.querySelector('.tick').onclick = () => {
+          const v = !store.get('plan:' + id); v ? store.set('plan:' + id, true) : store.del('plan:' + id);
+          row.classList.toggle('done', v); row.querySelector('.tick').textContent = v ? '✓' : ''; count();
+        };
+        sec.append(row);
+      });
+    });
+    count();
+    app.append(sec);
+  });
+  app.append(h(`<p class="sub" style="margin-top:28px">Times are rough. If a topic runs over, steal from the ●● topics, not the ●●● ones.</p>`));
 }
 
 function notFound() { app.innerHTML = `<p class="empty">Page not found. <a href="#/">Go home</a></p>`; }
@@ -613,9 +849,9 @@ async function openDoc(file) {
 const closeModal = () => { modal.hidden = true; document.body.style.overflow = ''; };
 document.getElementById('btn-formulas').onclick = () => openDoc('formula-sheet.md');
 document.getElementById('modal-close').onclick = closeModal;
-modal.onclick = e => { if (e.target === modal) closeModal(); const a = e.target.closest('a[data-doc]'); if (a) { e.preventDefault(); openDoc(a.dataset.doc); } };
+modal.onclick = e => { if (e.target === modal) closeModal(); };
 document.querySelectorAll('#modal-tabs button').forEach(b => b.onclick = () => openDoc(b.dataset.doc));
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (!modal.hidden) closeModal(); else if (!notesPane.hidden) closeNotes(); });
 
 // ---------------------------------------------------------------- router
 let markListeners = [];
@@ -634,6 +870,7 @@ async function route() {
     else if (view === 'topic') await viewTopic(arg, seq);
     else if (view === 'drill') await viewDrill(arg, seq);
     else if (view === 'mock') await viewMock(arg, seq);
+    else if (view === 'plan') await viewPlan(seq);
     else notFound();
   } catch (e) {
     if (e instanceof Stale) return;
