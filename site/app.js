@@ -763,7 +763,7 @@ async function viewMock(id, seq) {
 const CE_URL = 'https://comp-eng-lock-in.albinjoby82.workers.dev/';
 const PLAN = [
   { date: '2026-10-24', day: 'Saturday', title: 'SSD Chapter 1 + CE Weeks 1–2', blocks: [
-    { when: 'Afternoon', items: [['ssd', 2, '45 min'], ['ssd', 1, '15 min'], ['ssd', 3, '40 min']] },
+    { when: 'Afternoon', items: [['ssd', 1, '15 min'], ['ssd', 2, '45 min'], ['ssd', 3, '40 min']] },
     { when: 'Evening', items: [['ssd', 4, '40 min'], ['ssd', 5, '60 min'], ['ssd', 6, '30 min'], ['ssd', 7, '20 min']] },
     { when: 'Night', items: [['ce', 1, '45 min'], ['ce', 2, '45 min']] },
   ] },
