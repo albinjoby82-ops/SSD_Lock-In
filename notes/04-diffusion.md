@@ -25,6 +25,35 @@ Then click to check.
 
 ---
 
+## ⭐ Learn by heart from this topic
+
+Diffusion current, for electrons and for holes:
+
+$$J_n = e\,D_n\,\frac{dn}{dx}$$
+
+$$J_p = -\,e\,D_p\,\frac{dp}{dx}$$
+
+Dₙ and Dₚ are the diffusion coefficients, in cm²/s. dn/dx and dp/dx are the slopes of the concentration, in cm⁻⁴.
+
+<br>
+
+**Memory hook:**
+Current = charge × how fast they spread × how steep the slope is.
+
+<br>
+
+**Why the minus sign on holes only:**
+Both carriers flow downhill, from high concentration to low.
+Holes are +, so current follows them.
+Electrons are −, so current goes the other way.
+
+<br>
+
+**Use it when:**
+You're given a concentration that changes with x and asked for current.
+
+---
+
 ## 1. Carriers spread out
 
 ![Diffusion](../img/04/s97.png)

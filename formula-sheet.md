@@ -47,6 +47,14 @@ $$R = \frac{L}{\sigma A}$$
 
 Resistance. Convert L and A to cm first. See [Topic 3, §6](notes/03-drift.md).
 
+<br>
+
+**Also learn by heart (Topic 4):**
+
+$$J_n = e\,D_n\,\frac{dn}{dx} \qquad\qquad J_p = -\,e\,D_p\,\frac{dp}{dx}$$
+
+Diffusion current, for electrons and for holes. See [Topic 4, §2](notes/04-diffusion.md).
+
 ---
 
 ## Constants
