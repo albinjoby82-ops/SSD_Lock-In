@@ -31,6 +31,12 @@ Conductivity. See [Topic 3, §6](notes/03-drift.md).
 
 <br>
 
+$$\rho = \frac{1}{\sigma}$$
+
+Resistivity, in Ω·cm. The flip of conductivity. See [Topic 3, §6](notes/03-drift.md).
+
+<br>
+
 $$R = \frac{L}{\sigma A}$$
 
 Resistance. Convert L and A to cm first. See [Topic 3, §6](notes/03-drift.md).

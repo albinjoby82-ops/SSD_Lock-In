@@ -31,11 +31,15 @@ Then click to check.
 
 ## ⭐ Learn by heart from this topic
 
-Two equations:
+Three equations:
 
 $$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
 
+$$\rho = \frac{1}{\sigma}$$
+
 $$R = \frac{L}{\sigma A}$$
+
+ρ is resistivity, in Ω·cm. It is just the flip of conductivity.
 
 <br>
 
