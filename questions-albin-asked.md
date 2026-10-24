@@ -214,3 +214,45 @@ This matches the positive answer from part 2.
 📍 [Notes 04 §7, "Direction"](notes/04-diffusion.md)
 
 ---
+
+## Topic 5 — Energy bands and the Fermi level
+
+**Q: How do I know k (Boltzmann constant)?**
+
+It's given: k = 8.62 × 10⁻⁵ eV/K. If it isn't, k = 0.026 eV ÷ 300 K ≈ 8.7 × 10⁻⁵ eV/K.
+
+📍 [Notes 05](notes/05-fermi-level.md)
+
+<br>
+
+**Q: What is the difference between n-type and p-type band diagrams?**
+
+Only E_F moves. n-type: E_F near E_C (lots of electrons). p-type: E_F near E_V (lots of holes). E_C, E_V, E_G and E_i stay the same.
+
+📍 [Notes 05, drawing checklist](notes/05-fermi-level.md)
+
+<br>
+
+**Q: What is E_i?**
+
+The Fermi level of pure Si, near the middle of the gap. E_F above it means n-type, below it means p-type.
+
+📍 [Notes 05 §7](notes/05-fermi-level.md)
+
+<br>
+
+**Q: Q13. What is it asking, and what do I do?**
+
+Derive n = nᵢ e^((E_F − E_i)/kT). Write n for any sample, write it for pure Si (E_F = E_i, n = nᵢ), divide. N_C cancels. Same for p.
+
+📍 [Notes 05 §7, Equation 15](notes/05-fermi-level.md)
+
+<br>
+
+**Q: Q15. Derive the position of E_i.** ⭐ Learn this derivation.
+
+Set n = p with E_F = E_i, put E_V = 0 so E_C = E_G, take logs. E_i = E_G/2 + (kT/2) ln(N_V/N_C) ≈ 0.55 eV above E_V.
+
+📍 [Notes 05, learn-by-heart box and §7](notes/05-fermi-level.md)
+
+---

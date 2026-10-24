@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" width="680" height="330" font-family="Arial, Helvetica, sans-serif">
+<title>Band diagrams of n-type and p-type Si</title>
+<desc>Two band diagrams side by side. In n-type the Fermi level sits just below the conduction band. In p-type it sits just above the valence band. The intrinsic level is dashed in the middle of both.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1a2540" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="1" y="1" width="678" height="328" rx="14" fill="#ffffff" stroke="#d5dcea"/>
+<g fill="#1a2540" font-size="16">
+<text x="155" y="34" text-anchor="middle" font-weight="700" font-size="18">n-type Si</text>
+<text x="475" y="34" text-anchor="middle" font-weight="700" font-size="18">p-type Si</text>
+</g>
+
+<g stroke="#1a2540">
+<line x1="60" y1="70" x2="250" y2="70" stroke-width="2.5"/>
+<line x1="60" y1="160" x2="250" y2="160" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.7"/>
+<line x1="60" y1="250" x2="250" y2="250" stroke-width="2.5"/>
+<line x1="100" y1="72" x2="100" y2="248" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"/>
+</g>
+<line x1="60" y1="98" x2="250" y2="98" stroke="#d9730d" stroke-width="3.5"/>
+<g fill="#1a2540" font-size="17">
+<text x="110" y="196">E<tspan baseline-shift="sub" font-size="12">G</tspan></text>
+<text x="258" y="76">E<tspan baseline-shift="sub" font-size="12">C</tspan></text>
+<text x="258" y="165" font-size="14" opacity="0.8">E<tspan baseline-shift="sub" font-size="11">i</tspan> (dashed)</text>
+<text x="258" y="256">E<tspan baseline-shift="sub" font-size="12">V</tspan></text>
+<text x="155" y="296" text-anchor="middle" font-size="14">Lots of electrons, few holes</text>
+</g>
+<text x="258" y="104" font-size="17" font-weight="700" fill="#b45309">E<tspan baseline-shift="sub" font-size="12">F</tspan></text>
+
+<g stroke="#1a2540">
+<line x1="380" y1="70" x2="570" y2="70" stroke-width="2.5"/>
+<line x1="380" y1="160" x2="570" y2="160" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.7"/>
+<line x1="380" y1="250" x2="570" y2="250" stroke-width="2.5"/>
+<line x1="420" y1="72" x2="420" y2="248" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"/>
+</g>
+<line x1="380" y1="222" x2="570" y2="222" stroke="#d9730d" stroke-width="3.5"/>
+<g fill="#1a2540" font-size="17">
+<text x="430" y="126">E<tspan baseline-shift="sub" font-size="12">G</tspan></text>
+<text x="578" y="76">E<tspan baseline-shift="sub" font-size="12">C</tspan></text>
+<text x="578" y="165" font-size="14" opacity="0.8">E<tspan baseline-shift="sub" font-size="11">i</tspan> (dashed)</text>
+<text x="578" y="256">E<tspan baseline-shift="sub" font-size="12">V</tspan></text>
+<text x="475" y="296" text-anchor="middle" font-size="14">Lots of holes, few electrons</text>
+</g>
+<text x="578" y="228" font-size="17" font-weight="700" fill="#b45309">E<tspan baseline-shift="sub" font-size="12">F</tspan></text>
+</svg>

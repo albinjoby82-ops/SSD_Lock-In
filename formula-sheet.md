@@ -79,6 +79,18 @@ $$E = -\frac{kT}{e}\,\frac{1}{n}\,\frac{dn}{dx}$$
 
 Set $J_n = 0$, rearrange for $E$, then use the Einstein relation. E points towards low doping. See [Topic 4, §7](notes/04-diffusion.md).
 
+<br>
+
+**Position of the intrinsic level** (Topic 5). Also learn how to derive it.
+
+$$E_i = \frac{E_G}{2} + \frac{kT}{2}\ln\!\left(\frac{N_V}{N_C}\right)$$
+
+Set $n = p$ with $E_F = E_i$, put $E_V = 0$, take logs. About 0.55 eV above $E_V$ for Si. See [Topic 5, §7](notes/05-fermi-level.md).
+
+<br>
+
+**Band diagrams of n-type and p-type Si** (Topic 5). Draw both: $E_F$ near $E_C$ for n-type, near $E_V$ for p-type. See [Topic 5, drawing checklist](notes/05-fermi-level.md).
+
 ---
 
 ## Constants
