@@ -31,7 +31,13 @@ Then click to check.
 
 ## ⭐ Learn by heart from this topic
 
-Three equations:
+Four equations:
+
+$$v = \mu E$$
+
+v is the drift velocity in cm/s. Electrons go against E (vₙ = −μₙE). Holes go with E (vₚ = +μₚE).
+
+<br>
 
 $$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
 

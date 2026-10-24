@@ -25,6 +25,12 @@ Charge neutrality. See [Topic 2, §2](notes/02-doping-carrier-concentration.md).
 
 **Also learn by heart, with the derivation of σ (Topic 3):**
 
+$$v = \mu E$$
+
+Drift velocity. See [Topic 3, §3](notes/03-drift.md).
+
+<br>
+
 $$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
 
 Conductivity. See [Topic 3, §6](notes/03-drift.md).
