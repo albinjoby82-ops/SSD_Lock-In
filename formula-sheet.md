@@ -71,6 +71,14 @@ $$J_n = e\,D_n\,\frac{dn}{dx} \qquad\qquad J_p = -\,e\,D_p\,\frac{dp}{dx}$$
 
 See [Topic 4, §2](notes/04-diffusion.md).
 
+<br>
+
+**Built-in field from uneven doping** (Topic 4). Also learn how to derive it.
+
+$$E = -\frac{kT}{e}\,\frac{1}{n}\,\frac{dn}{dx}$$
+
+Set $J_n = 0$, rearrange for $E$, then use the Einstein relation. E points towards low doping. See [Topic 4, §7](notes/04-diffusion.md).
+
 ---
 
 ## Constants

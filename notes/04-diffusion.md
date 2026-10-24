@@ -52,6 +52,24 @@ Electrons are −, so current goes the other way.
 **Use it when:**
 You're given a concentration that changes with x and asked for current.
 
+<br>
+
+**Also learn how to derive the built-in field (Tutorial Q9, part 2).** Cover the right-hand column and write the steps from memory.
+
+| Step | Write this | Why |
+|---|---|---|
+| 1 | $J_n = e\mu_n nE + eD_n\dfrac{dn}{dx}$ | drift + diffusion |
+| 2 | $J_n = 0$ | nothing connected, so no net current |
+| 3 | $E = -\dfrac{D_n}{\mu_n}\,\dfrac{1}{n}\,\dfrac{dn}{dx}$ | rearrange, the e's cancel |
+| 4 | $\dfrac{D_n}{\mu_n} = \dfrac{kT}{e} = 0.026\ \text{V}$ | Einstein relation |
+| 5 | $E = -\dfrac{kT}{e}\,\dfrac{1}{n}\,\dfrac{dn}{dx}$ | the result to remember |
+| 6 | put in $n = N(x)$ and its slope | question-specific numbers |
+
+**Direction:**
+Electrons diffuse towards low doping.
+They must be pushed back, so drift goes towards high doping.
+Electrons move against E, so **E points towards low doping**.
+
 ---
 
 ## 1. Carriers spread out
