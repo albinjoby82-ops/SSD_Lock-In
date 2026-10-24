@@ -33,7 +33,7 @@ E_F − E_V = (χ + E_G) − φ = 4.05 + 1.12 − 5.08 = **0.09 eV**
 
 **Step 4. Holes from the formula sheet:**
 
-$$p = N_V\, e^{-(E_F - E_V)/kT} = 1.8\times10^{19} \times e^{-0.09/0.026}$$
+$$p = N_V\, e^{(E_V - E_F)/kT} = 1.8\times10^{19} \times e^{-0.09/0.026}$$
 
 p = 1.8 × 10¹⁹ × 0.0314 = **5.65 × 10¹⁷ cm⁻³**
 

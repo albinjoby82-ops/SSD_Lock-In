@@ -115,7 +115,7 @@ $$\frac{n}{n_i} = e^{(E_F - E_i)/kT} \quad\Rightarrow\quad n = n_i\, e^{(E_F - E
 
 Same for holes, starting from:
 
-$$p = N_V\, e^{-(E_F - E_V)/kT}$$
+$$p = N_V\, e^{(E_V - E_F)/kT}$$
 
 You get:
 
@@ -153,7 +153,7 @@ Derive the position of E_i in terms of the band gap.
 
 **Step 1.** Intrinsic means n = p, with E_F = E_i:
 
-$$N_C\, e^{-(E_C - E_i)/kT} = N_V\, e^{-(E_i - E_V)/kT}$$
+$$N_C\, e^{-(E_C - E_i)/kT} = N_V\, e^{(E_V - E_i)/kT}$$
 
 **Step 2.** Rearrange:
 

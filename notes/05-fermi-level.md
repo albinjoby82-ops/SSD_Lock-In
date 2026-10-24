@@ -34,7 +34,7 @@ Then click to check.
 | Step | Write this | Why |
 |---|---|---|
 | 1 | $n = p$, with $E_F = E_i$ | pure Si has equal electrons and holes |
-| 2 | $N_C\,e^{-(E_C - E_i)/kT} = N_V\,e^{-(E_i - E_V)/kT}$ | n and p from the formula sheet |
+| 2 | $N_C\,e^{-(E_C - E_i)/kT} = N_V\,e^{(E_V - E_i)/kT}$ | n and p from the formula sheet |
 | 3 | $E_V = 0$, so $E_C = E_G$ | choose where energy starts |
 | 4 | $\dfrac{N_V}{N_C} = e^{(2E_i - E_G)/kT}$ | rearrange, join the exponents |
 | 5 | $\ln\!\left(\dfrac{N_V}{N_C}\right) = \dfrac{2E_i - E_G}{kT}$ | take logs |
@@ -256,7 +256,7 @@ E_F is just below E_C. What type is the silicon?
 
 $$n = N_C\, e^{-(E_C - E_F)/kT}$$
 
-$$p = N_V\, e^{-(E_F - E_V)/kT}$$
+$$p = N_V\, e^{(E_V - E_F)/kT}$$
 
 | Symbol | Means | Value for Si |
 |---|---|---|
@@ -359,7 +359,7 @@ $$\frac{n}{n_i} = e^{(E_F - E_i)/kT}$$
 
 **Step 1.** Pure Si, so n = p. Use Equation 14 with E_F = E_i:
 
-$$N_C\, e^{-(E_C - E_i)/kT} = N_V\, e^{-(E_i - E_V)/kT}$$
+$$N_C\, e^{-(E_C - E_i)/kT} = N_V\, e^{(E_V - E_i)/kT}$$
 
 **Step 2.** Set E_V = 0, so E_C = E_G.
 
