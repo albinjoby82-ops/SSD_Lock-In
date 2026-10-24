@@ -29,6 +29,35 @@ Then click to check.
 
 ---
 
+## ⭐ Learn by heart from this topic
+
+Two equations:
+
+$$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
+
+$$R = \frac{L}{\sigma A}$$
+
+<br>
+
+And how to **derive σ**. Five lines. Cover the right-hand column and write them from memory.
+
+| Step | Write this | Why |
+|---|---|---|
+| 1 | $J = e\,n\,v$ | current density = charge × how many × how fast |
+| 2 | $J_n = e\,n\,\mu_n E$ | electrons: the two minus signs cancel |
+| 3 | $J_p = e\,p\,\mu_p E$ | holes: charge and velocity are both positive |
+| 4 | $J = J_n + J_p$ | the two currents add |
+| 5 | $J = \sigma E$, so $\sigma = e\,(n\,\mu_n + p\,\mu_p)$ | match it to Ohm's law |
+
+Full explanation: §6, "Where Equation 8 comes from".
+
+<br>
+
+**Memory hook:**
+σ = charge × (how many) × (how easily they move). Do it for electrons, then for holes, then add.
+
+---
+
 ## 1. Two kinds of current
 
 Semiconductors have two ways to make current:
@@ -264,6 +293,111 @@ Electron current points right, along E.
 
 ---
 
+### Where Equation 8 comes from ⭐ learn this derivation
+
+You build σ from one idea:
+**current is moving charge.**
+
+<br>
+
+**Step 1: current density from moving carriers**
+
+Picture a flat window of area A inside the silicon.
+
+Carriers drift through it at speed v.
+
+In one second, every carrier within a distance v of the window gets through.
+
+That is a volume of v × A.
+
+So the number crossing per second is n × v × A.
+
+Each carrier has charge e.
+
+$$I = e\,n\,v\,A \qquad\Rightarrow\qquad J = \frac{I}{A} = e\,n\,v$$
+
+<br>
+
+**Step 2: electrons**
+
+Electrons have charge −e.
+
+They drift against the field: vₙ = −μₙE (Equation 6).
+
+$$J_n = (-e)\,n\,(-\mu_n E) = e\,n\,\mu_n E$$
+
+The two minus signs cancel. Electron current points **along E**.
+
+<br>
+
+**Step 3: holes**
+
+Holes have charge +e.
+
+They drift with the field: vₚ = +μₚE.
+
+$$J_p = e\,p\,\mu_p E$$
+
+<br>
+
+**Step 4: add them**
+
+$$J = J_n + J_p = e\,(n\,\mu_n + p\,\mu_p)\,E$$
+
+<br>
+
+**Step 5: match to Ohm's law for a material**
+
+$$J = \sigma E$$
+
+Compare the two lines. Whatever multiplies E is σ.
+
+$$\boxed{\sigma = e\,(n\,\mu_n + p\,\mu_p)}$$
+
+<br>
+
+### 🧠 Check
+In Step 1, what does n × v × A count?
+
+<details><summary>Answer</summary>
+
+The number of carriers that cross the window **every second**.
+
+Multiply by the charge e on each one and you get current.
+
+</details>
+
+<br>
+
+### 🧠 Check
+Electrons are negative and move against E.
+So why is Jₙ positive, along E?
+
+<details><summary>Answer</summary>
+
+Two minus signs.
+
+Negative charge (−e) times negative velocity (−μₙE) gives a positive.
+
+An electron moving left carries current to the right.
+
+</details>
+
+<br>
+
+### 🧠 Check
+Derive σ for **n-type** Si where holes are negligible. Write it in two lines.
+
+<details><summary>Answer</summary>
+
+$$J = J_n = e\,n\,\mu_n E \qquad\text{and}\qquad J = \sigma E$$
+
+$$\sigma \approx e\,n\,\mu_n$$
+
+</details>
+
+---
+
 ### 📐 Equation 8: conductivity ⭐ the main one
 
 $$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
@@ -306,6 +440,34 @@ $$\rho = \frac{1}{\sigma} \qquad\qquad R = \frac{\rho L}{A} = \frac{L}{\sigma A}
 You're asked for the resistance of a piece of silicon.
 
 ⚠️ **Convert every length to cm first**, because σ is in 1/(Ω·cm).
+
+<br>
+
+**Where Equation 9 comes from (3 lines):**
+
+Voltage across the sample: V = E × L
+
+Current through it: I = J × A = σ E A
+
+$$R = \frac{V}{I} = \frac{E\,L}{\sigma\,E\,A} = \frac{L}{\sigma A}$$
+
+E cancels.
+
+<br>
+
+### 🧠 Check
+A bar has its length L doubled and its area A halved.
+What happens to R?
+
+<details><summary>Answer</summary>
+
+R = L ÷ (σA).
+
+L ×2 doubles R. A ÷2 doubles R again.
+
+R goes up by a factor of **4**.
+
+</details>
 
 ---
 

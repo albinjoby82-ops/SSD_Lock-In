@@ -21,6 +21,20 @@ $$p + N_D^+ = n + N_A^-$$
 
 Charge neutrality. See [Topic 2, §2](notes/02-doping-carrier-concentration.md).
 
+<br>
+
+**Also learn by heart, with the derivation of σ (Topic 3):**
+
+$$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
+
+Conductivity. See [Topic 3, §6](notes/03-drift.md).
+
+<br>
+
+$$R = \frac{L}{\sigma A}$$
+
+Resistance. Convert L and A to cm first. See [Topic 3, §6](notes/03-drift.md).
+
 ---
 
 ## Constants

@@ -131,4 +131,46 @@ The sign comes from the charge q. The size is the same formula: v = μE.
 
 📍 [Notes 03 §1, Equations 6 and 7](notes/03-drift.md)
 
+<br>
+
+**Q: How do I know μₙ and μₚ for the Q7 samples?**
+
+You read them off the mobility graph. Red line is μₙ, blue line is μₚ.
+
+1. Find the doping on the bottom axis.
+2. Go up to the right line.
+3. Read across to the side.
+
+Use the **total doping** (acceptors plus donors). Only one is non-zero in each Q7 sample.
+
+For n-type samples you need μₙ. For p-type samples you need μₚ.
+
+The notes also give a table of values, and the official answers use those. Use the table.
+
+📍 [Notes 03 §4](notes/03-drift.md)
+
+<br>
+
+**Q: The mobility graph doesn't start at 0. What do I read for the undoped sample?**
+
+The bottom axis is logarithmic, so 0 can't be on it. The graph starts at 10¹⁴.
+
+Both lines go flat on the left. That flat part is the undoped value.
+
+For sample 1 (intrinsic), use the flat left end: μₙ = 1400 and μₚ = 500.
+
+📍 [Notes 03 §4](notes/03-drift.md)
+
+<br>
+
+**Q: How do I derive σ = e(nμₙ + pμₚ)?**
+
+Current is moving charge, so J = e n v for each carrier type.
+
+Electrons: J = e n μₙ E. Holes: J = e p μₚ E.
+
+Add them, then compare with J = σE.
+
+📍 [Notes 03 §6, "Where Equation 8 comes from"](notes/03-drift.md)
+
 ---
