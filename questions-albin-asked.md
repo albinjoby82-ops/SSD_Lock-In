@@ -174,3 +174,43 @@ Add them, then compare with J = σE.
 📍 [Notes 03 §6, "Where Equation 8 comes from"](notes/03-drift.md)
 
 ---
+
+## Topic 4 — Diffusion and the built-in field
+
+**Q: Q9 part 1. How was the n(x) and p(x) sketch made?**
+
+Doping is the majority concentration, so n ≈ N(x). That is a straight line down to 0 at x = 0.04.
+
+Holes follow from p = nᵢ²/n. Small n means big p, so p rises towards the right.
+
+Use the calculator table for a few x values, then plot.
+
+📍 [Notes 04 §7](notes/04-diffusion.md), [Notes 01 §5](notes/01-bond-model.md)
+
+<br>
+
+**Q: Q9 part 2. How do I derive the built-in field?**
+
+No current flows, so Jₙ = 0. That means drift cancels diffusion.
+
+Rearrange for E, then swap Dₙ/μₙ for kT/e (Einstein).
+
+Put in n = N(x) and its slope. Result: E(x) = 0.065/(0.1 − 2.5x) V/cm.
+
+⭐ Learn this derivation.
+
+📍 [Notes 04, learn-by-heart box and §7](notes/04-diffusion.md)
+
+<br>
+
+**Q: Q9 part 3. Which way does the field point?**
+
+Electrons diffuse right, from high doping to low doping.
+
+The field must push them back left. Electrons move against E, so E points right.
+
+This matches the positive answer from part 2.
+
+📍 [Notes 04 §7, "Direction"](notes/04-diffusion.md)
+
+---
