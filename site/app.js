@@ -494,9 +494,32 @@ function renderVariant(q, gen, refs, onSolved, again) {
 const notesPane = document.getElementById('notes');
 const notesBody = document.getElementById('notes-body');
 let notesTopic = null;
+const notesView = document.getElementById('notes-view'), docView = document.getElementById('doc-view'), docBody = document.getElementById('doc-body');
+const tabBtns = [...document.querySelectorAll('#pane-tabs button')];
+function showTab(tab) {
+  notesPane.hidden = false; document.body.classList.add('split');
+  tabBtns.forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
+  notesView.hidden = tab !== 'notes'; docView.hidden = tab === 'notes';
+}
+let docFile = null;
+async function openDoc(file) {
+  showTab(file);
+  if (docFile === file) return;
+  docFile = null;
+  docBody.innerHTML = '<p class="loading">Loading…</p>';
+  try { docBody.innerHTML = md(await load(file), ''); docFile = file; } catch (e) { docBody.innerHTML = `<p class="err">Couldn't load ${esc(file)}.</p>`; }
+  docBody.scrollTop = 0;
+}
+tabBtns.forEach(b => b.onclick = () => {
+  const tab = b.dataset.tab;
+  if (tab !== 'notes') return openDoc(tab);
+  if (notesTopic !== null) return showTab('notes');
+  const m = location.hash.match(/topic\/(\d+)/);
+  openNotes(m ? +m[1] : 1);
+});
 async function openNotes(topicN, ref = {}, refs = null, here = topicN) {
   const t = INDEX.topics.find(x => x.n === +topicN); if (!t) return;
-  notesPane.hidden = false; document.body.classList.add('split');
+  showTab('notes');
   document.getElementById('notes-title').textContent = `Topic ${t.n} notes`;
   const chips = document.getElementById('notes-chips');
   chips.innerHTML = '';
@@ -845,21 +868,9 @@ async function viewPlan(seq) {
 
 function notFound() { app.innerHTML = `<p class="empty">Page not found. <a href="#/">Go home</a></p>`; }
 
-// ---------------------------------------------------------------- formula sheet modal
-const modal = document.getElementById('modal'), modalBody = document.getElementById('modal-body');
-async function openDoc(file) {
-  modal.hidden = false; document.body.style.overflow = 'hidden';
-  document.querySelectorAll('#modal-tabs button').forEach(b => b.classList.toggle('on', b.dataset.doc === file));
-  modalBody.innerHTML = '<p class="loading">Loading…</p>';
-  try { modalBody.innerHTML = md(await load(file), ''); } catch (e) { modalBody.innerHTML = `<p class="err">Couldn't load ${esc(file)}.</p>`; }
-  modalBody.scrollTop = 0;
-}
-const closeModal = () => { modal.hidden = true; document.body.style.overflow = ''; };
+// ---------------------------------------------------------------- formula sheet button + Esc (the sheet lives in the notes panel tabs)
 document.getElementById('btn-formulas').onclick = () => openDoc('formula-sheet.md');
-document.getElementById('modal-close').onclick = closeModal;
-modal.onclick = e => { if (e.target === modal) closeModal(); };
-document.querySelectorAll('#modal-tabs button').forEach(b => b.onclick = () => openDoc(b.dataset.doc));
-document.addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (!modal.hidden) closeModal(); else if (!notesPane.hidden) closeNotes(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !notesPane.hidden) closeNotes(); });
 
 // ---------------------------------------------------------------- router
 let markListeners = [];
