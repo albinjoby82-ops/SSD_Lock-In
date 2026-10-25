@@ -14,6 +14,7 @@ Questions I got lost on. Redo these before the midterm.
 - **Ch2 Q2:** draw n-Si and p-Si before contact. [Question](questions/08-contact.md) · [Working, notes 08 §2](notes/08-contact.md)
 - **Ch2 Q3:** re-draw filled and empty levels on contact. [Question](questions/08-contact.md) · [Notes 08 §3](notes/08-contact.md)
 - **Ch2 Q4:** band diagram of the Q2 materials in contact. [Question](questions/08-contact.md) · [Notes 08 §5](notes/08-contact.md)
+- **Ch2 Q6:** Schottky vs ohmic contact, 5 parts (must know). [Question](questions/09-metal-semiconductor.md) · [Notes 09](notes/09-metal-semiconductor.md)
 
 ## Chapter 1 — Semiconductors (slides `SSD_1.pdf`)
 

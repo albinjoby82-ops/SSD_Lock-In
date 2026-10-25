@@ -870,7 +870,7 @@ async function viewPlan(seq) {
 // ---------------------------------------------------------------- repetition: one question at a time, misses come back
 // Each question has a level 0-5. A miss drops it to 0 and it returns after 3 other cards.
 // A got-it moves it up a level and pushes its return further away (cards AND minutes).
-const REP_SEED = ['questions/08-contact.md#Q2', 'questions/08-contact.md#Q3', 'questions/08-contact.md#Q4'];
+const REP_SEED = ['questions/08-contact.md#Q2', 'questions/08-contact.md#Q3', 'questions/08-contact.md#Q4', 'questions/09-metal-semiconductor.md#Q6'];
 const REP_GAPS = [[3, 0], [6, 10], [10, 180], [14, 720], [20, 1440], [30, 2880]]; // level → [cards, minutes]
 const REP_WHEN = ['in a few cards', 'in about 10 minutes', 'in about 3 hours', 'in about 12 hours', 'tomorrow', 'in about 2 days'];
 const repGet = () => store.get('rep:state', {});
@@ -914,9 +914,12 @@ async function viewRepeat(seq) {
   const qs = await allQs(); fresh(seq);
   let poolKind = store.get('pref:reppool', 'tut');
   const s0 = repGet();
-  if (!s0._seeded) {
-    REP_SEED.forEach(k => { if (qs.some(q => q.key === k) && !s0[k]) s0[k] = { lv: 0, n: 0, w: 0, dt: 0, da: 0 }; });
-    s0._seeded = true; repSet(s0);
+  // each seed is added once; an older save that just says "true" already had the first three
+  const seeded = Array.isArray(s0._seeded) ? s0._seeded : (s0._seeded ? REP_SEED.slice(0, 3) : []);
+  const todo = REP_SEED.filter(k => !seeded.includes(k));
+  if (todo.length) {
+    todo.forEach(k => { if (qs.some(q => q.key === k) && !s0[k]) s0[k] = { lv: 0, n: 0, w: 0, dt: 0, da: 0 }; seeded.push(k); });
+    s0._seeded = seeded; repSet(s0);
   }
   const poolQs = () => qs.filter(q => poolKind === 'all' || q.part === 'tut');
   app.innerHTML = '';
