@@ -255,4 +255,70 @@ Set n = p with E_F = E_i, put E_V = 0 so E_C = E_G, take logs. E_i = E_G/2 + (kT
 
 📍 [Notes 05, learn-by-heart box and §7](notes/05-fermi-level.md)
 
+<br>
+
+**Q: How does n = N_C e^(−(E_C − E_F)/kT) turn into E_F − E_i = kT ln(N_D/nᵢ)?**
+
+Write the first formula twice, once for your sample and once for pure Si (E_F = E_i, n = nᵢ). Divide. N_C cancels.
+
+n ÷ nᵢ = e^((E_F − E_i)/kT)
+
+Take ln, then swap n for N_D (n-type: n = N_D).
+
+E_F − E_i = kT ln(N_D ÷ nᵢ)
+
+📍 [Notes 05 §7, Equation 15](notes/05-fermi-level.md)
+
+<br>
+
+**Q: Is E_F − E_i = kT ln(N_D/nᵢ) on the formula sheet?**
+
+Not in that form.
+
+The sheet has n = N_C e^(−(E_C − E_F)/kT) (and the p version). Flip it and you get E_C − E_F = kT ln(N_C ÷ n). That does the same job with only sheet values.
+
+📍 [Notes 05 §6](notes/05-fermi-level.md), [formula-sheet.md](formula-sheet.md)
+
+---
+
+## Topic 8 — Bringing materials into contact
+
+**Q: Ch2 Q2. What is it asking, and what do I do?**
+
+Draw n-Si and p-Si before contact. Same E_vac, same E_C and E_V heights. Only E_F is different.
+
+n-side E_F is high (near E_C). p-side E_F is low (near E_V).
+
+📍 [Notes 08 §2](notes/08-contact.md)
+
+<br>
+
+**Q: What are E_vac, χ, φ and IE in the Ch2 Q2 diagram?**
+
+E_vac is the free-electron level. It's the ceiling, drawn once for both sides.
+
+χ: E_vac down to E_C. 4.05 eV for Si, same on both sides.
+
+φ: E_vac down to E_F. It changes with doping.
+
+IE: E_vac down to E_V. χ + E_G = 4.05 + 1.12 = 5.17 eV.
+
+📍 [Notes 06](notes/06-workfunction.md), [Notes 08 §2](notes/08-contact.md)
+
+<br>
+
+**Q: How do we get E_C − E_F = 0.12 eV and 0.95 eV, and φ = 4.17 eV and 5 eV?**
+
+Same formula both sides:
+
+E_C − E_F = kT ln(N_C ÷ n)
+
+n-Si: n = N_D, so 0.026 × ln(3.2×10¹⁹ ÷ 3×10¹⁷) = 0.12 eV.
+
+p-Si: n = nᵢ² ÷ N_A = 4.2×10³, so 0.026 × ln(3.2×10¹⁹ ÷ 4.2×10³) = 0.95 eV.
+
+Then φ = χ + (E_C − E_F) = 4.05 + 0.12 = 4.17 eV, and 4.05 + 0.95 = 5.0 eV.
+
+📍 [Notes 08 §2](notes/08-contact.md), [Notes 06 §3](notes/06-workfunction.md)
+
 ---

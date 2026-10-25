@@ -66,6 +66,67 @@ This is Tutorial Ch2 Q2. Official answer:
 
 ---
 
+**Where do 0.12 eV, 0.95 eV, 4.17 eV and 5 eV come from? (Tutorial Ch2 Q2)**
+
+Only E_F changes between the two sides. So the job is: find how far E_F sits below E_C, then add χ to get φ.
+
+Use the same formula for both sides (Equation 14 flipped, Topic 5 §6):
+
+E_C − E_F = kT ln(N_C ÷ n)
+
+**Step 1. n-Si.** Donors, so n = N_D = 3 × 10¹⁷ cm⁻³ (Topic 2).
+
+E_C − E_F = 0.026 × ln(3.2 × 10¹⁹ ÷ 3 × 10¹⁷)
+
+E_C − E_F = 0.026 × ln(107) = 0.026 × 4.67 = **0.12 eV**
+
+φ = χ + (E_C − E_F) = 4.05 + 0.12 = **4.17 eV**
+
+**Step 2. p-Si.** Acceptors, so p = N_A = 5 × 10¹⁶ cm⁻³. The formula needs n, and in p-type n is the **minority**. Use n × p = nᵢ² (Topic 2):
+
+n = nᵢ² ÷ N_A = 2.1 × 10²⁰ ÷ 5 × 10¹⁶ = 4.2 × 10³ cm⁻³
+
+E_C − E_F = 0.026 × ln(3.2 × 10¹⁹ ÷ 4.2 × 10³)
+
+E_C − E_F = 0.026 × ln(7.6 × 10¹⁵) = 0.026 × 36.6 = **0.95 eV**
+
+φ = 4.05 + 0.95 = **5.0 eV**
+
+**Step 3. Draw it.**
+
+- One shared E_vac at the top.
+- E_C is χ = 4.05 eV below it, on both sides.
+- E_V is 1.12 eV below E_C, on both sides.
+- E_F is 0.12 eV below E_C on the n-side, 0.95 eV below E_C on the p-side.
+- φ arrow ends on E_F. χ arrow ends on E_C. IE arrow ends on E_V.
+
+**Same answer another way (E_i route, Topic 5 §7):**
+
+E_i is about 0.56 eV below E_C (middle of the gap).
+
+n-Si: E_C − E_F = 0.56 − 0.026 × ln(3 × 10¹⁷ ÷ 1.45 × 10¹⁰) = 0.56 − 0.44 = **0.12 eV**
+
+p-Si: E_C − E_F = 0.56 + 0.026 × ln(5 × 10¹⁶ ÷ 1.45 × 10¹⁰) = 0.56 + 0.39 = **0.95 eV**
+
+Use whichever one you find easier. The first one only needs the formula sheet.
+
+### 🧠 Check
+n-Si with N_D = 10¹⁶ cm⁻³. Find E_C − E_F and φ.
+
+<details><summary>Answer</summary>
+
+n = N_D = 10¹⁶
+
+E_C − E_F = 0.026 × ln(3.2 × 10¹⁹ ÷ 10¹⁶) = 0.026 × ln(3200) = 0.026 × 8.07 = **0.21 eV**
+
+φ = 4.05 + 0.21 = **4.26 eV**
+
+Less doping, so E_F sits lower, further from E_C, so φ goes up. ✓
+
+</details>
+
+---
+
 ### 🧠 Check
 Which side has the higher E_F, n or p? Which way will electrons flow when you join them?
 
