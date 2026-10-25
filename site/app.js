@@ -606,6 +606,7 @@ async function viewHome(seq) {
     ${todayCard()}
     <div class="modes">
       <a class="mode primary" href="#/plan"><span class="ic">📅</span><b>3-day plan</b><small>Your checklist for Sat, Sun and Mon, SSD and CE</small></a>
+      <a class="mode" href="#/repeat"><span class="ic">🔁</span><b>Repetition</b><small>${repHomeText()}</small></a>
       <a class="mode" href="#/drill/tutorial"><span class="ic">🎯</span><b>Tutorial drill</b><small>All ${tutCount} tutorial questions, Ch1 Q1 → Ch2 Q13, in order</small></a>
       <a class="mode" href="#/drill/weak"><span class="ic">🔁</span><b>Weak spots</b><small>${weak ? weak + ' question' + (weak > 1 ? 's' : '') + ' you marked missed or partly' : 'Mark questions as you go, then redo the ones you missed'}</small></a>
       <a class="mode" href="#/drill/random"><span class="ic">🎲</span><b>Random 10</b><small>Mixed questions from every topic</small></a>
@@ -866,6 +867,118 @@ async function viewPlan(seq) {
   app.append(h(`<p class="sub" style="margin-top:28px">Times are rough. If a topic runs over, steal from the ●● topics, not the ●●● ones.</p>`));
 }
 
+// ---------------------------------------------------------------- repetition: one question at a time, misses come back
+// Each question has a level 0-5. A miss drops it to 0 and it returns after 3 other cards.
+// A got-it moves it up a level and pushes its return further away (cards AND minutes).
+const REP_SEED = ['questions/08-contact.md#Q2', 'questions/08-contact.md#Q3', 'questions/08-contact.md#Q4'];
+const REP_GAPS = [[3, 0], [6, 10], [10, 180], [14, 720], [20, 1440], [30, 2880]]; // level → [cards, minutes]
+const REP_WHEN = ['in a few cards', 'in about 10 minutes', 'in about 3 hours', 'in about 12 hours', 'tomorrow', 'in about 2 days'];
+const repGet = () => store.get('rep:state', {});
+const repSet = s => store.set('rep:state', s);
+const repReady = (s, turn, now) => turn >= s.dt && now >= s.da;
+
+function repHomeText() {
+  const st = repGet(), now = Date.now(), turn = store.get('rep:turn', 0);
+  const keys = Object.keys(st).filter(k => k !== '_seeded');
+  const due = keys.filter(k => repReady(st[k], turn, now)).length;
+  return keys.length ? `${due} due now. Keep drilling, missed questions come back.` : 'Keep drilling. Missed questions come back until they stick.';
+}
+
+// grade one question; returns when it will come back
+function repGrade(key, v) {
+  const st = repGet(), turn = store.get('rep:turn', 0) + 1, now = Date.now();
+  const s = st[key] || { lv: 0, n: 0, w: 0, dt: 0, da: 0 };
+  s.n++;
+  let when;
+  if (v === 'miss') { s.lv = 0; s.w++; s.dt = turn + REP_GAPS[0][0]; s.da = 0; when = REP_WHEN[0]; }
+  else if (v === 'part') { s.dt = turn + 6; s.da = now + 2 * 60000; when = 'in about 6 cards'; }
+  else { s.lv = Math.min(5, s.lv + 1); const g = REP_GAPS[s.lv]; s.dt = turn + g[0]; s.da = now + g[1] * 60000; when = REP_WHEN[s.lv]; }
+  st[key] = s; repSet(st); store.set('rep:turn', turn);
+  return when;
+}
+
+// next question: due ones first (weakest level, then longest waiting), then new ones, else the soonest to come back
+function repPick(pool, st, turn, skipKey) {
+  const now = Date.now();
+  const seen = pool.filter(q => st[q.key] && q.key !== skipKey);
+  const due = seen.filter(q => repReady(st[q.key], turn, now))
+    .sort((a, b) => st[a.key].lv - st[b.key].lv || st[a.key].da - st[b.key].da || st[a.key].dt - st[b.key].dt);
+  if (due.length) return due[0];
+  const unseen = pool.filter(q => !st[q.key] && q.key !== skipKey).sort((a, b) => tutOrder(a) - tutOrder(b));
+  if (unseen.length) return unseen[0];
+  if (seen.length) return seen.sort((a, b) => st[a.key].dt - st[b.key].dt || st[a.key].da - st[b.key].da)[0];
+  return pool.find(q => q.key === skipKey) || null;
+}
+
+async function viewRepeat(seq) {
+  const qs = await allQs(); fresh(seq);
+  let poolKind = store.get('pref:reppool', 'tut');
+  const s0 = repGet();
+  if (!s0._seeded) {
+    REP_SEED.forEach(k => { if (qs.some(q => q.key === k) && !s0[k]) s0[k] = { lv: 0, n: 0, w: 0, dt: 0, da: 0 }; });
+    s0._seeded = true; repSet(s0);
+  }
+  const poolQs = () => qs.filter(q => poolKind === 'all' || q.part === 'tut');
+  app.innerHTML = '';
+  app.append(h(`<div><div class="crumb"><a href="#/">← Home</a></div><h1>🔁 Repetition</h1>
+    <p class="sub">Do a question, then grade yourself. Missed ones come back in a few cards. Ones you get right come back later.</p></div>`));
+  const bar = h(`<div class="filters"><div class="seg"><button data-p="tut">Tutorial questions</button><button data-p="all">Everything</button></div><div class="tally rep-stats"></div></div>`);
+  app.append(bar);
+  const lastBox = h(`<div class="rep-last" hidden></div>`);
+  const statusBox = h(`<p class="rep-status"></p>`);
+  const cardBox = h(`<div class="rep-card"></div>`);
+  const gradeBox = h(`<div class="selfmark rep-grade" hidden><p>Done? Grade yourself to get the next question.</p><div class="row">
+      <button class="sm miss" data-v="miss">✗ Missed it</button>
+      <button class="sm part" data-v="part">~ Partly</button>
+      <button class="sm got" data-v="got">✓ Got it</button>
+      <button class="btn ghost" data-v="skip">Skip</button></div></div>`);
+  app.append(lastBox, statusBox, cardBox, gradeBox);
+  const foot = h(`<footer class="foot"><button>Reset repetition progress</button></footer>`);
+  foot.querySelector('button').onclick = () => { if (confirm('Forget what you have got right and wrong in Repetition?')) { store.del('rep:state'); store.del('rep:turn'); route(); } };
+  app.append(foot);
+
+  let cur = null, lastKey = null, armed = false;
+  const stats = () => {
+    const pool = poolQs(), st = repGet(), turn = store.get('rep:turn', 0), now = Date.now();
+    const seen = pool.filter(q => st[q.key]);
+    const due = seen.filter(q => repReady(st[q.key], turn, now)).length;
+    const solid = seen.filter(q => st[q.key].lv >= 3).length;
+    bar.querySelector('.rep-stats').innerHTML = `<b class="m">${due} due now</b><span>${pool.length - seen.length} new</span><b class="g">${solid} solid</b><span>${pool.length} in this set</span>`;
+    bar.querySelectorAll('.seg button').forEach(b => b.classList.toggle('on', b.dataset.p === poolKind));
+  };
+  const show = () => {
+    const pool = poolQs(), st = repGet(), turn = store.get('rep:turn', 0);
+    stats(); cardBox.innerHTML = ''; gradeBox.querySelectorAll('.sm').forEach(b => b.classList.remove('on'));
+    cur = repPick(pool, st, turn, lastKey);
+    if (!cur) { gradeBox.hidden = true; statusBox.textContent = ''; cardBox.append(h(`<p class="empty">No questions found.</p>`)); return; }
+    const s = st[cur.key];
+    statusBox.textContent = !s ? 'New question' : s.n === 0 ? '🔁 Relearn: you flagged this one' : s.lv === 0 ? `Missed ${s.w}×. Keep going until it sticks.` : `Level ${s.lv} of 5 · seen ${s.n}×`;
+    armed = false;
+    cardBox.append(renderCard(cur, { showTopic: true }));
+    armed = true;
+    gradeBox.hidden = false;
+    window.scrollTo(0, 0);
+  };
+  // true/false and multiple-choice cards mark themselves: show that as a suggestion
+  onMarks(() => {
+    if (!armed || !cur) return;
+    const v = markOf(cur.key);
+    gradeBox.querySelectorAll('.sm').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  });
+  gradeBox.querySelectorAll('[data-v]').forEach(b => b.onclick = () => {
+    if (!cur) return;
+    const v = b.dataset.v, label = cur.tut || cur.qid;
+    if (v === 'skip') { lastKey = cur.key; lastBox.hidden = true; return show(); }
+    setMark(cur.key, v); document.dispatchEvent(new CustomEvent('marks-changed'));
+    const when = repGrade(cur.key, v);
+    lastBox.hidden = false; lastBox.className = 'rep-last ' + v;
+    lastBox.innerHTML = `${MARK_LABEL[v]} · <b>${esc(label)}</b> comes back ${when}.`;
+    lastKey = cur.key; show();
+  });
+  bar.querySelectorAll('.seg button').forEach(b => b.onclick = () => { poolKind = b.dataset.p; store.set('pref:reppool', poolKind); lastKey = null; lastBox.hidden = true; show(); });
+  show();
+}
+
 function notFound() { app.innerHTML = `<p class="empty">Page not found. <a href="#/">Go home</a></p>`; }
 
 // ---------------------------------------------------------------- formula sheet button + Esc (the sheet lives in the notes panel tabs)
@@ -890,6 +1003,7 @@ async function route() {
     else if (view === 'drill') await viewDrill(arg, seq);
     else if (view === 'mock') await viewMock(arg, seq);
     else if (view === 'plan') await viewPlan(seq);
+    else if (view === 'repeat') await viewRepeat(seq);
     else notFound();
   } catch (e) {
     if (e instanceof Stale) return;
