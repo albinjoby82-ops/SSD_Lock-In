@@ -28,6 +28,14 @@ Questions I got lost on. Redo these before the midterm.
 | 6 | [Vacuum level, electron affinity χ, workfunction φ](notes/06-workfunction.md) | 170–176 | [Ch1 Q16, Ch2 Q1](questions/06-workfunction.md) | ●● | ☐ | ☐ |
 | 7 | [Band diagram under applied voltage (bands tilt)](notes/07-bands-under-field.md) | 177–186 | [Ch1 Q17, Q18](questions/07-bands-under-field.md) | ●● | ☐ | ☐ |
 
+### Chapter 1 wrap-up
+
+Do this after Topics 1–7. Every Ch1 tutorial question again, with new numbers or a new kind of diagram (read it, spot the mistakes, work backwards).
+
+| Paper | Done |
+|---|---|
+| [Ch1 Wrap-up](mock/midterm-3.md) (Ch1 only · new numbers and new diagrams · 100 marks) | ☐ |
+
 ## Chapter 2 — Junctions & pn diodes (slides `SSD_2.pdf`)
 
 | # | Topic | Slides | Tutorial Qs | Weight | Notes | Qs done |

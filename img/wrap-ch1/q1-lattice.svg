@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="680" height="430" font-family="Arial, Helvetica, sans-serif">
+<title>Mystery dopant in a silicon lattice</title>
+<desc>A 3 by 3 grid of atoms. The eight outer atoms are Si. The centre atom is marked with a question mark. Three of its bonds hold two electrons. The bond to its right holds one electron and one empty spot.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="1" y="1" width="678" height="428" rx="14" fill="#ffffff" stroke="#d5dcea"/>
+<line x1="210" y1="95" x2="330" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="95" x2="450" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="148" y1="95" x2="210" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="95" x2="512" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="210" y1="210" x2="330" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="210" x2="450" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="148" y1="210" x2="210" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="210" x2="512" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="210" y1="325" x2="330" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="325" x2="450" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="148" y1="325" x2="210" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="325" x2="512" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="210" y1="95" x2="210" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="210" y1="210" x2="210" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="210" y1="33" x2="210" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="210" y1="325" x2="210" y2="387" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="95" x2="330" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="210" x2="330" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="33" x2="330" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="330" y1="325" x2="330" y2="387" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="95" x2="450" y2="210" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="210" x2="450" y2="325" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="33" x2="450" y2="95" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<line x1="450" y1="325" x2="450" y2="387" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/>
+<circle cx="270.0" cy="87" r="6" fill="#1a2540"/>
+<circle cx="270.0" cy="103" r="6" fill="#1a2540"/>
+<circle cx="390.0" cy="87" r="6" fill="#1a2540"/>
+<circle cx="390.0" cy="103" r="6" fill="#1a2540"/>
+<circle cx="179.0" cy="87" r="6" fill="#1a2540"/>
+<circle cx="179.0" cy="103" r="6" fill="#1a2540"/>
+<circle cx="481.0" cy="87" r="6" fill="#1a2540"/>
+<circle cx="481.0" cy="103" r="6" fill="#1a2540"/>
+<circle cx="270.0" cy="202" r="6" fill="#1a2540"/>
+<circle cx="270.0" cy="218" r="6" fill="#1a2540"/>
+<circle cx="390.0" cy="202" r="6" fill="#1a2540"/>
+<circle cx="390.0" cy="218" r="6" fill="#fff" stroke="#c2410c" stroke-width="2.2"/>
+<circle cx="179.0" cy="202" r="6" fill="#1a2540"/>
+<circle cx="179.0" cy="218" r="6" fill="#1a2540"/>
+<circle cx="481.0" cy="202" r="6" fill="#1a2540"/>
+<circle cx="481.0" cy="218" r="6" fill="#1a2540"/>
+<circle cx="270.0" cy="317" r="6" fill="#1a2540"/>
+<circle cx="270.0" cy="333" r="6" fill="#1a2540"/>
+<circle cx="390.0" cy="317" r="6" fill="#1a2540"/>
+<circle cx="390.0" cy="333" r="6" fill="#1a2540"/>
+<circle cx="179.0" cy="317" r="6" fill="#1a2540"/>
+<circle cx="179.0" cy="333" r="6" fill="#1a2540"/>
+<circle cx="481.0" cy="317" r="6" fill="#1a2540"/>
+<circle cx="481.0" cy="333" r="6" fill="#1a2540"/>
+<circle cx="202" cy="152.5" r="6" fill="#1a2540"/>
+<circle cx="218" cy="152.5" r="6" fill="#1a2540"/>
+<circle cx="202" cy="267.5" r="6" fill="#1a2540"/>
+<circle cx="218" cy="267.5" r="6" fill="#1a2540"/>
+<circle cx="202" cy="64.0" r="6" fill="#1a2540"/>
+<circle cx="218" cy="64.0" r="6" fill="#1a2540"/>
+<circle cx="202" cy="356.0" r="6" fill="#1a2540"/>
+<circle cx="218" cy="356.0" r="6" fill="#1a2540"/>
+<circle cx="322" cy="152.5" r="6" fill="#1a2540"/>
+<circle cx="338" cy="152.5" r="6" fill="#1a2540"/>
+<circle cx="322" cy="267.5" r="6" fill="#1a2540"/>
+<circle cx="338" cy="267.5" r="6" fill="#1a2540"/>
+<circle cx="322" cy="64.0" r="6" fill="#1a2540"/>
+<circle cx="338" cy="64.0" r="6" fill="#1a2540"/>
+<circle cx="322" cy="356.0" r="6" fill="#1a2540"/>
+<circle cx="338" cy="356.0" r="6" fill="#1a2540"/>
+<circle cx="442" cy="152.5" r="6" fill="#1a2540"/>
+<circle cx="458" cy="152.5" r="6" fill="#1a2540"/>
+<circle cx="442" cy="267.5" r="6" fill="#1a2540"/>
+<circle cx="458" cy="267.5" r="6" fill="#1a2540"/>
+<circle cx="442" cy="64.0" r="6" fill="#1a2540"/>
+<circle cx="458" cy="64.0" r="6" fill="#1a2540"/>
+<circle cx="442" cy="356.0" r="6" fill="#1a2540"/>
+<circle cx="458" cy="356.0" r="6" fill="#1a2540"/>
+<circle cx="210" cy="95" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="210" y="101" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="330" cy="95" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="330" y="101" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="450" cy="95" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="450" y="101" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="210" cy="210" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="210" y="216" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="330" cy="210" r="27" fill="#fde7c7" stroke="#b45309" stroke-width="2.5"/><text x="330" y="218" text-anchor="middle" font-size="24" font-weight="700" fill="#b45309">?</text>
+<circle cx="450" cy="210" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="450" y="216" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="210" cy="325" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="210" y="331" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="330" cy="325" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="330" y="331" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<circle cx="450" cy="325" r="25" fill="#e8eefb" stroke="#1a2540" stroke-width="1.5"/><text x="450" y="331" text-anchor="middle" font-size="17" fill="#1a2540">Si</text>
+<g font-size="15" fill="#1a2540"><circle cx="560" cy="160" r="6" fill="#1a2540"/><text x="575" y="165">electron</text><circle cx="560" cy="195" r="6" fill="#fff" stroke="#c2410c" stroke-width="2.2"/><text x="575" y="200">empty spot</text><line x1="545" y1="230" x2="575" y2="230" stroke="#d5dcea" stroke-width="10" stroke-linecap="round"/><text x="585" y="235">bond</text></g>
+</svg>

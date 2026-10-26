@@ -279,6 +279,45 @@ The sheet has n = N_C e^(−(E_C − E_F)/kT) (and the p version). Flip it and y
 
 📍 [Notes 05 §6](notes/05-fermi-level.md), [formula-sheet.md](formula-sheet.md)
 
+<br>
+
+**Q: How do I rearrange p = N_V e^((E_V − E_F)/kT) to get E_C − E_F?**
+
+Two steps.
+
+1. Solve for the gap above E_V: E_F − E_V = kT ln(N_V ÷ p).
+2. The two gaps add up to the bandgap, so E_C − E_F = E_G − (E_F − E_V).
+
+Ch2 Q2 p-Si: E_F − E_V = 0.026 × ln(1.8×10¹⁹ ÷ 5×10¹⁶) = 0.153 eV. So E_C − E_F = 1.12 − 0.153 ≈ 0.97 eV (the card's 0.95 is rounding).
+
+📍 [Notes 05 §6, Equation 14](notes/05-fermi-level.md)
+
+<br>
+
+**Q: What is E_G on the diagram?**
+
+The bandgap: the whole distance from E_C down to E_V.
+
+1.12 eV for Si at 300 K. It's on the constants table.
+
+Doping moves E_F inside the gap. It never changes E_G.
+
+📍 [Notes 05 §1](notes/05-fermi-level.md)
+
+---
+
+## Topic 6 — Workfunction
+
+**Q: How are we meant to know χ?**
+
+You don't calculate it. χ = 4.05 eV is a fixed property of Si.
+
+It's not on the constants table, so the question gives it, or it's in the notes (Topic 6). Learn 4.05 eV.
+
+It's the same for n-Si and p-Si. Only E_C − E_F changes with doping, which you get from the table.
+
+📍 [Notes 06 §1](notes/06-workfunction.md)
+
 ---
 
 ## Topic 8 — Bringing materials into contact
@@ -320,5 +359,84 @@ p-Si: n = nᵢ² ÷ N_A = 4.2×10³, so 0.026 × ln(3.2×10¹⁹ ÷ 4.2×10³) =
 Then φ = χ + (E_C − E_F) = 4.05 + 0.12 = 4.17 eV, and 4.05 + 0.95 = 5.0 eV.
 
 📍 [Notes 08 §2](notes/08-contact.md), [Notes 06 §3](notes/06-workfunction.md)
+
+<br>
+
+**Q: Metal on p-Si (φₘ > φ_Si). Why do the bands bend up?**
+
+- Metal E_F is lower, so electrons flow Si → metal.
+- Si near the interface loses electrons, so holes pile up there (+). The metal surface goes −.
+- That charge makes a field which pushes electrons back. Flow stops when the E_F lines match, so E_F is flat.
+- Far from the interface the Si bands drop with E_F. At the interface they curve **up** to meet the metal.
+- Up = E_V closer to E_F = more holes. That matches "gains holes".
+
+📍 [Notes 08](notes/08-contact.md), [Notes 09](notes/09-metal-semiconductor.md)
+
+---
+
+## Topic 9 — Metal–semiconductor
+
+**Q: Ch2 Q6e. What is the Schottky diagram trying to say?**
+
+- It's a one-way valve. Three pictures: 0 V, forward, reverse.
+- n-Si: electrons (the majority) leave, so a barrier forms where the bands bend up. ℰ₀ is the built-in field.
+- Forward: ℰ_ext points against ℰ₀, the barrier drops by eV, electrons climb over, current flows.
+- Reverse: ℰ_ext adds to ℰ₀, the barrier grows by eV, the electron faces the gap, no current.
+- p-Si (Q6a) had holes piling up, so no barrier, so ohmic.
+
+📍 [Notes 09](notes/09-metal-semiconductor.md)
+
+<br>
+
+**Q: What are eV and ℰ₀?**
+
+eV is an **energy gap**, not a line: how far the applied voltage V shifts the levels. It's how much the barrier shrinks or grows.
+
+ℰ₀ is the built-in **electric field**, drawn as an arrow at the junction.
+
+Lines = E_C, E_F, E_V. Gaps = eV, eV₀, E_G. Arrows = ℰ.
+
+📍 [Notes 09](notes/09-metal-semiconductor.md)
+
+---
+
+## Topic 10 — pn diode at zero bias
+
+**Q: Ch2 Q5. What is it asking?**
+
+- Draw the bands of a pn junction with no voltage.
+- Find E_C, E_F, E_i measured up from E_V (take E_V = 0) on **both** sides.
+- Find V₀, the built-in voltage = the total band bending ÷ e.
+- One flat E_F line. Bands bend down from p to n by eV₀.
+
+📍 [Notes 10](notes/10-pn-zero-bias.md)
+
+<br>
+
+**Q: Does only E_F change?**
+
+Yes, relative to its own bands.
+
+E_C, E_i, E_V keep their spacing. Doping only moves E_F: up for n-type, down for p-type.
+
+In the joined diode E_F is the flat line, so the n-side bands slide down by eV₀ instead.
+
+📍 [Notes 10](notes/10-pn-zero-bias.md)
+
+<br>
+
+**Q: I got E_F = 0.85 eV on the n-side, not 0.91. Which is right?**
+
+0.85 eV is right when E_G ≈ 1 eV is given.
+
+Use N_C: E_C − E_F = 0.026 × ln(3.2×10¹⁹ ÷ 10¹⁷) = 0.15 eV, so E_F = 1.0 − 0.15 = 0.85 eV.
+
+The 0.91 came from mixing nᵢ = 1.45×10¹⁰ (which belongs to E_G = 1.12) with E_i = 0.5 eV.
+
+p-side the same way: E_F − E_V = 0.026 × ln(1.8×10¹⁹ ÷ 10¹⁷) = 0.135 eV. So V₀ ≈ 0.85 − 0.135 ≈ 0.72 V.
+
+Show your method and either route gets marks.
+
+📍 [Notes 10](notes/10-pn-zero-bias.md)
 
 ---

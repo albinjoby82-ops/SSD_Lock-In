@@ -134,8 +134,8 @@ async function loadIndex() {
       const c = line.match(/^##\s+Chapter\s+(\d)/i); if (c) ch = +c[1];
       const m = line.match(/^\|\s*(\d+)\s*\|\s*\[([^\]]+)\]\((notes\/[^)]+)\)\s*\|[^|]*\|\s*\[([^\]]+)\]\((questions\/([^)]+)\.md)\)\s*\|\s*([^|]*)\|/);
       if (m) topics.push({ n: +m[1], title: m[2], notes: m[3], tutQs: m[4], file: m[5], slug: m[6], ch, weight: m[7].trim() });
-      const k = line.match(/\[([^\]]*Mock[^\]]*)\]\((mock\/midterm-(\d+)\.md)\)\s*(\(([^)]*)\))?/i);
-      if (k && line.startsWith('|')) mocks.push({ title: k[1], file: k[2], id: k[3], note: k[5] || '' });
+      const k = line.match(/\[([^\]]*(?:Mock|Wrap)[^\]]*)\]\((mock\/midterm-(\d+)\.md)\)\s*(\(([^)]*)\))?/i);
+      if (k && line.startsWith('|')) mocks.push({ title: k[1], file: k[2], id: k[3], note: k[5] || '', wrap: (/wrap/i.test(k[1]) && +((k[1].match(/Ch\s*(\d)/i) || [])[1] || 0)) || 0 });
     }
   } catch (e) { console.warn(e); }
   if (!topics.length) topics = FALLBACK_TOPICS;
@@ -628,13 +628,16 @@ async function viewHome(seq) {
           <circle cx="23" cy="23" r="18" fill="none" stroke="var(--good)" stroke-width="5" stroke-linecap="${pct ? 'round' : 'butt'}" stroke-dasharray="${C * pct / 100} ${C}" transform="rotate(-90 23 23)"/>
           <text x="23" y="27" text-anchor="middle">${pct}%</text></svg></a>`));
     }
+    const wraps = mocks.filter(m => m.wrap === ch);
+    if (wraps.length) {
+      const wr = h(`<div class="modes" style="margin-top:14px"></div>`);
+      wraps.forEach(m => wr.append(mockCard(m, '🧩')));
+      sec.append(wr);
+    }
     app.append(sec);
   }
   const ms = h(`<section><h2>Mock midterms</h2><p class="sub">Do these after the topics. Timed, closed book, formula sheet only.</p><div class="modes"></div></section>`);
-  mocks.forEach(m => {
-    const sc = mockScore(m.file);
-    ms.querySelector('.modes').append(h(`<a class="mode" href="#/mock/${m.id}"><span class="ic">📝</span><b>${esc(m.title)}</b><small>${esc(m.note.replace(/[()]/g, '') || '50 minutes, 100 marks')}${sc.marked ? ` · last score ${sc.got}/${sc.marked}` : ''}</small></a>`));
-  });
+  mocks.filter(m => !m.wrap).forEach(m => ms.querySelector('.modes').append(mockCard(m, '📝')));
   app.append(ms);
   const foot = h(`<footer class="foot"><p>Questions are read straight from the <a href="${REPO_BLOB.replace('/blob/main/', '')}" target="_blank" rel="noopener">repo</a>'s <code>questions/</code> and <code>mock/</code> folders. Your progress is saved in this browser only.</p><button>Reset all my progress</button></footer>`);
   foot.querySelector('button').onclick = () => { if (confirm('Clear all your marks and mock scores?')) { store.clearAll(); route(); } };
@@ -705,6 +708,10 @@ async function viewDrill(kind, seq = routeSeq) {
 }
 
 // ---------------------------------------------------------------- mocks
+function mockCard(m, ic) {
+  const sc = mockScore(m.file);
+  return h(`<a class="mode" href="#/mock/${m.id}"><span class="ic">${ic}</span><b>${esc(m.title)}</b><small>${esc(m.note.replace(/[()]/g, '') || '50 minutes, 100 marks')}${sc.marked ? ` · last score ${sc.got}/${sc.marked}` : ''}</small></a>`);
+}
 function mockScore(file) {
   const s = store.get('mock:' + file, {}); let got = 0, marked = 0;
   Object.values(s).forEach(v => { if (v && v.max) { got += +v.got || 0; marked += +v.max; } });
@@ -735,7 +742,7 @@ async function viewMock(id, seq) {
   const saved = () => store.get('mock:' + m.file, {});
   const total = qs.reduce((s, q) => s + q.marks, 0) || 100;
   app.innerHTML = '';
-  app.append(h(`<div><div class="crumb"><a href="#/">← Home</a></div><h1>📝 ${esc(m.title)}</h1><p class="sub">${esc(m.note.replace(/[()]/g, ''))}</p></div>`));
+  app.append(h(`<div><div class="crumb"><a href="#/">← Home</a></div><h1>${m.wrap ? '🧩' : '📝'} ${esc(m.title)}</h1><p class="sub">${esc(m.note.replace(/[()]/g, ''))}</p></div>`));
   app.append(h(`<div class="intro md">${md(intro, base)}</div>`));
   const tb = h(`<div class="timer"><span class="clock">50:00</span>
      <button class="btn go" data-a="start">▶ Start</button><button class="btn" data-a="reset">↺</button>
