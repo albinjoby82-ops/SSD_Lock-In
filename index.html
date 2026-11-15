@@ -1,64 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SSD Lock-In · Practice</title>
-<meta name="description" content="EEEN20070 Solid State Devices midterm practice: tutorial questions, midterm-style questions and mock midterms with worked answers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<title>SSD Lock-In · EEEN20070</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script>
-  // always load the newest CSS/JS (GitHub Pages caches files for 10 minutes)
-  window.__v = Date.now();
-  document.write('<link rel="stylesheet" href="site/style.css?v=' + window.__v + '">');
-</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563eb'/><text x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>Si</text></svg>">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+/* Same paper look as MATH Lock-In: white page, Computer Modern, hairline rules, square corners */
+:root{--ink:#111;--mute:#666;--rule:#111;--hair:#d6d6d6;--acc:#1f4fbf;--ok:#1b7f45;--tint:#f5f5f5;--c:#1f4fbf;--ct:#eef3fd}
+.c1{--c:#1f4fbf;--ct:#eef3fd}.c2{--c:#0f8a80;--ct:#e8f6f4}.c3{--c:#7b3fc4;--ct:#f4eefc}
+*{box-sizing:border-box;border-radius:0}
+html{background:#fff}
+body{margin:0;background:#fff;color:var(--ink);font:19px/1.6 KaTeX_Main,"Latin Modern Roman","Computer Modern Serif","CMU Serif",Georgia,serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.sc{font-variant:small-caps;letter-spacing:.06em}
+.app{display:grid;grid-template-columns:310px 1fr;min-height:100vh}
+
+/* ---------- contents ---------- */
+nav{border-right:1px solid var(--rule);position:sticky;top:0;height:100vh;overflow:auto;padding:28px 22px 40px;font-size:16px;line-height:1.35}
+nav h1{font-size:23px;font-weight:700;margin:0;letter-spacing:.01em}
+nav .sub{color:var(--mute);margin:2px 0 18px}
+.toc-h{font-weight:700;font-size:15px;border-bottom:1px solid var(--rule);padding-bottom:3px;margin:0 0 8px}
+.part{font-weight:700;margin:18px 0 4px;color:var(--c);border-bottom:1px solid var(--c);padding-bottom:2px}
+.topic{margin:10px 0 2px;display:flex;gap:10px;color:var(--ink)}
+.num{min-width:1.7em;font-variant-numeric:tabular-nums;color:var(--c)}
+.qlink{display:block;width:100%;text-align:left;padding:2px 6px 2px 2.5em;font-size:15px}
+.qlink:hover{background:var(--ct)}
+.qlink.on,.qlink.on:hover{background:var(--c);color:#fff}
+
+/* ---------- page ---------- */
+main{padding:34px clamp(18px,5vw,72px) 90px}
+.page{max-width:760px;margin:0 auto}
+.head{display:flex;justify-content:space-between;gap:16px;align-items:baseline;border-bottom:1px solid var(--c);padding-bottom:4px;font-size:16px;color:var(--mute)}
+.head .sc{color:var(--c)}
+h2{font-size:30px;font-weight:700;margin:26px 0 4px;line-height:1.25}
+h2 .num{color:var(--c);margin-right:.6em}
+.src{color:var(--mute);font-size:16px;font-style:italic;margin-bottom:18px}
+h3.sec{font-size:22px;font-weight:700;margin:38px 0 6px;color:var(--c);border-bottom:1px solid var(--hair);padding-bottom:3px}
+p{margin:10px 0}
+ul{margin:8px 0;padding-left:1.3em}
+li{margin:4px 0}
+.dm{overflow-x:auto;overflow-y:hidden;margin:14px 0}
+.katex{font-size:1.08em}
+.katex-display{margin:1em 0;overflow-x:auto;overflow-y:hidden;padding:3px 0;font-size:1.12em}
+.key{border-left:3px solid var(--c);background:var(--ct);padding:6px 18px;margin:16px 0}
+.check{border:1px solid #7b3fc4;border-left-width:3px;background:#fff;padding:10px 16px;margin:18px 0}
+.check .h{font-weight:700;color:#7b3fc4}
+.check .b{display:block;margin-top:8px;border-color:#7b3fc4;color:#7b3fc4}
+.check .ca{border-top:1px solid var(--hair);margin-top:8px;padding-top:6px}
+table{border-collapse:collapse;margin:14px 0;font-size:17px;width:100%}
+th,td{border-bottom:1px solid var(--hair);padding:5px 10px 5px 0;text-align:left;vertical-align:top}
+th{border-bottom:1px solid var(--rule)}
+.tw{overflow-x:auto}
+
+.qtext{font-size:20px;margin-top:8px}
+.qtext .lead{font-weight:700;color:var(--c)}
+.try{color:var(--mute);font-style:italic;margin-top:14px}
+.sol{margin-top:22px}
+.sol>.lab{font-style:italic;margin-bottom:4px;color:var(--c)}
+.step{display:grid;grid-template-columns:2.4em 1fr;margin-top:16px}
+.step .n{font-weight:700;color:var(--c)}
+.step h3{font-size:inherit;font-style:italic;font-weight:400;margin:0}
+.step>div{min-width:0}
+.ans{border:1.5px solid var(--ok);background:#effaf3;padding:10px 18px;margin-top:20px}
+.ans .l{font-weight:700;color:var(--ok)}
+
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.b{border:1px solid var(--rule);padding:6px 16px;font-size:16.5px;background:#fff}
+.b:hover{background:var(--tint)}
+.b.pri{background:var(--c);border-color:var(--c);color:#fff}
+.b.pri:hover{filter:brightness(.88);background:var(--c)}
+.qs{margin-top:36px;border-top:1px solid var(--c);padding-top:12px}
+.qs .b{margin:6px 8px 0 0}
+
+.pager{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--c);margin-top:40px;padding-top:10px;font-size:16px}
+.pager button{text-align:left;max-width:48%}
+.pager button.nx{text-align:right;margin-left:auto}
+.pager small{display:block;color:var(--mute)}
+.pager button span{color:var(--c)}
+.pager button:hover span{text-decoration:underline}
+.pager button:disabled{visibility:hidden}
+.keys{color:var(--mute);font-size:14.5px;margin-top:18px}
+
+/* figures: drawn, print-like. Blue dot = electron, red ring = hole. */
+.fig{margin:18px 0;text-align:center}
+.fig svg,.fig img{max-width:100%;height:auto}
+.fig img{border:1px solid var(--hair)}
+.fig figcaption{font-size:15.5px;color:var(--mute);font-style:italic;margin-top:4px}
+.fig text{font-family:KaTeX_Main,Georgia,serif;font-size:14px;fill:#111}
+.fig .k{stroke:#111;stroke-width:1.6;fill:none}
+.fig .kk{stroke:#111;stroke-width:2.4;fill:none}
+.fig .th{stroke:#111;stroke-width:1;fill:none}
+.fig .bl{stroke:#1f4fbf;stroke-width:2;fill:none}
+.fig .rd{stroke:#b3261e;stroke-width:2;fill:none}
+.fig .gd{stroke:#777;stroke-width:1.2;stroke-dasharray:5 4;fill:none}
+.fig .rdd{stroke:#b3261e;stroke-width:1.8;stroke-dasharray:6 4;fill:none}
+.fig .fb{fill:#1f4fbf;fill-opacity:.15;stroke:none}
+.fig .fr{fill:#b3261e;fill-opacity:.13;stroke:none}
+.fig .fg{fill:#000;fill-opacity:.06;stroke:none}
+.fig .el{fill:#1f4fbf;stroke:none}
+.fig .ho{fill:#fff;stroke:#b3261e;stroke-width:1.8}
+.fig .at{fill:#fff;stroke:#111;stroke-width:1.4}
+.fig .atd{fill:#111;stroke:#111}
+.fig .hk{fill:#111}.fig .hb{fill:#1f4fbf}.fig .hr{fill:#b3261e}
+.fig .tb{font-weight:700}.fig .tbl{fill:#1f4fbf}.fig .trd{fill:#b3261e}.fig .tm{fill:#666}.fig .tw{fill:#fff}
+.fig .sm{font-size:12px}
+
+#menu{display:none}
+@media (max-width:860px){
+  .app{display:block}
+  nav{position:fixed;inset:0 12% 0 0;z-index:5;background:#fff;transform:translateX(-102%);transition:transform .2s;height:auto}
+  nav.open{transform:none;box-shadow:0 0 0 100vw #0006}
+  #menu{display:inline-block;margin-bottom:14px}
+  main{padding-top:18px}
+  h2{font-size:25px}
+  .head{font-size:14px}
+  .step{grid-template-columns:1.8em 1fr}
+}
+</style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#/">
-    <span class="logo">Si</span>
-    <span class="brand-text"><b>SSD Lock-In</b><small>Midterm practice</small></span>
-  </a>
-  <nav class="tools">
-    <a class="tool" id="btn-repeat" href="#/repeat" title="Repetition: keep drilling, missed questions come back">🔁 <span>Repetition</span></a>
-    <button class="tool" id="btn-formulas"title="Formula sheet (given in the exam)">📄 <span>Formula sheet</span></button>
-    <button class="tool" id="btn-smaller" title="Smaller text" aria-label="Smaller text">A−</button>
-    <button class="tool" id="btn-bigger" title="Bigger text" aria-label="Bigger text">A+</button>
-    <button class="tool" id="btn-theme" title="Light / dark" aria-label="Toggle dark mode">☾</button>
-  </nav>
-</header>
+<div class="app">
+  <nav id="nav"></nav>
+  <main><div class="page">
+    <button class="b" id="menu">☰ Contents</button>
+    <div id="view"></div>
+  </div></main>
+</div>
+<script src="data.js?v=558f1310"></script>
+<script>
+(function(){
+var D=window.DATA, list=[];
+// one flat list of pages: each topic = a notes page, then one page per tutorial question
+D.forEach(function(p,pi){p.topics.forEach(function(t){
+  list.push({p:p,t:t,pi:pi+1,kind:'notes',hash:'#/'+t.id});
+  t.qs.forEach(function(q,qi){list.push({p:p,t:t,pi:pi+1,kind:'q',q:q,qi:qi,hash:'#/'+t.id+'/'+(qi+1)})});
+})});
+var cur=0, shown=0;
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function math(node){if(window.renderMathInElement)renderMathInElement(node,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})}
+function fromHash(){
+  var h=location.hash.replace('#/topic/','#/'), i;
+  for(i=0;i<list.length;i++)if(list[i].hash===h)return i;
+  return 0;
+}
+function go(i){i=Math.max(0,Math.min(list.length-1,i));if(location.hash===list[i].hash){cur=i;shown=0;render()}else location.hash=list[i].hash}
+function tnum(t){return t.n?'<span class="num">'+t.n+'</span>':''}
 
-<main id="app" class="wrap">
-  <p class="loading">Loading questions…</p>
-</main>
+function nav(){
+  var n=document.getElementById('nav');var keep=n.scrollTop;n.innerHTML='';
+  n.appendChild(el('h1','','SSD Lock-In'));
+  n.appendChild(el('div','sub sc','eeen20070 · solid state devices'));
+  n.appendChild(el('div','toc-h sc','contents'));
+  var lastP=null,lastT=null;
+  list.forEach(function(x,i){
+    var c='c'+x.pi;
+    if(x.p!==lastP){lastP=x.p;n.appendChild(el('div','part '+c,x.p.title))}
+    if(x.t!==lastT){lastT=x.t;n.appendChild(el('div','topic '+c,tnum(x.t)+'<span>'+x.t.title+'</span>'))}
+    var b=el('button','qlink '+c+(i===cur?' on':''),x.kind==='notes'?(x.t.qs.length?'Notes':'Open'):x.q.ref);
+    b.onclick=function(){go(i)};n.appendChild(b);
+  });
+  n.scrollTop=keep;
+  var on=n.querySelector('.qlink.on');
+  if(on){var r=on.getBoundingClientRect(),nr=n.getBoundingClientRect();if(r.top<nr.top+40||r.bottom>nr.bottom-20)n.scrollTop+=r.top-nr.top-nr.height/3}
+}
 
-<aside id="notes" class="notes" hidden aria-label="Notes and formula sheet">
-  <div class="pane-top">
-    <div class="seg" id="pane-tabs">
-      <button data-tab="notes" class="on">Notes</button>
-      <button data-tab="formula-sheet.md">Formula sheet</button>
-      <button data-tab="periodic-table.md">Periodic table</button>
-    </div>
-    <button class="ntool" id="notes-close" aria-label="Close panel">✕</button>
-  </div>
-  <div class="pane-view" id="notes-view">
-    <div class="notes-head">
-      <b id="notes-title">Notes</b>
-      <select id="notes-jump" aria-label="Jump to a section"></select>
-    </div>
-    <div class="notes-chips" id="notes-chips"></div>
-    <div class="notes-body md" id="notes-body"></div>
-  </div>
-  <div class="pane-view" id="doc-view" hidden>
-    <div class="notes-body md" id="doc-body"></div>
-  </div>
-</aside>
+function render(){
+  document.getElementById('nav').classList.remove('open');
+  nav();
+  var x=list[cur], t=x.t, v=document.getElementById('view');v.innerHTML='';v.className='c'+x.pi;
+  v.appendChild(el('div','head','<span class="sc">'+x.p.title.toLowerCase()+'</span><span>'+(x.kind==='notes'?'Notes':x.q.ref)+'</span>'));
+  v.appendChild(el('h2','',tnum(t)+t.title));
+  if(t.src)v.appendChild(el('div','src',t.src));
 
-<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>document.write('<script src="site/scramble.js?v=' + window.__v + '"><\/script><script src="site/app.js?v=' + window.__v + '"><\/script>');</script>
+  if(x.kind==='notes'){
+    v.appendChild(el('div','notes',t.notes));
+    if(t.qs.length){
+      var qs=el('div','qs','<b>Now try the tutorial questions for this topic.</b><br>');
+      t.qs.forEach(function(q,qi){var b=el('button','b',q.ref);b.onclick=function(){go(cur+1+qi)};qs.appendChild(b)});
+      v.appendChild(qs);
+    }
+  }else{
+    var q=x.q, n=q.steps.length, all=shown>n;
+    v.appendChild(el('div','qtext','<span class="lead">'+q.ref+'.</span> '+q.q));
+    if(shown===0)v.appendChild(el('div','try','Try it on paper first, then reveal one step at a time.'));
+    if(shown>0){
+      var sol=el('div','sol','<div class="lab">Solution.</div>');
+      q.steps.slice(0,shown).forEach(function(s,i){sol.appendChild(el('div','step','<span class="n">'+(i+1)+'.</span><div><h3>'+s.t+'</h3>'+s.b+'</div>'))});
+      if(all)sol.appendChild(el('div','ans','<span class="l">Answer.</span> '+q.a));
+      v.appendChild(sol);
+    }
+    var row=el('div','row');
+    if(!all){
+      var b1=el('button','b pri',shown===0?'Show step 1':(shown<n?'Next step ('+(shown+1)+'/'+n+')':'Show answer'));
+      b1.onclick=function(){shown++;render()};row.appendChild(b1);
+      var b2=el('button','b','Full solution');b2.onclick=function(){shown=n+1;render()};row.appendChild(b2);
+    }else{
+      var h=el('button','b','Hide solution');h.onclick=function(){shown=0;render()};row.appendChild(h);
+    }
+    var bn=el('button','b','Notes for this topic');bn.onclick=function(){go(cur-1-x.qi)};row.appendChild(bn);
+    v.appendChild(row);
+  }
+
+  var pg=el('div','pager');
+  function lbl(i){var y=list[i];return '<span>'+(y.t.n?y.t.n+' · ':'')+y.t.title+'</span><small>'+(y.kind==='notes'?'Notes':y.q.ref)+'</small>'}
+  var pv=el('button','pv',cur>0?'<small>← Previous</small>'+lbl(cur-1):'');pv.disabled=cur===0;pv.onclick=function(){go(cur-1)};pg.appendChild(pv);
+  var nx=el('button','nx',cur<list.length-1?'<small>Next →</small>'+lbl(cur+1):'');nx.disabled=cur===list.length-1;nx.onclick=function(){go(cur+1)};pg.appendChild(nx);
+  v.appendChild(pg);
+  if(x.kind==='q')v.appendChild(el('div','keys','Space: next step · A: full solution · ← / →: previous / next page'));
+  math(v);
+  if(x.kind==='q'&&shown>0){var last=v.querySelector('.ans')||v.querySelectorAll('.step')[shown-1];if(last&&last.scrollIntoView)last.scrollIntoView({block:'nearest',behavior:'smooth'})}
+}
+// check questions inside notes and steps
+document.getElementById('view').addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('.check>.b');if(!b)return;
+  b.nextElementSibling.hidden=false;b.hidden=true;
+});
+document.getElementById('menu').onclick=function(){document.getElementById('nav').classList.toggle('open')};
+document.addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT'||e.metaKey||e.ctrlKey||e.altKey)return;
+  var x=list[cur];
+  if(e.key==='ArrowRight')go(cur+1);
+  else if(e.key==='ArrowLeft')go(cur-1);
+  else if(x.kind==='q'){
+    var n=x.q.steps.length;
+    if(e.key===' '){e.preventDefault();if(shown<=n){shown++;render()}}
+    else if(e.key==='a'||e.key==='A'){shown=n+1;render()}
+  }
+});
+window.addEventListener('hashchange',function(){cur=fromHash();shown=0;render();window.scrollTo(0,0)});
+window.addEventListener('load',function(){cur=fromHash();render()});
+})();
+</script>
 </body>
 </html>

@@ -1,20 +1,24 @@
-# SSD Lock-In — EEEN20070 Solid State Devices
+# SSD Lock-In
 
-**▶ Practice site: https://albinjoby82-ops.github.io/SSD_Lock-In/** (tutorial drill, check-your-answer questions, timed mock midterms). It reads the `questions/` and `mock/` md files directly, so editing them updates the site.
+Study site for **EEEN20070 Solid State Devices** (UCD), Chapters 1 and 2.
 
-Start at **[TOPICS.md](TOPICS.md)** (progress tracker). Formula sheet: **[formula-sheet.md](formula-sheet.md)**. Periodic table: **[periodic-table.md](periodic-table.md)**. Confusing bits I asked about: **[questions-albin-asked.md](questions-albin-asked.md)**. Mock midterms: **[mock/](mock/midterm-1.md)**.
+**Live site:** https://albinjoby82-ops.github.io/SSD_Lock-In/
 
-## Reading style (dyslexia-friendly)
-- One idea per line. Short sentences.
-- Big equations on their own line.
-- Lots of space between sections.
-- Few brackets, little italics, no long bullet points.
+Same look as MATH Lock-In. For each of the 14 topics:
 
-## How each topic is built
-- `notes/NN-topic.md`: slide diagrams + short explanation, with **🧠 check questions inline** (answer before opening).
-- `questions/NN-topic.md`: end-of-topic test with
-  1. the tutorial questions, and
-  2. **midterm-style questions in other formats** (true/false, MCQ, explain, calculation, sketch), because the midterm won't just copy the tutorials.
-- **Every new equation gets a 📐 box:** a table of every symbol (meaning, units, value), *why* it holds, **"use it when…"**, and when it does NOT apply.
-- **Official answer-sheet diagrams** are embedded in the worked answers wherever the solutions have them.
-- **Rule:** every answer and method used in the questions is taught in that topic's notes (or an earlier one), and the answer cites the notes section (§). Nothing appears in an answer that isn't in the notes.
+- **Notes** that teach the topic from scratch, with drawn diagrams and check questions.
+- The **tutorial questions** for that topic, one per page, with step-by-step solutions.
+
+Plus the formula sheet. Nothing else: no extra questions, no mocks, no progress tracking.
+
+## How to use it
+
+1. Read the topic's notes. Answer each check question before opening it.
+2. Try the tutorial question on paper.
+3. Reveal the steps one at a time (Space), or all at once (A). Arrow keys change page.
+
+## Editing
+
+Content lives in `content/*.txt` (format explained at the top of `build.py`). Diagrams are drawn in `build.py`. After editing, run `python3 build.py` to regenerate `data.js`.
+
+`questions-albin-asked.md` is the log of things I asked while studying.

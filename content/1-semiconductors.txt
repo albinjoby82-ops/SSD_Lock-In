@@ -1,0 +1,950 @@
+@@part Chapter 1 · Semiconductors
+
+@@topic 1 | The bond model: electrons and holes | Tutorial Ch1 Q1, Q2, Q3
+@notes
+## Start here: what silicon looks like
+
+A silicon atom has **4 outer electrons**.
+
+In a crystal, each Si atom sits next to 4 other Si atoms.
+It shares one electron with each neighbour.
+
+Two shared electrons between two atoms = **one bond**.
+
+So every atom has 4 bonds, and every bond holds 2 electrons.
+
+## At 0 K nothing can move
+
+At absolute zero, every electron is locked in a bond.
+
+No loose charges means no current.
+Silicon at 0 K is an **insulator**.
+
+## At 300 K heat knocks a few electrons loose
+
+Heat makes the atoms shake.
+Now and then, the shaking knocks an electron out of its bond.
+
+That one event makes **two** things:
+
+- a **free electron**. Negative. It can wander through the crystal.
+- a **hole**. The empty place left in the bond.
+
+{{fig:lattice_T}}
+
+? One bond breaks. How many free electrons and how many holes did that make?
+
+= One of each. They are always made in pairs.
+
+## Why a hole counts as a moving positive charge
+
+A hole is an empty seat in a bond.
+
+An electron from the bond next door can hop into it.
+Now the empty seat is next door.
+
+So the empty seat **moves**, in the opposite direction to the electron that hopped.
+
+A missing negative charge that moves around behaves just like a **positive charge that moves around**.
+That is why we treat a hole as a positive carrier.
+
+A hole is **not** a missing atom, and it is **not** a proton.
+
+## The names you need
+
+- $n$ = number of free electrons in each cm³
+- $p$ = number of holes in each cm³
+- $n_i$ = the value of both in pure silicon
+
+Pure silicon is called **intrinsic**. Every bond that breaks gives one of each, so:
+
+$$n = p = n_i = 1.45\times10^{10}\ \text{cm}^{-3}\quad\text{(Si at 300 K)}$$
+
+That looks big, but 1 cm³ of Si has about $5\times10^{22}$ atoms. So almost every bond is still whole.
+
+Hotter means more broken bonds, so $n_i$ goes up with temperature.
+
+## The law of mass action
+
+$$n \times p = n_i^{2}$$
+
+> **What it says.** Multiply the electrons by the holes and you always get the same number, $n_i^2 = 2.1\times10^{20}\ \text{cm}^{-6}$.
+>
+> **Why.** If you add extra electrons, they fill up holes. So more electrons means fewer holes.
+>
+> **Use it when** you know one of $n$ or $p$ and need the other.
+>
+> It is **not** on the formula sheet. Learn it.
+
+## Doping: adding carriers on purpose
+
+Pure Si has very few carriers. We add other atoms to get more.
+
+**Phosphorus (P)** has **5** outer electrons.
+4 of them make the bonds. 1 is spare.
+The spare one is a **free electron**. No hole is made.
+Silicon with P is **n-type** (n for negative carriers).
+
+**Boron (B)** has only **3** outer electrons.
+One of its 4 bonds is missing an electron.
+That gap is a **hole**. No free electron is made.
+Silicon with B is **p-type** (p for positive carriers).
+
+{{fig:lattice_dope}}
+
+? Arsenic has 5 outer electrons. Does it make Si n-type or p-type?
+
+= n-type. Same as phosphorus: 4 electrons bond, 1 is spare.
+
+@q Ch1 Q1
+Sketch a 2D lattice of 9 Si atoms with their outer electrons at 0 K. How does it change at 300 K?
+@s Draw the atoms
+Draw 9 Si atoms in a 3 by 3 grid.
+@s Draw the bonds at 0 K
+Between every pair of neighbours, draw a bond with **2 electrons** in it.
+
+At 0 K that is the whole picture. Every electron is in a bond. Nothing is free.
+@s Change it for 300 K
+Heat breaks a few bonds.
+
+Pick one bond. Take one electron out of it and draw it loose in the crystal: a **free electron**.
+
+Mark the empty place in the bond: a **hole**.
+
+{{img:01/ans-q1.png|Official answer sketch.}}
+@a At 0 K all electrons are in bonds, so there are no carriers. At 300 K some bonds break, and each break gives one free electron and one hole.
+
+@q Ch1 Q2
+Repeat the 300 K sketch for (1) p-type Si and (2) n-type Si.
+@s p-type: swap one Si for boron
+Boron has 3 outer electrons, so it can only fill 3 of its 4 bonds properly.
+
+One bond is missing an electron. Draw a **hole** there.
+@s n-type: swap one Si for phosphorus
+Phosphorus has 5 outer electrons.
+
+4 go into the bonds. Draw the 5th one loose: a **free electron**.
+@s Compare with the official sketch
+The black circle is the dopant atom.
+
+{{img:01/ans-q2.png|Official answer sketch.}}
+@a p-type: a B atom gives a hole. n-type: a P atom gives a free electron.
+
+@q Ch1 Q3
+Holes in semiconductors are:
+
+1. Gaps in the lattice where an atom is missing
+2. Positive carriers that can move freely through the lattice at 300 K
+3. Protons in the nucleus
+@s What is a hole?
+A hole is a missing **electron** in a bond. All the atoms are still there. So 1 is wrong.
+@s Can it move?
+Yes. A neighbouring bond electron hops into the gap, so the gap moves. It acts like a moving positive charge.
+@s Is it a proton?
+No. Protons are stuck in the nucleus and never move through the crystal. So 3 is wrong.
+@a Option 2. Holes are positive carriers that move freely through the lattice.
+
+
+@@topic 2 | Doping: how many electrons and holes | Tutorial Ch1 Q4, Q5
+@notes
+## The one question this topic answers
+
+"I know the doping. What are $n$ and $p$?"
+
+You will do this at the start of almost every later question. So get it solid.
+
+## Rule 1: mass action (from Topic 1)
+
+$$n \times p = n_i^{2}$$
+
+## Rule 2: charge neutrality
+
+A lump of silicon has no overall charge.
+So all the positive charges must equal all the negative charges.
+
+$$p + N_D = n + N_A$$
+
+| Symbol | What it is | Charge |
+| $p$ | holes | + |
+| $N_D$ | donor atoms (like P). Each gave away an electron, so it is left positive. | + |
+| $n$ | free electrons | − |
+| $N_A$ | acceptor atoms (like B). Each took an electron, so it is left negative. | − |
+
+The tutorial writes it as $-n + p + N_D^{+} - N_A^{-} = 0$. That is the same equation, moved to one side.
+
+It is **not** on the formula sheet. Learn it.
+
+## The shortcut you use nearly every time
+
+Doping is usually $10^{15}$ to $10^{19}$ cm⁻³.
+That is hugely bigger than $n_i = 10^{10}$.
+
+So the dopant atoms decide everything:
+
+> **n-type** (donors, $N_D$):
+>
+> $$n = N_D \qquad\qquad p = \frac{n_i^{2}}{N_D}$$
+>
+> **p-type** (acceptors, $N_A$):
+>
+> $$p = N_A \qquad\qquad n = \frac{n_i^{2}}{N_A}$$
+
+In words:
+
+- **Majority** carrier = the doping.
+- **Minority** carrier = $n_i^2$ ÷ the doping.
+
+Use $n_i^{2} = 2.1\times10^{20}\ \text{cm}^{-6}$.
+
+**Example.** n-type, $N_D = 10^{16}$ cm⁻³.
+
+$$n = 10^{16}\ \text{cm}^{-3} \qquad p = \frac{2.1\times10^{20}}{10^{16}} = 2.1\times10^{4}\ \text{cm}^{-3}$$
+
+? p-type Si with $N_A = 10^{17}$ cm⁻³. What are $p$ and $n$?
+
+= $p = N_A = 10^{17}$ cm⁻³. Then $n = 2.1\times10^{20} \div 10^{17} = 2100$ cm⁻³.
+
+## Units trap
+
+Sometimes the doping is given in **m⁻³**. Everything else is in **cm⁻³**.
+
+1 m³ = $10^{6}$ cm³, so:
+
+$$\text{value in cm}^{-3} = \frac{\text{value in m}^{-3}}{10^{6}}$$
+
+? Convert $10^{22}$ m⁻³ to cm⁻³.
+
+= $10^{22} \div 10^{6} = 10^{16}$ cm⁻³.
+
+## Where the shortcut comes from
+
+Tutorial Q4 asks you to derive it. The steps are in that question. The idea is just:
+
+put Rule 1 into Rule 2, solve, then notice the doping is far bigger than $n_i$.
+
+@q Ch1 Q4
+(1) Write the law of mass action. (2) Write charge neutrality. (3) Derive the electron and hole concentrations in p-type Si.
+@s Mass action
+$$n \times p = n_i^{2}$$
+@s Charge neutrality
+Positives = negatives:
+
+$$p + N_D = n + N_A$$
+@s Make it p-type
+p-type has only acceptors, so $N_D = 0$:
+
+$$p = n + N_A$$
+@s Get rid of n
+From mass action, $n = \dfrac{n_i^{2}}{p}$. Put that in:
+
+$$p = \frac{n_i^{2}}{p} + N_A$$
+@s Solve for p
+Multiply through by $p$:
+
+$$p^{2} - N_A\,p - n_i^{2} = 0$$
+
+This is a quadratic in $p$. Take the positive root:
+
+$$p = \frac{N_A + \sqrt{N_A^{2} + 4n_i^{2}}}{2}$$
+@s Simplify
+$N_A$ is far bigger than $n_i$, so the $4n_i^2$ under the root does nothing. The root is just $N_A$:
+
+$$p \approx \frac{N_A + N_A}{2} = N_A$$
+
+Then mass action gives the electrons:
+
+$$n = \frac{n_i^{2}}{N_A}$$
+@a In p-type Si, $p \approx N_A$ and $n = n_i^{2}/N_A$.
+
+@q Ch1 Q5
+Find the hole and electron concentrations at room temperature for:
+
+1. Intrinsic silicon
+2. Boron-doped silicon, [B] = $10^{19}$ cm⁻³
+3. Phosphorus-doped silicon, [P] = $10^{24}$ m⁻³
+@s Intrinsic
+No doping. Every broken bond gives one of each:
+
+$$n = p = n_i = 1.45\times10^{10}\ \text{cm}^{-3}$$
+@s Boron: which type?
+Boron has 3 outer electrons, so it makes holes. **p-type**, with $N_A = 10^{19}$ cm⁻³.
+@s Boron: the numbers
+Majority = the doping:
+
+$$p = 10^{19}\ \text{cm}^{-3}$$
+
+Minority = $n_i^2$ ÷ the doping:
+
+$$n = \frac{2.1\times10^{20}}{10^{19}} = 21\ \text{cm}^{-3}$$
+@s Phosphorus: fix the units first
+It is given in m⁻³. Divide by $10^6$:
+
+$$N_D = \frac{10^{24}}{10^{6}} = 10^{18}\ \text{cm}^{-3}$$
+
+Phosphorus has 5 outer electrons, so **n-type**.
+@s Phosphorus: the numbers
+$$n = 10^{18}\ \text{cm}^{-3} \qquad p = \frac{2.1\times10^{20}}{10^{18}} = 210\ \text{cm}^{-3}$$
+@a
+| Sample | $n$ (cm⁻³) | $p$ (cm⁻³) |
+| Intrinsic | $1.45\times10^{10}$ | $1.45\times10^{10}$ |
+| Boron $10^{19}$ | 21 | $10^{19}$ |
+| Phosphorus $10^{18}$ | $10^{18}$ | 210 |
+
+
+@@topic 3 | Drift: mobility, conductivity, resistance | Tutorial Ch1 Q6, Q7
+@notes
+## The idea
+
+Carriers are always jiggling about in random directions. On average they go nowhere.
+
+Put a voltage across the silicon. Now there is an electric field $\mathcal{E}$ inside it.
+
+The field gives every carrier a steady push. They still jiggle, but now they slowly **drift** one way.
+
+That drift is a current.
+
+{{fig:drift}}
+
+## How fast they drift
+
+$$v = \mu\,\mathcal{E}$$
+
+| Symbol | Meaning | Units |
+| $v$ | drift speed | cm/s |
+| $\mu$ | **mobility**: how easily the carrier moves | cm²/(V s) |
+| $\mathcal{E}$ | electric field | V/cm |
+
+Bigger field, faster drift. Bigger mobility, faster drift.
+
+## What decides the mobility
+
+A carrier speeds up in the field until it **hits something**. Then it starts again.
+
+$$\mu = \frac{e\,\tau}{m}$$
+
+| Symbol | Meaning |
+| $\tau$ | average time between collisions |
+| $m$ | mass of the carrier |
+
+A long time between collisions means more time to speed up. So big $\tau$ gives big $\mu$.
+
+What do carriers hit?
+
+- the shaking Si atoms
+- **dopant atoms**
+
+More doping means more things to hit. So $\tau$ gets shorter and **mobility goes down**.
+
+{{img:03/mobility-graph.png|Mobility against doping. Find the doping along the bottom. Go up to the red line (electrons) or the blue line (holes). Read the value on the left.}}
+
+Notice: electrons (red) are always more mobile than holes (blue).
+
+? The doping goes from $10^{16}$ to $10^{18}$ cm⁻³. What happens to the electron mobility?
+
+= It falls, from about 1200 to about 250 cm²/(V s). More dopant atoms to bump into.
+
+## Conductivity
+
+How well does the material conduct?
+
+$$\sigma = e\,(n\,\mu_n + p\,\mu_p)$$
+
+| Symbol | Meaning | Units |
+| $\sigma$ | conductivity | (Ω cm)⁻¹ |
+| $e$ | charge of one carrier, $1.6\times10^{-19}$ | C |
+| $n$, $p$ | how many electrons, holes | cm⁻³ |
+| $\mu_n$, $\mu_p$ | how easily each one moves | cm²/(V s) |
+
+> **In words.** Charge × how many × how easily they move. Do it for electrons, do it for holes, add.
+>
+> **Shortcut.** In doped Si the minority carriers are so few you can drop them:
+>
+> n-type: $\sigma \approx e\,n\,\mu_n$. p-type: $\sigma \approx e\,p\,\mu_p$.
+>
+> In intrinsic Si, $n = p$, so **keep both** terms.
+
+Resistivity is just the flip: $\rho = 1/\sigma$.
+
+## Resistance of a bar
+
+$$R = \frac{L}{\sigma\,A}$$
+
+| Symbol | Meaning | Units |
+| $L$ | length, **along** the current | cm |
+| $A$ | area the current passes **through** | cm² |
+
+Longer bar, more resistance. Fatter bar, less resistance.
+
+**Convert everything to cm first.**
+
+$$1\ \mu\text{m} = 10^{-4}\ \text{cm} \qquad 1\ \text{nm} = 10^{-7}\ \text{cm} \qquad 1\ \text{m} = 100\ \text{cm}$$
+
+? You make the bar twice as long. What happens to $R$?
+
+= It doubles. $L$ is on top of the fraction.
+
+@q Ch1 Q6
+The mobility of electrons and holes in Si depends on the doping concentration. Explain why.
+@s What mobility depends on
+$$\mu = \frac{e\,\tau}{m}$$
+
+$\tau$ is the average time between collisions.
+@s What doping does
+Dopant atoms are different from the Si atoms around them. They break up the regular pattern of the lattice.
+
+Carriers scatter off them.
+@s Put it together
+More doping → more collisions → shorter $\tau$ → smaller $\mu$.
+@a Dopant atoms scatter the carriers. More doping means a shorter time between collisions, so the mobility falls.
+
+@q Ch1 Q7
+Four Si resistors have the shape below. Only the doping changes.
+
+{{img:03/q7-geometry.png|W = 1 μm, t = 500 nm, L = 5 × 10⁻⁶ m.}}
+
+Use the mobility graph from the notes. (1) Find the conductivity σ of each sample. (2) Find the resistance of each sample.
+@s Sample 1: intrinsic
+$n = p = n_i = 1.45\times10^{10}$. Both carriers matter, so keep both terms.
+
+Read the graph at the far left (no doping): $\mu_n = 1400$, $\mu_p = 500$.
+
+$$\sigma_1 = e\,n_i\,(\mu_n + \mu_p) = 1.6\times10^{-19}\times1.45\times10^{10}\times1900$$
+
+$$\sigma_1 = 4.41\times10^{-6}\ (\Omega\,\text{cm})^{-1}$$
+@s Sample 2: p-type, $N_A = 10^{15}$
+$p = N_A = 10^{15}$. Holes only. Read $\mu_p = 500$.
+
+$$\sigma_2 = e\,p\,\mu_p = 1.6\times10^{-19}\times10^{15}\times500 = 0.08\ (\Omega\,\text{cm})^{-1}$$
+@s Sample 3: p-type, $N_A = 10^{16}$
+$p = 10^{16}$. Read $\mu_p = 400$ (a bit lower, more doping).
+
+$$\sigma_3 = 1.6\times10^{-19}\times10^{16}\times400 = 0.64\ (\Omega\,\text{cm})^{-1}$$
+@s Sample 4: n-type, $N_D = 10^{16}$
+$n = N_D = 10^{16}$. Electrons only. Read $\mu_n = 1200$.
+
+$$\sigma_4 = 1.6\times10^{-19}\times10^{16}\times1200 = 1.92\ (\Omega\,\text{cm})^{-1}$$
+
+Samples 3 and 4 have the same doping. Sample 4 wins because electrons are more mobile than holes.
+@s Convert the sizes to cm
+$W = 1\ \mu\text{m} = 10^{-4}$ cm
+
+$t = 500\ \text{nm} = 5\times10^{-5}$ cm
+
+$L = 5\times10^{-6}\ \text{m} = 5\times10^{-4}$ cm
+@s Area and the R formula
+The current flows along $L$, through the face $W \times t$:
+
+$$A = 10^{-4}\times5\times10^{-5} = 5\times10^{-9}\ \text{cm}^2$$
+
+$$R = \frac{L}{\sigma A} = \frac{5\times10^{-4}}{5\times10^{-9}}\times\frac{1}{\sigma} = \frac{10^{5}}{\sigma}$$
+@s Resistance of each
+Divide $10^5$ by each $\sigma$.
+
+| Sample | σ (Ω cm)⁻¹ | R |
+| 1 | $4.41\times10^{-6}$ | $2.3\times10^{10}$ Ω |
+| 2 | 0.08 | $1.25\times10^{6}$ Ω |
+| 3 | 0.64 | $1.6\times10^{5}$ Ω |
+| 4 | 1.92 | $5.2\times10^{4}$ Ω |
+@a $\sigma$ = $4.41\times10^{-6}$, 0.08, 0.64 and 1.92 (Ω cm)⁻¹. $R \approx 2\times10^{10}$, $1.3\times10^{6}$, $1.6\times10^{5}$ and $5\times10^{4}$ Ω.
+
+
+@@topic 4 | Diffusion and the built-in field | Tutorial Ch1 Q8, Q9
+@notes
+## The idea
+
+Put a drop of ink in water. It spreads out until it is even.
+
+Carriers do the same. They move from where there are **many** to where there are **few**.
+
+This is **diffusion**. It needs no voltage. It only needs an uneven concentration.
+
+{{fig:diffusion}}
+
+## Diffusion current
+
+$$J_n = e\,D_n\,\frac{dn}{dx} \qquad\qquad J_p = -\,e\,D_p\,\frac{dp}{dx}$$
+
+| Symbol | Meaning | Units |
+| $J$ | current density (current per area) | A/cm² |
+| $D$ | diffusion coefficient: how fast the carrier spreads | cm²/s |
+| $\dfrac{dn}{dx}$ | the **slope** of the concentration | cm⁻⁴ |
+
+> **In words.** Steeper slope, more current. No slope, no diffusion current.
+>
+> **Why the signs differ.** Both carriers move downhill. But electrons are negative, so their current points the other way from their motion.
+>
+> **Straight line?** Then the slope is just (change in $n$) ÷ (distance).
+
+? The electron concentration is the same everywhere. What is the diffusion current?
+
+= Zero. The slope is zero.
+
+## Total current
+
+A carrier can drift (Topic 3) and diffuse at once. Add them. This is on the formula sheet:
+
+$$J_n = e\,\mu_n\,n\,\mathcal{E} + e\,D_n\,\frac{dn}{dx}$$
+
+$$J_p = e\,\mu_p\,p\,\mathcal{E} - e\,D_p\,\frac{dp}{dx}$$
+
+First part = drift. Second part = diffusion.
+
+## The Einstein relation
+
+$D$ and $\mu$ both say how easily a carrier moves. So they are linked:
+
+$$D = \frac{kT}{e}\,\mu \qquad\qquad \frac{kT}{e} = 0.026\ \text{V at 300 K}$$
+
+**Use it when** you need to swap $D/\mu$ for a number.
+
+## Uneven doping makes its own electric field
+
+Take an n-type bar. Dope it **heavily on the left** and **lightly on the right**.
+
+Follow what happens:
+
+1. There are more electrons on the left. So electrons **diffuse to the right**.
+2. They leave their donor atoms behind. Those are fixed and **positive**. So the left becomes a bit positive.
+3. The right has extra electrons. So the right becomes a bit **negative**.
+4. Positive on the left, negative on the right: that is an **electric field pointing right**.
+5. That field pulls electrons back to the left (drift).
+6. It settles when drift exactly cancels diffusion. Then **no current flows**: $J_n = 0$.
+
+> **Rule.** The built-in field points **towards the lightly doped end**.
+
+## Getting the field
+
+Set the total electron current to zero:
+
+$$e\,\mu_n\,n\,\mathcal{E} + e\,D_n\,\frac{dn}{dx} = 0$$
+
+Rearrange for $\mathcal{E}$:
+
+$$\mathcal{E} = -\frac{D_n}{\mu_n}\,\frac{1}{n}\,\frac{dn}{dx}$$
+
+Swap $D_n/\mu_n$ for $kT/e$ (Einstein):
+
+$$\mathcal{E} = -\frac{kT}{e}\,\frac{1}{n}\,\frac{dn}{dx}$$
+
+**Use it when** the doping changes along the sample and there is no voltage. Put $n = N(x)$, the doping.
+
+? The doping falls as you go right. Is $dn/dx$ positive or negative? Which way does $\mathcal{E}$ point?
+
+= $dn/dx$ is negative. The minus sign in front makes $\mathcal{E}$ positive, so it points right, towards the light doping.
+
+@q Ch1 Q8
+In an n-Si layer at 300 K, the electron concentration falls in a straight line from $10^{18}$ cm⁻³ to $7\times10^{17}$ cm⁻³ over 0.10 cm. $D_n$ = 50 cm²/s. Find the diffusion current density.
+@s Find the slope
+It is a straight line, so slope = change ÷ distance.
+
+$$\text{change} = 10^{18} - 7\times10^{17} = 3\times10^{17}\ \text{cm}^{-3}$$
+
+$$\text{slope} = \frac{3\times10^{17}}{0.10} = 3\times10^{18}\ \text{cm}^{-4}$$
+@s Use the electron diffusion equation
+$$J_n = e\,D_n\,\frac{dn}{dx}$$
+@s Put the numbers in
+$$J_n = 1.6\times10^{-19}\times50\times3\times10^{18} = 24\ \text{A/cm}^2$$
+@s Direction
+Electrons move towards the low end. Current is opposite to electron motion, so it points back towards the high end.
+@a $J_n = 24$ A/cm², pointing towards the high-concentration end.
+
+@q Ch1 Q9
+n-type Si is 0.04 cm long. Its doping changes along $x$:
+
+$$N(x) = 10^{17} - 2.5\times10^{18}\,x \qquad (N\text{ in cm}^{-3},\ x\text{ in cm})$$
+
+(1) Sketch how the electron and hole concentrations change along the layer, with no bias. (2) Derive the internal electric field, in terms of constants and $x$ only. (3) Draw the direction of the field.
+@s Electrons follow the doping
+It is n-type, so $n(x) = N(x)$.
+
+That is a straight line. It starts at $10^{17}$ at $x = 0$ and falls to zero at $x = 0.04$ cm.
+@s Holes from mass action
+$$p(x) = \frac{n_i^{2}}{N(x)}$$
+
+As $N$ falls, $p$ rises. Near the far end $N$ gets tiny, so $p$ shoots up.
+
+{{img:04/ans-q9-sketch.png|Official sketch. Blue straight line = electrons (right-hand axis). Red curve = holes (left-hand axis).}}
+@s No bias means no current
+Nothing is connected, so $J_n = 0$:
+
+$$e\,\mu_n\,n\,\mathcal{E} + e\,D_n\,\frac{dn}{dx} = 0$$
+@s Rearrange and use Einstein
+$$\mathcal{E} = -\frac{D_n}{\mu_n}\,\frac{1}{n}\,\frac{dn}{dx} = -\frac{kT}{e}\,\frac{1}{n}\,\frac{dn}{dx}$$
+@s Put in n and its slope
+$n = 10^{17} - 2.5\times10^{18}x$, so its slope is $\dfrac{dn}{dx} = -2.5\times10^{18}$.
+
+$$\mathcal{E}(x) = -0.026\times\frac{-2.5\times10^{18}}{10^{17} - 2.5\times10^{18}\,x}$$
+
+Divide top and bottom by $10^{18}$:
+
+$$\mathcal{E}(x) = \frac{0.065}{0.1 - 2.5\,x}\ \text{V/cm}$$
+@s Direction
+The answer is positive, so $\mathcal{E}$ points in $+x$: to the right, towards the light doping.
+
+Sense check: electrons diffuse right, so the field must drag them back left. Electrons move against $\mathcal{E}$, so $\mathcal{E}$ points right. Agrees.
+
+{{img:04/ans-q9-field.png|Official sketch of the field direction.}}
+@a $n(x) = N(x)$ falls in a straight line, $p(x) = n_i^2/N(x)$ rises. The field is $\mathcal{E}(x) = \dfrac{0.065}{0.1 - 2.5x}$ V/cm, pointing in $+x$.
+
+
+@@topic 5 | Energy bands and the Fermi level | Tutorial Ch1 Q10 to Q15
+@notes
+## Why we switch pictures
+
+The bond picture is good for seeing what a hole is.
+But it cannot give you numbers.
+
+The **band picture** can. Instead of drawing where electrons are, we draw their **energy**.
+
+## Two bands and a gap
+
+Electrons in silicon can only have certain energies.
+
+- **Valence band.** Electrons stuck in bonds. Its top edge is $E_V$.
+- **Conduction band.** Free electrons. Its bottom edge is $E_C$.
+- **The gap.** Between them there are no allowed energies at all.
+
+$$E_G = E_C - E_V = 1.12\ \text{eV for Si}$$
+
+**Link to Topic 1.** Breaking a bond = lifting an electron from the valence band up to the conduction band. It costs $E_G$. It leaves a hole behind in the valence band.
+
+So: free electrons live just above $E_C$. Holes live just below $E_V$.
+
+## The Fermi function: how full is a state?
+
+$$f(E) = \frac{1}{1 + e^{(E - E_F)/kT}}$$
+
+| Symbol | Meaning |
+| $f(E)$ | the chance that a state at energy $E$ has an electron in it (0 to 1) |
+| $E_F$ | the **Fermi level** |
+| $kT$ | thermal energy. 0.026 eV at 300 K. $k = 8.62\times10^{-5}$ eV/K |
+
+{{fig:fermi}}
+
+Three things to read off it:
+
+- Far **below** $E_F$: $f \approx 1$. Full.
+- Exactly **at** $E_F$: $f = \tfrac12$. Always. Put $E = E_F$ in and you get $1/(1+e^{0}) = 1/2$.
+- Far **above** $E_F$: $f \approx 0$. Empty.
+
+The chance a state is **empty** is $1 - f$.
+
+? In heavily doped n-type Si, what is the chance of finding an electron in a state exactly at $E_F$?
+
+= ½. It is always ½ at $E_F$. Doping moves $E_F$, but it does not change this.
+
+## E_F shows you the doping
+
+Think of $E_F$ as a water level.
+
+- $E_F$ high, near $E_C$: the conduction band gets lots of electrons. **n-type.**
+- $E_F$ low, near $E_V$: the valence band gets lots of holes. **p-type.**
+- $E_F$ in the middle: few of each. **Intrinsic.** This middle position is called $E_i$.
+
+{{fig:bands3}}
+
+## From E_F to numbers
+
+On the formula sheet:
+
+$$n = N_C\,e^{-(E_C - E_F)/kT} \qquad\qquad p = N_V\,e^{-(E_F - E_V)/kT}$$
+
+| Symbol | Meaning | Value for Si |
+| $N_C$ | number of states at the bottom of the conduction band | $3.2\times10^{19}$ cm⁻³ |
+| $N_V$ | number of states at the top of the valence band | $1.8\times10^{19}$ cm⁻³ |
+| $E_C - E_F$ | how far $E_F$ is below the conduction band | eV |
+| $E_F - E_V$ | how far $E_F$ is above the valence band | eV |
+
+> **In words.** The further $E_F$ is from a band, the fewer carriers in that band.
+>
+> **Going backwards.** If you know the doping and want where $E_F$ sits, take logs:
+>
+> $$E_C - E_F = kT\,\ln\!\frac{N_C}{n} \qquad\qquad E_F - E_V = kT\,\ln\!\frac{N_V}{p}$$
+
+**Example.** n-type, $N_D = 10^{17}$ cm⁻³. So $n = 10^{17}$.
+
+$$E_C - E_F = 0.026\,\ln\!\frac{3.2\times10^{19}}{10^{17}} = 0.026\times5.77 = 0.15\ \text{eV}$$
+
+$E_F$ sits 0.15 eV below $E_C$.
+
+? p-type, $N_A = 1.8\times10^{17}$ cm⁻³. How far is $E_F$ above $E_V$?
+
+= $p = 1.8\times10^{17}$. So $E_F - E_V = 0.026\,\ln(1.8\times10^{19} \div 1.8\times10^{17}) = 0.026\,\ln(100) = 0.12$ eV.
+
+## The same thing, measured from the middle
+
+Sometimes it is easier to measure from $E_i$ instead of from the band edges:
+
+$$n = n_i\,e^{(E_F - E_i)/kT} \qquad\qquad p = n_i\,e^{(E_i - E_F)/kT}$$
+
+Check it makes sense: if $E_F = E_i$ then $n = p = n_i$. Good, that is intrinsic.
+
+Going backwards: $E_F - E_i = kT\,\ln(n/n_i)$.
+
+Tutorial Q13 derives these. Q15 finds where $E_i$ is.
+
+@q Ch1 Q10
+A material has its Fermi level at 6.25 eV. At what temperature is there a 1% chance that a state 0.3 eV **below** the Fermi level is **empty**?
+@s Turn the words into f
+1% chance of empty means 99% chance of full:
+
+$$f = 0.99$$
+
+The state is 0.3 eV below $E_F$, so $E - E_F = -0.3$ eV.
+
+(The 6.25 eV is not needed. Only the difference matters.)
+@s Put it in the Fermi function
+$$0.99 = \frac{1}{1 + e^{-0.3/kT}}$$
+@s Get the exponential on its own
+Flip both sides:
+
+$$1 + e^{-0.3/kT} = \frac{1}{0.99} = 1.0101$$
+
+$$e^{-0.3/kT} = 0.0101$$
+@s Take logs
+$$-\frac{0.3}{kT} = \ln(0.0101) = -4.595$$
+
+$$kT = \frac{0.3}{4.595} = 0.0653\ \text{eV}$$
+@s Get T
+$$T = \frac{0.0653}{8.62\times10^{-5}} = 757\ \text{K}$$
+@a $T \approx 757$ K. (The official answer says 756 K. The difference is rounding.)
+
+@q Ch1 Q11
+What is the probability of finding an electron at $E = E_F$ in each of these three cases?
+
+{{img:05/ans-q11.png|Three band diagrams with E_F in different places.}}
+@s Put E = E_F into f
+$$f(E_F) = \frac{1}{1 + e^{0}} = \frac{1}{1 + 1} = \frac12$$
+@s Does the position of E_F matter?
+No. Nothing in that sum depends on where $E_F$ is.
+@a ½ in all three cases.
+
+@q Ch1 Q12
+Draw the energy band diagram ($E_C$, $E_V$, $E_F$, $E_G$) of n-type Si.
+@s Draw the two band edges
+A horizontal line at the top: $E_C$. A horizontal line at the bottom: $E_V$.
+
+Draw an arrow between them and label it $E_G$.
+@s Place E_F
+n-type means lots of electrons in the conduction band. So $E_F$ is **near the top**, just under $E_C$.
+
+Draw it dashed so it stands out.
+
+{{img:05/ans-q12.png|Official answer sketch.}}
+@a $E_C$ on top, $E_V$ at the bottom, gap $E_G$ between, and $E_F$ just below $E_C$.
+
+@q Ch1 Q13
+$E_i$ is the Fermi level of intrinsic material. Use this to write $n$ in terms of $n_i$ and $E_F - E_i$. Do the same for $p$.
+@s Start from the formula sheet
+$$n = N_C\,e^{-(E_C - E_F)/kT}$$
+@s Write it for intrinsic Si
+In intrinsic Si, $E_F = E_i$ and $n = n_i$. Same formula:
+
+$$n_i = N_C\,e^{-(E_C - E_i)/kT}$$
+@s Divide the first by the second
+$N_C$ cancels. The $E_C$ cancels in the exponent:
+
+$$\frac{n}{n_i} = e^{(E_F - E_i)/kT}$$
+
+$$n = n_i\,e^{(E_F - E_i)/kT}$$
+@s Same for holes
+Start from $p = N_V\,e^{-(E_F - E_V)/kT}$ and do the same thing:
+
+$$p = n_i\,e^{(E_i - E_F)/kT}$$
+@a $n = n_i\,e^{(E_F - E_i)/kT}$ and $p = n_i\,e^{(E_i - E_F)/kT}$.
+
+@q Ch1 Q14
+Sketch the band diagram for n-type Si and include $E_i$.
+@s Start with Q12
+$E_C$ on top, $E_V$ at the bottom, $E_F$ just under $E_C$.
+@s Add E_i
+$E_i$ goes in the **middle** of the gap. Draw it dashed.
+
+In n-type, $E_F$ is **above** $E_i$.
+
+{{img:05/ans-q14.png|Official answer sketch.}}
+@a Same as Q12, with $E_i$ dashed at mid-gap and $E_F$ above it.
+
+@q Ch1 Q15
+Derive the position of $E_i$ in terms of the band gap.
+@s Intrinsic means n = p
+With $E_F = E_i$ in both formulas:
+
+$$N_C\,e^{-(E_C - E_i)/kT} = N_V\,e^{-(E_i - E_V)/kT}$$
+@s Choose where zero is
+Measure energy from the valence band edge: $E_V = 0$. Then $E_C = E_G$.
+
+$$N_C\,e^{-(E_G - E_i)/kT} = N_V\,e^{-E_i/kT}$$
+@s Collect the exponentials
+Divide both sides by $N_C$ and by $e^{-E_i/kT}$:
+
+$$e^{(2E_i - E_G)/kT} = \frac{N_V}{N_C}$$
+@s Take logs and solve
+$$2E_i - E_G = kT\,\ln\!\frac{N_V}{N_C}$$
+
+$$E_i = \frac{E_G}{2} + \frac{kT}{2}\,\ln\!\frac{N_V}{N_C}$$
+@s Numbers for Si
+$$E_i = 0.56 + 0.013\,\ln\!\frac{1.8}{3.2} = 0.56 - 0.0075 = 0.55\ \text{eV}$$
+@a $E_i = \dfrac{E_G}{2} + \dfrac{kT}{2}\ln\dfrac{N_V}{N_C}$. For Si that is 0.55 eV above $E_V$: almost exactly mid-gap.
+
+
+@@topic 6 | Vacuum level, electron affinity and workfunction | Tutorial Ch1 Q16, Ch2 Q1
+@notes
+## Why we need a new reference line
+
+Soon we will put two different materials side by side.
+To compare them we need one energy that is the same for both.
+
+That is the **vacuum level**, $E_{vac}$.
+It is the energy of an electron that has just got **out** of the material and is sitting still outside.
+
+Draw it as a line at the very top. Measure everything **down** from it.
+
+## Two distances down from the vacuum level
+
+{{fig:vac}}
+
+$$\chi = E_{vac} - E_C \qquad\qquad \phi = E_{vac} - E_F$$
+
+| Symbol | Name | What it is |
+| $\chi$ | electron affinity | from the vacuum level down to $E_C$. **Fixed** for a material. For Si, 4.05 eV. |
+| $\phi$ | workfunction | from the vacuum level down to $E_F$. **Changes with doping**, because doping moves $E_F$. |
+
+## The link between them
+
+Look at the diagram. To get to $E_F$ you go down $\chi$ to $E_C$, then a bit further:
+
+$$\phi = \chi + (E_C - E_F)$$
+
+- **n-type:** $E_F$ is near $E_C$. So $\phi$ is only a little more than 4.05 eV.
+- **p-type:** $E_F$ is near $E_V$. So $\phi$ is nearly $4.05 + 1.12 = 5.17$ eV.
+
+The middle of the gap is at $4.05 + 0.56 = 4.61$ eV.
+
+> **Quick test.** $\phi$ less than 4.61 eV → n-type. $\phi$ more than 4.61 eV → p-type.
+
+? A Si sample has $\phi = 4.20$ eV. Is it n-type or p-type? How far is $E_F$ below $E_C$?
+
+= n-type, because 4.20 is less than 4.61. And $E_C - E_F = \phi - \chi = 4.20 - 4.05 = 0.15$ eV.
+
+## The two kinds of question
+
+**Doping → workfunction.** Find $E_C - E_F$ from the doping (Topic 5), then add $\chi$.
+
+**Workfunction → doping.** Find where $E_F$ is from $\phi$, then use the $n$ or $p$ formula (Topic 5).
+
+@q Ch1 Q16
+Calculate the doping density if the workfunction of a Si sample is $\phi$ = 5.08 eV.
+@s n-type or p-type?
+Mid-gap is at $4.05 + 0.56 = 4.61$ eV below the vacuum level.
+
+$\phi = 5.08$ is bigger. So $E_F$ is below mid-gap. **p-type.**
+@s Where is E_F?
+For p-type we want the distance from $E_F$ down to $E_V$.
+
+$E_V$ is $\chi + E_G = 4.05 + 1.12 = 5.17$ eV below vacuum. $E_F$ is 5.08 eV below vacuum.
+
+$$E_F - E_V = 5.17 - 5.08 = 0.09\ \text{eV}$$
+
+{{img:06/ans-ch1-q16.png|Official sketch.}}
+@s Use the hole formula
+$$p = N_V\,e^{-(E_F - E_V)/kT} = 1.8\times10^{19}\times e^{-0.09/0.026}$$
+
+$$p = 1.8\times10^{19}\times0.0314 = 5.65\times10^{17}\ \text{cm}^{-3}$$
+@s Holes to doping
+p-type, so $p = N_A$.
+@a p-type, with $N_A = 5.65\times10^{17}$ cm⁻³.
+
+@q Ch2 Q1
+$\chi$ = 4.05 eV. Si is doped with P, $N_D = 3\times10^{17}$ cm⁻³. Plot $E_C$, $E_V$, $E_F$, $\chi$ and $\phi$ with respect to $E_{vac}$.
+@s Type and carriers
+Phosphorus → n-type. $n = N_D = 3\times10^{17}$ cm⁻³.
+@s Where is E_F?
+$$E_C - E_F = kT\,\ln\!\frac{N_C}{n} = 0.026\,\ln\!\frac{3.2\times10^{19}}{3\times10^{17}} = 0.026\times4.67 = 0.12\ \text{eV}$$
+@s Workfunction
+$$\phi = \chi + (E_C - E_F) = 4.05 + 0.12 = 4.17\ \text{eV}$$
+@s Draw it
+From the top down:
+
+- $E_{vac}$
+- $E_C$, 4.05 eV below ($\chi$)
+- $E_F$, 4.17 eV below ($\phi$)
+- $E_V$, $4.05 + 1.12 = 5.17$ eV below
+
+{{img:06/ans-ch2-q1.png|Official answer sketch.}}
+@a $E_C - E_F = 0.12$ eV and $\phi = 4.17$ eV. $E_C$ is 4.05 eV and $E_V$ is 5.17 eV below the vacuum level.
+
+
+@@topic 7 | Band diagrams with a voltage applied | Tutorial Ch1 Q17, Q18
+@notes
+## How to read the energy axis
+
+A band diagram plots the energy of an **electron**. Up = more energy.
+
+Electrons are like balls. They **sink** to the lowest energy they can. So they collect at the bottom of the conduction band, at $E_C$.
+
+Holes are the opposite. They are like **bubbles**. They float **up**. So they collect at the top of the valence band, at $E_V$.
+
+So:
+
+- An electron with extra energy is **higher up**, above $E_C$.
+- A hole with extra energy is **further down**, below $E_V$.
+
+## A voltage tilts the bands
+
+Electrons are negative. They are attracted to the **+** terminal.
+
+So the + end is where an electron has **low** energy. The − end is where it has **high** energy.
+
+That means the bands **slope**. Low at +, high at −.
+
+{{fig:tilt}}
+
+Things to notice:
+
+- $E_C$, $E_V$ and $E_F$ all tilt **together**, staying parallel. The doping is the same everywhere, so the spacing between them cannot change.
+- The total height difference from one end to the other is $eV$.
+- The field $\mathcal{E}$ points from + to −. The bands go **up** in the direction of $\mathcal{E}$.
+
+## Which way do the carriers go?
+
+- Electrons roll **downhill**, towards +.
+- Holes float **uphill**, towards −.
+
+Both give current in the same direction: from + to − through the bar.
+
+? The + terminal is on the **right**. Which way do the bands slope, and which way do electrons move?
+
+= The bands slope down to the right, because + is the low end. Electrons roll down to the right.
+
+@q Ch1 Q17
+On a band diagram, where do electrons with higher energy sit? Where do holes with higher energy sit?
+@s Electrons
+The axis is electron energy. More energy = higher up.
+
+So energetic electrons sit **higher** in the conduction band, further above $E_C$.
+@s Holes
+For holes the axis is upside down. More hole energy = further **down**.
+
+So energetic holes sit **deeper** in the valence band, further below $E_V$.
+
+{{img:07/ans-ch1-q17.png|Official answer sketch.}}
+@a High-energy electrons are higher above $E_C$. High-energy holes are further below $E_V$.
+
+@q Ch1 Q18
+A homogeneously doped p-Si bar has a voltage across it, + on the left, − on the right. The contacts have no voltage drop. Draw the band diagram.
+@s Draw it with no voltage first
+p-type: $E_C$ on top, $E_V$ at the bottom, $E_F$ just above $E_V$. All flat.
+@s Which end is low?
++ is on the left. Electrons have low energy at +. So the **left end is low** and the right end is high.
+@s Tilt everything
+Draw $E_C$, $E_F$ and $E_V$ as three parallel straight lines, sloping **up to the right**.
+
+The height difference between the two ends is $eV$.
+@s Mark the field and the carriers
+$\mathcal{E}$ points from + to −: left to right.
+
+Holes float uphill, so they move to the right.
+
+{{img:07/ans-ch1-q18.png|Official answer sketch.}}
+@a All three lines tilt up towards the − end (the right), parallel, with a total rise of $eV$. $E_F$ stays near $E_V$.

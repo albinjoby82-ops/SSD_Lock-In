@@ -1,0 +1,846 @@
+@@part Chapter 2 · Junctions and pn diodes
+
+@@topic 8 | Bringing two materials into contact | Tutorial Ch2 Q2, Q3, Q4
+@notes
+## The one rule
+
+> With no voltage applied, **$E_F$ is one flat line** through everything that is touching.
+
+All of Chapter 2 is built on this.
+
+## Why: think of water
+
+$E_F$ is like a water level. It tells you how full of electrons a material is.
+
+Take two tanks with different water levels and join them with a pipe.
+Water runs from the high one to the low one. It stops when the levels are the same.
+
+Electrons do exactly that. They run from the material with the **higher** $E_F$ to the one with the **lower** $E_F$, until the two levels match.
+
+## Before contact
+
+Draw both materials under one shared vacuum level (Topic 6).
+
+{{fig:contact_before}}
+
+Both are silicon, so $\chi$ and $E_G$ are the same. $E_C$ and $E_V$ line up.
+
+Only $E_F$ is different:
+
+- n-Si: $E_F$ near $E_C$. High. Small $\phi$.
+- p-Si: $E_F$ near $E_V$. Low. Big $\phi$.
+
+## What happens when they touch
+
+1. Electrons flow from the n-Si (high $E_F$) into the p-Si (low $E_F$).
+2. The n-side has lost electrons, so it is left a bit **positive**.
+3. The p-side has gained electrons, so it becomes a bit **negative**.
+4. A negative region is a high-energy place for an electron. So all the bands on the **p-side move up**. On the n-side they move down.
+5. This carries on until the two $E_F$ lines are level. Then the flow stops.
+
+? Which way do electrons flow when the materials touch: from high $E_F$ to low, or low to high?
+
+= From high $E_F$ to low $E_F$. Like water running downhill.
+
+## After contact
+
+{{fig:contact_after}}
+
+Far from the join, each side looks just like it did before: $E_C$ and $E_V$ are the same distance from $E_F$ as they always were.
+
+But $E_F$ is now level. So the two sets of bands sit at **different heights**, and they bend smoothly to join up.
+
+## How to draw it, every time
+
+1. Draw $E_F$ as one flat line right across.
+2. On the n-side, far from the join: put $E_C$ just **above** $E_F$, and $E_V$ a gap below that.
+3. On the p-side, far from the join: put $E_V$ just **below** $E_F$, and $E_C$ a gap above that.
+4. Join $E_C$ to $E_C$ and $E_V$ to $E_V$ with a smooth S-shaped curve.
+
+The size of the step is the difference between the two workfunctions:
+
+$$\text{step} = \phi_p - \phi_n$$
+
+? n-Si with $\phi_n = 4.17$ eV touches p-Si with $\phi_p = 5.0$ eV. How big is the step in the bands?
+
+= $5.0 - 4.17 = 0.83$ eV.
+
+@q Ch2 Q2
+Draw n-Si ($N_D = 3\times10^{17}$ cm⁻³) and p-Si ($N_A = 5\times10^{16}$ cm⁻³) on the same energy axes, **before** contact.
+@s What is shared
+Both are Si. Draw one vacuum level across the top.
+
+On both sides: $E_C$ is $\chi = 4.05$ eV below it, and $E_V$ is $4.05 + 1.12 = 5.17$ eV below it.
+@s E_F in the n-Si
+$n = 3\times10^{17}$.
+
+$$E_C - E_F = 0.026\,\ln\!\frac{3.2\times10^{19}}{3\times10^{17}} = 0.12\ \text{eV}$$
+
+$$\phi_n = 4.05 + 0.12 = 4.17\ \text{eV}$$
+@s E_F in the p-Si
+$p = 5\times10^{16}$.
+
+$$E_F - E_V = 0.026\,\ln\!\frac{1.8\times10^{19}}{5\times10^{16}} = 0.026\times5.89 = 0.15\ \text{eV}$$
+
+$E_V$ is 5.17 eV below vacuum, and $E_F$ is 0.15 eV above that:
+
+$$\phi_p = 5.17 - 0.15 = 5.02 \approx 5\ \text{eV}$$
+@s Draw
+Two diagrams side by side. Same $E_C$ and $E_V$. $E_F$ high on the n-side, low on the p-side.
+
+{{img:08/ans-ch2-q2.png|Official answer sketch. IE = 5.17 eV is the distance from the vacuum level down to the valence band edge.}}
+@a n-Si: $E_F$ is 0.12 eV below $E_C$, $\phi = 4.17$ eV. p-Si: $E_F$ is 0.15 eV above $E_V$, $\phi \approx 5$ eV.
+
+@q Ch2 Q3
+Two materials have filled and empty levels set by $E_{F1}$ (low) and $E_{F2}$ (high). Re-draw the filled and empty levels when they are brought into contact.
+@s Who gives, who takes?
+Material 2 has the higher Fermi level. It has filled levels at energies where material 1 still has empty ones.
+@s Electrons move
+Electrons drop from material 2 into the empty levels of material 1.
+@s When does it stop?
+Material 1 fills up, so $E_{F1}$ rises. Material 2 empties, so $E_{F2}$ falls.
+
+It stops when they are **level**.
+
+{{img:08/ans-ch2-q3.png|Official answer sketch.}}
+@a Electrons flow from material 2 to material 1 until both are filled up to the same level: one common $E_F$.
+
+@q Ch2 Q4
+Draw the band diagram of the materials in Q2 when in contact.
+@s E_F first
+One flat line right across.
+@s n-side, far from the join
+$E_C$ is 0.12 eV above $E_F$. $E_V$ is 1.12 eV below $E_C$.
+@s p-side, far from the join
+$E_V$ is 0.15 eV below $E_F$. $E_C$ is 1.12 eV above $E_V$.
+
+So the p-side bands sit **higher** than the n-side bands.
+@s Join them
+Smooth S-curve from the n-side $E_C$ up to the p-side $E_C$. Same for $E_V$.
+
+The step is $\phi_p - \phi_n = 5.02 - 4.17 = 0.85$ eV.
+
+{{img:08/ans-ch2-q4.png|Official answer sketch.}}
+@a Flat $E_F$. n-side bands low, p-side bands high, joined by a smooth bend of about 0.85 eV.
+
+
+@@topic 9 | Metal on silicon: ohmic and Schottky contacts | Tutorial Ch2 Q6
+@notes
+## What a metal looks like on a band diagram
+
+A metal has no gap. It is just full of electrons up to $E_F$.
+
+So draw a metal as **one line**, its $E_F$, with a workfunction $\phi_m$ down from the vacuum level.
+
+## Same rule as Topic 8
+
+Electrons flow from the higher $E_F$ to the lower $E_F$ until it is flat.
+
+Bigger workfunction = lower $E_F$.
+
+So if $\phi_m > \phi_{Si}$, the metal's $E_F$ is lower, and **electrons leave the silicon and go into the metal**.
+
+A metal has so many electrons that nothing changes inside it. All the bending happens **in the silicon**.
+
+Silicon that has lost electrons near the join has its bands bent **up** towards the metal.
+
+## Is losing electrons good or bad? It depends on the type
+
+**p-Si.** Losing electrons is the same as gaining holes.
+Holes are the majority carrier. So now there are **more** carriers at the join.
+Nothing is in the way. Current flows easily both ways.
+This is an **ohmic** contact. Its I–V curve is a straight line, like a resistor.
+
+**n-Si.** Electrons are the majority carrier. Losing them leaves the join **empty** of carriers.
+The bent-up bands are a **hill** that electrons must climb to reach the metal.
+Current only flows one way.
+This is a **Schottky** contact. Its I–V curve looks like a diode.
+
+{{fig:ms}}
+
+> **One line to remember.**
+>
+> **Ohmic** = more majority carriers at the join than in the rest of the Si.
+>
+> **Schottky** = fewer majority carriers at the join.
+
+## All four cases
+
+| Si type | Workfunctions | Electrons flow | Majority carriers at the join | Contact |
+| p | $\phi_m > \phi_{Si}$ | Si → metal | more holes | **ohmic** |
+| n | $\phi_m > \phi_{Si}$ | Si → metal | fewer electrons | **Schottky** |
+| n | $\phi_m < \phi_{Si}$ | metal → Si | more electrons | **ohmic** |
+| p | $\phi_m < \phi_{Si}$ | metal → Si | fewer holes | **Schottky** |
+
+You do not need to memorise the table. Work it out each time:
+
+1. Which way do electrons flow? (From the smaller $\phi$ to the bigger $\phi$.)
+2. Does the Si end up with more or fewer of its majority carrier?
+
+? A metal with $\phi_m$ smaller than $\phi_{Si}$ is put on n-Si. Ohmic or Schottky?
+
+= Electrons flow from the metal into the Si. The n-Si gets more electrons, its majority carrier. So it is ohmic.
+
+## Adding a voltage
+
+A voltage adds its own field to the one already at the join.
+
+**Ohmic.** Whichever way round the voltage is, the carriers piled at the join can move. Current flows **both ways**.
+
+**Schottky (n-Si).**
+
+- + on the metal: the hill gets lower. Electrons pour over it. **Current flows.**
+- − on the metal: the hill gets higher. **No current**, just a tiny leak.
+
+Under a voltage, $E_F$ is no longer flat. The two sides are separated by $eV$.
+
+@q Ch2 Q6
+A metal sits on p-Si, with $\phi_m > \phi_{Si}$. A voltage $V$ can be applied, − on the metal, + on the Si.
+
+a. Draw the band diagram ($E_C$, $E_V$, $E_F$, $E_G$) through the junction for $V = 0$.
+b. Draw it for $V$ as given.
+c. Draw it for the opposite polarity.
+d. What type of contact is this?
+e. What happens to the I–V curve if the Si is changed to n-type, with the same $\phi_m > \phi_{Si}$?
+@s (a) Which way do electrons flow?
+$\phi_m$ is bigger, so the metal's $E_F$ is lower. Electrons flow from the Si into the metal.
+@s (a) Draw it
+$E_F$ flat. Metal: just that line.
+
+Far into the Si: normal p-type, $E_V$ just below $E_F$.
+
+Near the metal the Si has lost electrons, which means **more holes**. So $E_V$ bends **up**, closer to $E_F$. $E_C$ bends up by the same amount.
+
+The total bend is $e(\phi_m - \phi_{Si})$.
+
+{{img:09/ans-ch2-q6a.png|Official answer. Left: before contact. Right: after contact, with the bands bent up towards the metal.}}
+@s (b) Minus on the metal
+The voltage adds a field in the **same** direction as the one already there. The bands bend more.
+
+The two Fermi levels are now $eV$ apart.
+
+Holes float up towards the metal and cross. **Current flows.**
+
+{{img:09/ans-ch2-q6b.png|Official answer.}}
+@s (c) Plus on the metal
+Now the added field **opposes** the built-in one. The bands bend less.
+
+Holes move the other way. There is still nothing blocking them. **Current flows.**
+
+{{img:09/ans-ch2-q6c.png|Official answer.}}
+@s (d) What type?
+Current flows both ways, and there are more majority carriers (holes) at the join.
+
+That is an **ohmic** contact.
+@s (e) Change to n-Si
+Electrons still leave the Si. But now electrons are the **majority** carrier.
+
+So the join is emptied, and the bent-up bands are a hill in front of the electrons. A **Schottky** contact.
+
+The I–V curve changes from a straight line to a diode curve: current one way only.
+
+{{img:09/ans-ch2-q6e.png|Official answer. Left: no voltage. Middle: + on the metal, hill lower, current flows. Right: − on the metal, hill higher, no current.}}
+@a (a) Bands bend up towards the metal by $e(\phi_m - \phi_{Si})$, $E_F$ flat. (b) More bending, current flows. (c) Less bending, current flows the other way. (d) Ohmic. (e) It becomes a Schottky contact: the I–V turns into a one-way diode curve.
+
+
+@@topic 10 | The pn junction with no voltage | Tutorial Ch2 Q5, Q11a
+@notes
+## Building a pn junction, step by step
+
+Put p-Si against n-Si. This is the same as Topic 8, but now look at what the carriers do.
+
+1. The p-side is full of holes. The n-side has almost none. So holes **diffuse** across into the n-side. (Topic 4: crowded to empty.)
+2. Same for electrons, the other way: they diffuse from n into p.
+3. Where they meet, electrons fall into holes and both vanish. So near the join there are **no carriers left**.
+4. That empty strip is the **depletion region**.
+5. What is left in it? The dopant atoms. They cannot move. On the p-side they are **negative**. On the n-side they are **positive**.
+6. Positive on one side, negative on the other: that is an **electric field**, pointing from n to p.
+7. This field pushes holes back to the p-side and electrons back to the n-side. It **stops** the diffusion.
+
+{{fig:pn_ions}}
+
+It settles when the push from the field exactly cancels the diffusion. Then no current flows.
+
+? In the depletion region, what is the charge on the n-side: positive or negative? Why?
+
+= Positive. The electrons have left. What remains is donor atoms, and each one gave away an electron, so it is positive.
+
+## The same thing as a band diagram
+
+{{fig:pn_band0}}
+
+Use the Topic 8 recipe: $E_F$ flat, p-side bands high, n-side bands low, smooth bend between.
+
+The step is a **barrier**. An electron on the n-side has to climb it to get to the p-side. A hole on the p-side has to get "down" it, which for a hole is also a climb.
+
+The height of the step is $eV_0$. $V_0$ is the **built-in voltage**.
+
+## The built-in voltage
+
+$$V_0 = \frac{kT}{e}\,\ln\!\left(\frac{N_A\,N_D}{n_i^{2}}\right)$$
+
+| Symbol | Meaning | Value |
+| $V_0$ | built-in voltage. The formula sheet calls it $V_{bi}$. | V |
+| $kT/e$ | thermal voltage | 0.026 V |
+| $N_A$ | doping of the p-side | cm⁻³ |
+| $N_D$ | doping of the n-side | cm⁻³ |
+| $n_i^2$ | | $2.1\times10^{20}$ cm⁻⁶ |
+
+> **In words.** More doping on either side → bigger barrier. It is usually between 0.6 and 0.9 V.
+>
+> **Use it when** you are asked for the built-in voltage, the barrier height, or the "contact potential".
+
+**Example.** $N_A = N_D = 10^{16}$ cm⁻³.
+
+$$V_0 = 0.026\,\ln\!\frac{10^{16}\times10^{16}}{2.1\times10^{20}} = 0.026\,\ln(4.76\times10^{11}) = 0.026\times26.9 = 0.70\ \text{V}$$
+
+? You make $N_A$ ten times bigger. Does $V_0$ go up or down?
+
+= Up. A bigger number inside the log. It rises by $0.026\,\ln(10) = 0.06$ V.
+
+## Another way to see V_0
+
+On the n-side, $E_F$ is above $E_i$ by some amount. On the p-side, $E_F$ is below $E_i$ by some amount.
+
+$E_F$ is flat, so $E_i$ must step by the **sum** of those two. That sum is $eV_0$.
+
+Tutorial Q5 uses this.
+
+@q Ch2 Q5
+Si np diode, no bias. $N_A = N_D = 10^{17}$ cm⁻³. Take $E_G \approx 1$ eV. Sketch the band diagram. Find $E_C$, $E_F$, $E_i$ relative to $E_V$ on each side, and $V_0$.
+@s n-side: E_F from the band edge
+$n = 10^{17}$.
+
+$$E_C - E_F = 0.026\,\ln\!\frac{3.2\times10^{19}}{10^{17}} = 0.15\ \text{eV}$$
+@s n-side: E_F from E_i
+$$E_F - E_i = 0.026\,\ln\!\frac{n}{n_i} = 0.026\,\ln\!\frac{10^{17}}{1.45\times10^{10}} = 0.41\ \text{eV}$$
+@s n-side: list the heights above E_V
+With $E_G = 1$ eV: $E_C$ is at 1.00 eV.
+
+$E_F$ is 0.15 below that: **0.85 eV**.
+
+$E_i$ is 0.41 below $E_F$: **0.44 eV**.
+@s p-side
+$p = 10^{17}$.
+
+$$E_F - E_V = 0.026\,\ln\!\frac{1.8\times10^{19}}{10^{17}} = 0.14\ \text{eV}$$
+
+$$E_i - E_F = 0.026\,\ln\!\frac{p}{n_i} = 0.41\ \text{eV}$$
+
+Heights above $E_V$: $E_F$ at **0.14 eV**, $E_i$ at **0.55 eV**, $E_C$ at **1.00 eV**.
+@s Built-in voltage
+$$V_0 = 0.026\,\ln\!\frac{10^{17}\times10^{17}}{2.1\times10^{20}} = 0.026\times31.5 = 0.82\ \text{V}$$
+
+Check: $0.41 + 0.41 = 0.82$. Same thing.
+@s Sketch
+$E_F$ flat. n-side bands low, p-side bands 0.82 eV higher, smooth bend.
+
+{{img:10/ans-ch2-q5-band.png|Official answer sketch.}}
+@a n-side: $E_F$ 0.85 eV, $E_i$ 0.44 eV, $E_C$ 1.0 eV above $E_V$. p-side: $E_F$ 0.14 eV, $E_i$ 0.55 eV, $E_C$ 1.0 eV above $E_V$. $V_0 = 0.82$ V.
+
+@q Ch2 Q11a
+pn diode, $N_A = 10^{19}$ cm⁻³, $N_D = 10^{16}$ cm⁻³, $T$ = 300 K. Find $V_0$.
+@s Formula
+$$V_0 = \frac{kT}{e}\,\ln\!\left(\frac{N_A\,N_D}{n_i^{2}}\right)$$
+@s Inside the log
+$$\frac{10^{19}\times10^{16}}{2.1\times10^{20}} = 4.76\times10^{14}$$
+@s Finish
+$$V_0 = 0.026\times\ln(4.76\times10^{14}) = 0.026\times33.8 = 0.88\ \text{V}$$
+@a $V_0 = 0.88$ V. (Parts b to e are in Topic 14.)
+
+
+@@topic 11 | The pn junction with a voltage | Tutorial Ch2 Q7, Q8
+@notes
+## Where we start
+
+With no voltage there is a barrier of height $eV_0$ (Topic 10).
+
+It stops the majority carriers from diffusing across.
+
+A voltage changes the **height of that barrier**. That is the whole story of the diode.
+
+{{fig:pn_bias}}
+
+## Forward bias: + on the p-side
+
+The applied voltage $V$ pushes **against** the built-in voltage.
+
+$$\text{barrier} = e\,(V_0 - V)$$
+
+The hill is lower. Now lots of carriers have enough energy to get over:
+
+- **holes** go from p to n
+- **electrons** go from n to p
+
+They cross by **diffusion**, from where there are many to where there are few.
+
+There are huge numbers of majority carriers waiting, so the current is **large**. And it grows very fast (exponentially) with $V$.
+
+The depletion region gets **thinner**.
+
+## Reverse bias: + on the n-side
+
+Now the applied voltage **adds** to the built-in voltage.
+
+$$\text{barrier} = e\,(V_0 + |V|)$$
+
+The hill is higher. No majority carrier can climb it. Diffusion across the junction stops.
+
+So what current is left? Only this:
+
+- On the p-side there are a **few electrons** (minority carriers). If one wanders to the edge of the depletion region, the field sweeps it down the hill to the n-side.
+- Same for the **few holes** on the n-side, swept to the p-side.
+
+That is a **drift** current of **minority** carriers.
+
+There are very few of them: only $n_i^2/N$ per cm³. So the current is **tiny**.
+
+And making the voltage bigger does not help. The field is already taking every minority carrier that arrives. The current is limited by **how many there are**, not by how hard you pull.
+
+The depletion region gets **wider**.
+
+## Side by side
+
+| | Forward (+ on p) | Reverse (+ on n) |
+| Barrier | lower, $e(V_0 - V)$ | higher, $e(V_0 + \vert V\vert)$ |
+| Who crosses | majority carriers | minority carriers |
+| How | diffusion | drift |
+| Current | large, grows fast with $V$ | tiny, constant |
+| Depletion region | thinner | wider |
+
+Under bias $E_F$ is not flat any more. The n-side and p-side Fermi levels are $eV$ apart.
+
+? In reverse bias, which carriers carry the current: majority or minority?
+
+= Minority carriers. Electrons from the p-side and holes from the n-side, swept across by the field.
+
+@q Ch2 Q7
+On a schematic diagram of a pn diode, draw the direction of hole and electron flow across the junction under forward bias.
+@s Set it up
+Draw the diode as a block: p on one side, n on the other. Forward bias: + to the p-side.
+@s What forward bias does
+It lowers the barrier. Majority carriers can now diffuse across.
+@s Draw the arrows
+Holes are the majority on the p-side: arrow from **p to n**.
+
+Electrons are the majority on the n-side: arrow from **n to p**.
+
+{{img:11/ans-ch2-q7.png|Official answer sketch.}}
+@a Holes flow from p to n. Electrons flow from n to p. Both cross by diffusion over the lowered barrier.
+
+@q Ch2 Q8
+Why is the current in a reverse-biased pn diode small? Explain in terms of the carrier type injected across the junction.
+@s What reverse bias does to the barrier
+It raises it to $e(V_0 + |V|)$. Majority carriers cannot get over, so they do not cross.
+@s What can cross
+Only **minority** carriers. The field in the depletion region sweeps them across: electrons from p to n, holes from n to p.
+@s Why that is small
+There are only $n_i^2/N$ minority carriers per cm³. That is a very small number.
+
+Few carriers available → tiny current. And it does not grow with voltage, because the supply of carriers is the limit.
+
+{{img:11/ans-ch2-q8.png|Official answer.}}
+@a Only minority carriers are swept across the junction in reverse bias. There are very few of them ($n_i^2/N$), so the current is tiny and almost independent of the voltage.
+
+
+@@topic 12 | Minority carrier injection | Tutorial Ch2 Q9, Q10
+@notes
+## The names
+
+There are four numbers. The **letter** is the carrier. The **subscript** is the side it is on.
+
+| Symbol | What it is | Value |
+| $p_p$ | holes on the p-side (majority) | $N_A$ |
+| $n_{p0}$ | electrons on the p-side (minority) | $n_i^2 / N_A$ |
+| $n_n$ | electrons on the n-side (majority) | $N_D$ |
+| $p_{n0}$ | holes on the n-side (minority) | $n_i^2 / N_D$ |
+
+The little 0 means "with no voltage".
+
+With no voltage, all four are flat, constant lines.
+
+## Forward bias injects minority carriers
+
+In forward bias, electrons pour from the n-side into the p-side (Topic 11).
+
+Once they are in the p-side, they are **minority carriers** there. So right next to the junction, the p-side now has far more electrons than normal.
+
+How many? This is on the formula sheet as $c = c_0\,e^{eV/kT}$:
+
+$$n'_p = n_{p0}\,e^{V/0.026} \qquad\qquad p'_n = p_{n0}\,e^{V/0.026}$$
+
+| Symbol | Meaning |
+| $n'_p$ | electrons on the p-side, right at the edge of the depletion region |
+| $p'_n$ | holes on the n-side, right at the edge of the depletion region |
+| $V$ | applied voltage. + for forward, − for reverse. |
+
+> **In words.** Take the normal minority number and multiply by $e^{V/0.026}$.
+>
+> That multiplier is enormous. For $V = 0.5$ V it is $2.25\times10^{8}$.
+
+The **majority** carriers hardly change. They are so many already that the extra makes no difference.
+
+? p-side doping $N_A = 10^{16}$ cm⁻³. What is $n_{p0}$?
+
+= $n_{p0} = n_i^2/N_A = 2.1\times10^{20} \div 10^{16} = 2.1\times10^{4}$ cm⁻³.
+
+## The shape: a straight line
+
+At the junction edge the minority concentration is the big injected value.
+
+At the metal **contact** at the far end, any extra carriers are removed at once. So there it is back to the normal value.
+
+In a **short diode**, the line between those two points is **straight**.
+
+{{fig:profile_fwd}}
+
+("Short" means the region is so short that the carriers reach the contact before they have time to recombine.)
+
+In this course, $L_n$ is the length of the **p-region** (where electrons are the minority), and $L_p$ is the length of the **n-region**.
+
+## Reverse bias
+
+Put a negative $V$ in the formula. $e^{-1/0.026}$ is about $10^{-17}$. So the minority concentration at the junction edge is **about zero**.
+
+The field has swept them away.
+
+At the contact it is still the normal value. Straight line between.
+
+{{fig:profile_rev}}
+
+## Stored charge
+
+The extra carriers in forward bias are the shaded **triangle**.
+
+Area of a triangle = ½ × base × height. Multiply by $e$ to turn carriers into charge:
+
+$$\frac{Q}{A} = e\times\tfrac12\times(\text{height})\times(\text{length})$$
+
+| | Height | Length |
+| Extra electrons in the p-region | $n'_p$ | $L_n$ |
+| Extra holes in the n-region | $p'_n$ | $L_p$ |
+
+(Strictly the height is $n'_p - n_{p0}$, but $n_{p0}$ is far too small to matter.)
+
+The answer is in C/cm².
+
+@q Ch2 Q9
+Short Si pn diode. $N_A = 10^{15}$, $N_D = 10^{18}$ cm⁻³. $L_n = 5\times10^{-3}$ cm, $L_p = 8\times10^{-3}$ cm. Sketch minority and majority carriers against distance for:
+
+a. no bias
+b. 0.5 V forward
+c. 1 V reverse
+@s The four equilibrium numbers
+p-side: $p_p = N_A = 10^{15}$. $\quad n_{p0} = \dfrac{2.1\times10^{20}}{10^{15}} = 2.1\times10^{5}$ cm⁻³.
+
+n-side: $n_n = N_D = 10^{18}$. $\quad p_{n0} = \dfrac{2.1\times10^{20}}{10^{18}} = 210$ cm⁻³.
+@s (a) No bias
+Nothing is injected. All four are flat lines at the values above.
+
+In the depletion region there are no free carriers.
+@s (b) The multiplier
+$$e^{0.5/0.026} = 2.25\times10^{8}$$
+@s (b) Injected values at the junction
+$$n'_p = 2.1\times10^{5}\times2.25\times10^{8} = 4.7\times10^{13}\ \text{cm}^{-3}$$
+
+$$p'_n = 210\times2.25\times10^{8} = 4.7\times10^{10}\ \text{cm}^{-3}$$
+@s (b) Sketch
+p-region: electrons start at $4.7\times10^{13}$ at the junction and fall in a straight line to $2.1\times10^{5}$ at the contact.
+
+n-region: holes start at $4.7\times10^{10}$ at the junction and fall in a straight line to 210 at the contact.
+
+Majority lines: unchanged.
+
+{{img:12/ans-ch2-q9ab.png|Official answer, parts a and b.}}
+@s (c) 1 V reverse
+$e^{-1/0.026} \approx 0$. So both minority concentrations are about **zero** at the junction.
+
+They rise in a straight line back to $2.1\times10^{5}$ and 210 at the contacts. Majority lines unchanged.
+
+{{img:12/ans-ch2-q9c.png|Official answer, part c.}}
+@a (a) All flat: $p_p = 10^{15}$, $n_{p0} = 2.1\times10^{5}$, $n_n = 10^{18}$, $p_{n0} = 210$ cm⁻³. (b) Minority carriers at the junction rise to $n'_p = 4.7\times10^{13}$ and $p'_n = 4.7\times10^{10}$ cm⁻³, falling linearly to equilibrium at the contacts. (c) Minority carriers are about 0 at the junction, rising linearly to equilibrium at the contacts.
+
+@q Ch2 Q10
+Calculate the excess minority charge per area in each region of the Q9 diode at 0.5 V forward.
+@s The idea
+The extra carriers make a triangle (see Q9b). Charge per area = $e$ × area of the triangle.
+
+$$\frac{Q}{A} = e\times\tfrac12\times\text{height}\times\text{length}$$
+@s Holes in the n-region
+Height $p'_n = 4.7\times10^{10}$. Length $L_p = 8\times10^{-3}$ cm.
+
+$$\frac{Q_p}{A} = 1.6\times10^{-19}\times\tfrac12\times4.7\times10^{10}\times8\times10^{-3} = 3.0\times10^{-11}\ \text{C/cm}^2$$
+@s Electrons in the p-region
+Height $n'_p = 4.7\times10^{13}$. Length $L_n = 5\times10^{-3}$ cm.
+
+$$\frac{Q_n}{A} = 1.6\times10^{-19}\times\tfrac12\times4.7\times10^{13}\times5\times10^{-3} = 1.9\times10^{-8}\ \text{C/cm}^2$$
+
+{{img:12/ans-ch2-q10.png|Official answer.}}
+@a n-region (holes): $3.0\times10^{-11}$ C/cm². p-region (electrons): $1.9\times10^{-8}$ C/cm².
+
+
+@@topic 13 | Diode current | Tutorial Ch2 Q12, Q13
+@notes
+## The idea
+
+In Topic 12 the injected minority carriers made a sloping straight line.
+
+In Topic 4, a slope in concentration means a **diffusion current**.
+
+Put those together and you have the diode current. Nothing new.
+
+## Current from the slope
+
+Diffusion current = $e \times D \times$ slope.
+
+The line is straight, so slope = height ÷ length:
+
+$$J_n = e\,D_n\,\frac{n'_p}{L_n} \qquad\qquad J_p = e\,D_p\,\frac{p'_n}{L_p}$$
+
+| Symbol | Meaning |
+| $J_n$ | current carried by **electrons**, diffusing through the **p-region** |
+| $J_p$ | current carried by **holes**, diffusing through the **n-region** |
+| $D_n$, $D_p$ | diffusion coefficients (cm²/s) |
+| $n'_p$, $p'_n$ | injected minority concentrations at the junction (Topic 12) |
+| $L_n$, $L_p$ | length of the p-region, length of the n-region |
+
+Total: $J = J_n + J_p$. To get amps, multiply by the area of the diode.
+
+## The formula sheet version
+
+The sheet writes the same thing with $n'_p = n_{p0}\,e^{eV/kT}$ put in, and a $-1$:
+
+$$J_n = \frac{e\,D_n\,n_{p0}}{L_n}\left(e^{eV/kT} - 1\right) \qquad\qquad J_p = \frac{e\,D_p\,p_{n0}}{L_p}\left(e^{eV/kT} - 1\right)$$
+
+The $-1$ is there because the height of the triangle is really $n'_p - n_{p0}$.
+
+- **Forward bias:** the exponential is huge. Ignore the $-1$.
+- **Reverse bias:** the exponential is about 0. The bracket is $-1$. A small, constant, negative current.
+
+{{fig:iv}}
+
+## Which carrier carries most of the current?
+
+Look at what sets the size: $n_{p0} = n_i^2/N_A$ and $p_{n0} = n_i^2/N_D$.
+
+A **lightly** doped side has **more** minority carriers.
+
+> So most of the current is carried by the carriers injected **into the lightly doped side**.
+
+Example: $N_A$ small, $N_D$ big. Then $n_{p0}$ is big, so $J_n$ wins. The current is nearly all electrons.
+
+? A diode has $N_A = 10^{19}$ and $N_D = 10^{15}$ cm⁻³. Is the current mostly electrons or mostly holes?
+
+= Mostly holes. The n-side is the lightly doped one, so $p_{n0} = n_i^2/N_D$ is the big one, and $J_p$ wins.
+
+## Changing the length
+
+$J$ has the length on the bottom.
+
+Halve a region → the same drop happens over half the distance → the slope doubles → **that region's current doubles**.
+
+The other region's current does not change.
+
+@q Ch2 Q12
+The Q9 diode: $N_A = 10^{15}$, $N_D = 10^{18}$ cm⁻³. p-region length $L_n = 5\times10^{-3}$ cm, n-region length $L_p = 8\times10^{-3}$ cm. Bias 0.5 V forward. $D_n$ = 35 cm²/s, $D_p$ = 12.5 cm²/s. Find the hole and electron current densities. Why is the electron current larger? Give the total.
+@s Injected carriers (from Q9b)
+$$n'_p = 4.7\times10^{13}\ \text{cm}^{-3} \qquad p'_n = 4.7\times10^{10}\ \text{cm}^{-3}$$
+@s Electron current
+Electrons diffuse through the p-region, length $L_n$:
+
+$$J_n = \frac{e\,D_n\,n'_p}{L_n} = \frac{1.6\times10^{-19}\times35\times4.7\times10^{13}}{5\times10^{-3}} = 5.3\times10^{-2}\ \text{A/cm}^2$$
+@s Hole current
+Holes diffuse through the n-region, length $L_p$:
+
+$$J_p = \frac{e\,D_p\,p'_n}{L_p} = \frac{1.6\times10^{-19}\times12.5\times4.7\times10^{10}}{8\times10^{-3}} = 1.2\times10^{-5}\ \text{A/cm}^2$$
+@s Why is J_n bigger?
+The p-side is the **lightly doped** side ($10^{15}$ against $10^{18}$).
+
+So it has many more minority carriers: $n_{p0}$ is 1000 times bigger than $p_{n0}$. That makes $n'_p$ 1000 times bigger than $p'_n$.
+@s Total
+$$J = J_n + J_p = 5.3\times10^{-2} + 0.0012\times10^{-2} \approx 5.3\times10^{-2}\ \text{A/cm}^2$$
+@a $J_n = 5.3\times10^{-2}$ A/cm², $J_p = 1.2\times10^{-5}$ A/cm². The electron current is larger because the p-side is lightly doped, so far more electrons are injected into it. Total ≈ $5.3\times10^{-2}$ A/cm².
+
+@q Ch2 Q13
+The n-region in Q12 is halved in length. What happens to the total current?
+@s Which current uses the n-region?
+The **hole** current. Holes are the minority carrier diffusing through the n-region.
+@s Halve the length
+$L_p$ is on the bottom of $J_p$. Half the length → double the slope → double the current:
+
+$$J_p = 2\times1.2\times10^{-5} = 2.4\times10^{-5}\ \text{A/cm}^2$$
+@s Electron current
+The p-region has not changed. $J_n$ stays at $5.3\times10^{-2}$ A/cm².
+@s Total
+$J_p$ was only a tiny part of the total to begin with. Doubling it changes almost nothing.
+@a The hole current doubles to $2.4\times10^{-5}$ A/cm², but the total stays at about $5.3\times10^{-2}$ A/cm², because the electron current dominates.
+
+
+@@topic 14 | Depletion width, charge and electric field | Tutorial Ch2 Q11 b to e
+@notes
+## Where we are
+
+Topic 10 said: near the junction there is a strip with **no carriers**, only fixed charged atoms.
+
+This topic puts numbers on that strip:
+
+1. how much charge is in it
+2. how wide it is
+3. how strong the field is
+
+Set up the axis like this: the junction is at $x = 0$. The strip reaches $w_p$ into the p-side and $w_n$ into the n-side.
+
+## Step 1: the charge sitting there
+
+**p-side of the strip.** The holes are gone. What is left is acceptor atoms. Each one has charge $-e$. There are $N_A$ of them per cm³.
+
+$$\text{charge density} = -e\,N_A$$
+
+**n-side of the strip.** The electrons are gone. What is left is donor atoms. Each one has charge $+e$. There are $N_D$ per cm³.
+
+$$\text{charge density} = +e\,N_D$$
+
+**Outside the strip.** Carriers cancel the dopant atoms. Charge density = 0.
+
+Plot that against $x$ and you get two **blocks**. Look at the top half of the diagram below.
+
+## Step 2: the two blocks must balance
+
+The diode as a whole has no net charge.
+
+So the negative charge on the p-side must equal the positive charge on the n-side.
+
+Charge in a block = density × width. So:
+
+$$N_A\,w_p = N_D\,w_n$$
+
+> **What it means.** If one side is heavily doped, it only needs a **thin** slice to supply the charge. The lightly doped side needs a **wide** slice to match it.
+>
+> **So the depletion region is mostly in the lightly doped side.**
+>
+> **Use it when** you know one width and want the other, or you are asked why one side is wider.
+>
+> Not on the formula sheet. Learn it.
+
+{{fig:rhoE}}
+
+? $N_A = 10^{18}$ and $N_D = 10^{16}$ cm⁻³. The strip reaches 0.3 μm into the n-side. How far does it reach into the p-side?
+
+= $w_p = w_n \times N_D/N_A = 0.3 \times 10^{16}/10^{18} = 0.003$ μm. One hundred times thinner, because the p-side is one hundred times more heavily doped.
+
+## Step 3: how wide
+
+From the formula sheet:
+
+$$w_n = \sqrt{\frac{2\,\varepsilon\,(V_0 - V)}{e}\cdot\frac{N_A}{N_D\,(N_A + N_D)}}$$
+
+$$w_p = \sqrt{\frac{2\,\varepsilon\,(V_0 - V)}{e}\cdot\frac{N_D}{N_A\,(N_A + N_D)}}$$
+
+| Symbol | Meaning | Value |
+| $\varepsilon$ | permittivity of Si $= \varepsilon_0 \times \varepsilon_r$ | $\varepsilon_0 = 8.85\times10^{-14}$ F/cm. $\varepsilon_r$ = 11.9 in the tutorial answers. |
+| $V_0$ | built-in voltage (Topic 10) | V |
+| $V$ | applied voltage. + forward, − reverse. No bias: $V = 0$. | V |
+| $e$ | | $1.6\times10^{-19}$ C |
+
+> **Units trap.** The sheet gives $\varepsilon_0$ in F/**m**. Doping is in cm⁻³. Use $8.85\times10^{-14}$ F/**cm** so the width comes out in cm.
+
+**What the voltage does:**
+
+- Forward bias: $V_0 - V$ gets smaller → strip gets **thinner**.
+- Reverse bias: $V_0 - V = V_0 + |V|$ gets bigger → strip gets **wider**.
+
+**The shortcut.** If one side is much more heavily doped, say $N_A$ far bigger than $N_D$, then $\dfrac{N_A}{N_A + N_D} \approx 1$ and:
+
+$$w_n \approx \sqrt{\frac{2\,\varepsilon\,(V_0 - V)}{e\,N_D}}$$
+
+Then get $w_p$ from the balance in Step 2. This is what the official Q11 answer does.
+
+## Step 4: the electric field
+
+Field lines start on positive charge and end on negative charge. So the field runs from the n-side blocks to the p-side blocks: it points in the $-x$ direction. That is why its value is **negative**.
+
+How does it change with $x$? Poisson's equation (formula sheet):
+
+$$\frac{d\mathcal{E}}{dx} = \frac{\rho}{\varepsilon}$$
+
+> **In words.** The **slope** of the field = the charge density ÷ $\varepsilon$.
+
+Now walk across the diode from left to right. Follow the bottom half of the diagram.
+
+1. **Before the strip.** No charge. Slope is zero. The field is 0.
+2. **p-side of the strip.** Charge is negative. So the field slopes **down**, in a straight line.
+3. **At the junction, $x = 0$.** The field is at its most negative. Call it $\mathcal{E}_0$.
+4. **n-side of the strip.** Charge is positive. So the field slopes back **up**, in a straight line.
+5. **End of the strip.** Back to 0.
+
+The result is a **triangle**. Its tip is at the junction.
+
+To get the size of the tip: on the n-side the field climbs at a rate $eN_D/\varepsilon$ over a distance $w_n$, and ends at 0. So it must have started at:
+
+$$\mathcal{E}_0 = -\frac{e\,N_D\,w_n}{\varepsilon}$$
+
+> **Use it when** you are asked for the maximum field, the field at the junction, or the "minimum" field. ("Minimum" because it is the most negative value.)
+
+? Where in the diode is the field strongest?
+
+= Right at the junction, $x = 0$. It is zero at both edges of the depletion region.
+
+## Step 5: the total charge
+
+Charge = density × volume. The volume of the n-side block is $w_n \times A$:
+
+$$Q = e\,N_D\,w_n\,A$$
+
+| Symbol | Meaning |
+| $Q$ | charge on the n-side (positive). The p-side has $-Q$. |
+| $A$ | area of the diode. For a round diode of diameter $d$: $A = \pi\,(d/2)^2$, in cm². |
+
+## The order to do a question in
+
+1. $V_0$ (Topic 10)
+2. $w_n$ and $w_p$ (Step 3, then Step 2)
+3. $Q$ (Step 5)
+4. $\mathcal{E}_0$ (Step 4)
+
+@q Ch2 Q11 b–e
+pn diode, diameter 100 μm. $N_A = 10^{19}$, $N_D = 10^{16}$ cm⁻³. $T$ = 300 K. From part (a), $V_0$ = 0.88 V. Find:
+
+b. the depletion width in the n and p material
+c. a reason why the n-side width is bigger
+d. the charge $Q$ on each side
+e. the minimum electric field
+@s (b) Work out ε
+$$\varepsilon = \varepsilon_0\,\varepsilon_r = 8.85\times10^{-14}\times11.9 = 1.05\times10^{-12}\ \text{F/cm}$$
+@s (b) Width on the n-side
+$N_A$ is 1000 times $N_D$, so use the shortcut. No bias, so $V = 0$.
+
+$$w_n = \sqrt{\frac{2\,\varepsilon\,V_0}{e\,N_D}} = \sqrt{\frac{2\times1.05\times10^{-12}\times0.88}{1.6\times10^{-19}\times10^{16}}}$$
+
+$$w_n = \sqrt{1.16\times10^{-9}} = 3.4\times10^{-5}\ \text{cm}\quad(0.34\ \mu\text{m})$$
+@s (b) Width on the p-side
+Use the balance $N_A\,w_p = N_D\,w_n$:
+
+$$w_p = w_n\times\frac{N_D}{N_A} = 3.4\times10^{-5}\times\frac{10^{16}}{10^{19}} = 3.4\times10^{-8}\ \text{cm}$$
+@s (c) Why is the n-side wider?
+Both sides must hold the same amount of charge: $N_A\,w_p = N_D\,w_n$.
+
+The n-side has 1000 times fewer dopant atoms per cm³. So it needs a strip 1000 times wider to match.
+@s (d) Area of the diode
+Radius = 50 μm = $50\times10^{-4}$ cm.
+
+$$A = \pi\,(50\times10^{-4})^2 = 7.85\times10^{-5}\ \text{cm}^2$$
+@s (d) Charge
+$$Q = e\,N_D\,w_n\,A = 1.6\times10^{-19}\times10^{16}\times3.4\times10^{-5}\times7.85\times10^{-5}$$
+
+$$Q = 4.3\times10^{-12}\ \text{C}$$
+
+n-side: $+4.3\times10^{-12}$ C. p-side: $-4.3\times10^{-12}$ C.
+@s (e) Field at the junction
+$$\mathcal{E}_0 = -\frac{e\,N_D\,w_n}{\varepsilon} = -\frac{1.6\times10^{-19}\times10^{16}\times3.4\times10^{-5}}{1.05\times10^{-12}}$$
+
+$$\mathcal{E}_0 = -5.2\times10^{4}\ \text{V/cm}$$
+@s Official answer
+{{img:14/ans-ch2-q11abc.png|Official answer, parts a to c.}}
+
+{{img:14/ans-ch2-q11de.png|Official answer, parts d and e.}}
+@a (b) $w_n = 3.4\times10^{-5}$ cm, $w_p = 3.4\times10^{-8}$ cm. (c) Charge balance: the lightly doped n-side needs a wider strip to hold the same charge. (d) $Q = \pm4.3\times10^{-12}$ C. (e) $\mathcal{E}_0 = -5.2\times10^{4}$ V/cm.

@@ -1,0 +1,90 @@
+@@part Formula sheet
+
+@@topic formula | Formula sheet | Copied from page 1 of the Ch1 tutorial. The exam gives you a sheet like this.
+@notes
+## Learn these by heart (not on the sheet)
+
+**Law of mass action** (Topic 1)
+
+$$n \times p = n_i^{2}$$
+
+**Charge neutrality** (Topic 2)
+
+$$p + N_D = n + N_A$$
+
+**Drift speed, conductivity, resistance** (Topic 3)
+
+$$v = \mu\,\mathcal{E} \qquad\quad \sigma = e\,(n\,\mu_n + p\,\mu_p) \qquad\quad R = \frac{L}{\sigma A}$$
+
+**Built-in field from uneven doping** (Topic 4)
+
+$$\mathcal{E} = -\frac{kT}{e}\,\frac{1}{n}\,\frac{dn}{dx}$$
+
+**Position of the intrinsic level** (Topic 5)
+
+$$E_i = \frac{E_G}{2} + \frac{kT}{2}\,\ln\!\frac{N_V}{N_C}$$
+
+**Workfunction** (Topic 6)
+
+$$\phi = \chi + (E_C - E_F)$$
+
+**Depletion region: charge balance, peak field, charge** (Topic 14)
+
+$$N_A\,w_p = N_D\,w_n \qquad\quad \mathcal{E}_0 = -\frac{e\,N_D\,w_n}{\varepsilon} \qquad\quad Q = e\,N_D\,w_n\,A$$
+
+## Constants
+
+| Symbol | What it is | Value |
+| $n_i$ | carriers in pure Si at 300 K | $1.45\times10^{10}$ cm⁻³ |
+| $n_i^2$ | | $2.1\times10^{20}$ cm⁻⁶ |
+| $e$ | charge of an electron | $1.6\times10^{-19}$ C |
+| $kT/e$ | thermal voltage at 300 K | 0.026 V |
+| $k$ | Boltzmann constant | $8.62\times10^{-5}$ eV/K |
+| $E_G$ | band gap of Si | 1.12 eV |
+| $\chi$ | electron affinity of Si | 4.05 eV |
+| $N_C$ | states in the conduction band | $3.2\times10^{19}$ cm⁻³ |
+| $N_V$ | states in the valence band | $1.8\times10^{19}$ cm⁻³ |
+| $\varepsilon_0$ | permittivity of free space | $8.85\times10^{-12}$ F/m = $8.85\times10^{-14}$ F/cm |
+| $\varepsilon_r$ | dielectric constant of Si | 11 on the sheet, 11.9 in the tutorial answers |
+
+## On the sheet
+
+**Drift and diffusion current** (Topics 3 and 4)
+
+$$J_n = e\,\mu_n\,n\,\mathcal{E} + e\,D_n\,\frac{dn}{dx} \qquad\quad J_p = e\,\mu_p\,p\,\mathcal{E} - e\,D_p\,\frac{dp}{dx}$$
+
+**Einstein relation** (Topic 4)
+
+$$D = \frac{kT}{e}\,\mu$$
+
+**Poisson equation** (Topic 14)
+
+$$\frac{d\mathcal{E}}{dx} = \frac{\rho(x)}{\varepsilon}$$
+
+**Fermi function** (Topic 5)
+
+$$f(E) = \frac{1}{1 + e^{(E - E_F)/kT}}$$
+
+**Intrinsic carrier concentration** (Topic 5)
+
+$$n_i = \sqrt{N_C\,N_V}\;e^{-E_G/2kT}$$
+
+**Electron and hole concentration** (Topic 5)
+
+$$n = N_C\,e^{-(E_C - E_F)/kT} \qquad\quad p = N_V\,e^{(E_V - E_F)/kT}$$
+
+**Built-in voltage** (Topic 10). The notes call it $V_0$.
+
+$$V_{bi} = \frac{kT}{e}\,\ln\!\left(\frac{N_A\,N_D}{n_i^{2}}\right)$$
+
+**Minority carrier injection under bias V** (Topic 12)
+
+$$c = c_0\,e^{eV/kT}$$
+
+**pn junction current densities** (Topic 13)
+
+$$J_n = \frac{e\,D_n\,n_{p0}}{L_n}\left(e^{eV/kT} - 1\right) \qquad\quad J_p = \frac{e\,D_p\,p_{n0}}{L_p}\left(e^{eV/kT} - 1\right)$$
+
+**Depletion widths under bias V** (Topic 14)
+
+$$w_n = \left[\frac{2\,\varepsilon\,(V_{bi} - V)\,N_A}{e\,(N_A + N_D)\,N_D}\right]^{1/2} \qquad\quad w_p = \left[\frac{2\,\varepsilon\,(V_{bi} - V)\,N_D}{e\,(N_A + N_D)\,N_A}\right]^{1/2}$$
