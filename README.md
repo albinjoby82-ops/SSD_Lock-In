@@ -9,7 +9,7 @@ Same look as MATH Lock-In. For each of the 14 topics:
 - **Notes** that teach the topic from scratch, with drawn diagrams and check questions.
 - The **tutorial questions** for that topic, one per page, with step-by-step solutions.
 
-Plus the formula sheet. Nothing else: no extra questions, no mocks, no progress tracking.
+Plus the formula sheet, on a button at the top of every page. On a question, **Notes side by side** opens the topic notes in a split screen next to it. Nothing else: no extra questions, no mocks, no progress tracking.
 
 ## How to use it
 
